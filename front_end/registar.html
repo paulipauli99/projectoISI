@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>VirtualCar</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="css/util.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!--===============================================================================================-->
+</head>
+
+<body>
+
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
+                <form class="login100-form validate-form flex-sb flex-w" id="formulario"></form>
+                <span class="login100-form-title p-b-32">
+						Criar Conta
+					</span>
+
+                <span class="txt1 p-b-11">
+						Nome completo
+					</span>
+                <div class="wrap-input100 validate-input m-b-36">
+                    <input class="input100" type="text" id="nome" required="required" tabindex="1">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <span class="txt1 p-b-11">
+						Email
+					</span>
+                <div class="wrap-input100 validate-input m-b-36">
+                    <input class="input100" type="email" id="email" required="required" tabindex="2">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <span class="txt1 p-b-11">
+						Telemóvel
+					</span>
+                <div class="wrap-input100 validate-input m-b-36">
+                    <input class="input100" type="text" id="tele" required="required" tabindex="3" maxlength="9">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <span class="txt1 p-b-11">
+						Rua
+					</span>
+                <div class="wrap-input100 validate-input m-b-36">
+                    <input class="input100" type="text" id="rua" required="required" tabindex="4">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <span class="txt1 p-b-11">
+						Localidade
+					</span>
+                <div class="wrap-input100 validate-input m-b-36">
+                    <input class="input100" type="text" id="local" required="required" tabindex="5">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <span class="txt1 p-b-11">
+						Concelho
+					</span>
+                <div class="wrap-input100 validate-input m-b-36">
+                    <input class="input100" type="text" id="concelho" required="required" tabindex="6">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <span class="txt1 p-b-11">
+						Distrito
+					</span>
+                <div class="wrap-input100 validate-input m-b-36">
+                    <input class="input100" type="text" id="distrito" required="required" tabindex="7">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <span class="txt1 p-b-11">
+						Código Postal
+					</span>
+                <div class="wrap-input100 validate-input m-b-36">
+                    <input class="input100" type="text" id="cp" required="required" tabindex="8">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <span class="txt1 p-b-11">
+						Password
+					</span>
+                <div class="wrap-input100 validate-input m-b-12">
+                    <span class="btn-show-pass">
+							<i id="pass-status" class="fa fa-eye" onmouseover="mouseoverPass();" onmouseout="mouseoutPass();"></i>
+						</span>
+                    <input class="input100" type="password" id="pass" required="required" tabindex="9">
+                    <span class="focus-input100"></span>
+                </div>
+
+
+                <div class="flex-sb-m w-full p-b-48">
+
+                </div>
+
+                <div class="container-login100-form-btn">
+                    <button class="login100-form-btn" type="submit">
+                        Registrar
+                    </button>
+                </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--===============================================================================================-->
+    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/bootstrap/js/popper.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/daterangepicker/moment.min.js"></script>
+    <script src="vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="js/main.js"></script>
+
+    <script>
+        var inputs = document.querySelectorAll("input,select");
+        for (var i = 0; i < inputs.length; i++) {
+            inputs[i].addEventListener("keypress", function(e) {
+                if (e.which == 13) {
+                    e.preventDefault();
+                    var nextInput = document.querySelectorAll('[tabIndex="' + (this.tabIndex + 1) + '"]');
+                    if (nextInput.length === 0) {
+                        nextInput = document.querySelectorAll('[tabIndex="1"]');
+                    }
+                    nextInput[0].focus();
+                }
+            })
+        }
+
+
+        function mouseoverPass(obj) {
+            var obj = document.getElementById('pass');
+            obj.type = "text";
+        }
+
+        function mouseoutPass(obj) {
+            var obj = document.getElementById('pass');
+            obj.type = "password";
+        }
+    </script>
+
+
+
+</body>
+
+</html>
