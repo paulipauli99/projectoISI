@@ -4,14 +4,14 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use(express.static('public'));
+app.use(express.static('../front_end'));
 
-app.use('/jasmin', require('./routes/jasmin'));
-app.use('/hubspot', require('./hubspot.js'));
+//app.use('/jasmin', require('./routes/jasmin'));
+//app.use('/hubspot', require('./hubspot.js'));
 
 const PORT = process.env.PORT || 8080;
 
 app.listen(PORT, () => console.log("Running on port: " + PORT));
 module.exports = { app };
-require('./artigosroutes.js');
+require('./routes/artigosroutes.js');
 //require('./jasmincontroller.js');
