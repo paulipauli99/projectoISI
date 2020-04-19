@@ -32,7 +32,7 @@ function tabela_clientes(clientes) {
     txt += '<tbody>';
 
     for (const cliente of clientes) { //cada user da variavel users
-        txt += "<tr>" + cliente.nome + "</td>";
+        txt += "<tr><td>" + cliente.nome + "</td>";
         txt += "<td>" + cliente.telemovel + "</td>";
         txt += "<td>" + cliente.email + "</td>";
         txt += "<td>" + cliente.rua + "</td>";

@@ -18,29 +18,20 @@ function filtarClientes(req, res) {
         var b = JSON.parse(a);
         var clientes = b.results;
         console.log((filtrarCli(clientes)));
-        res.send((filtrarCli(clientes)).properties);
+        res.send((filtrarCli(clientes)));
 
     });;
 
 }
 
 function filtrarCli(clientes) {
-    var r = clientes.filter(cliente => cliente.itemType).map(
-        cliente => {
-            return { //pegar no primeiro, só propriedades, adicionar num nova array!!!!!!!!!!!
-                nome: cliente.nome,
-                telemovel: cliente.telemovel,
-                email: cliente.email,
-                rua: cliente.rua,
-                localidade: cliente.localidade,
-                concelho: cliente.concelho,
-                distrito: cliente.distrito,
-                codigo_postal: cliente.codigo_postal,
-                password: cliente.password
-            }
-        }
-    );
-    return r;
+    var r = clientes;
+    var w = []
+    for (i = 0; i < r.length; i++) {
+        d = r[i].properties;
+        w[i] = d;
+    }
+    return w;
 
 }
 
