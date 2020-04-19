@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
   <head>
     <title>VirtualCar</title>
@@ -25,6 +25,8 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
+
+
   </head>
   <body>
     
@@ -77,10 +79,58 @@
 	    						<span class="cat">Cheverolet</span>
 	    						<p class="price ml-auto">$500 <span>/day</span></p>
     						</div>
-    						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a href="car-single.html" class="btn btn-secondary py-2 ml-1">Details</a></p>
-    					</div>
+    						<p class="d-flex mb-0 d-block"><a <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Book Now</button></a> <a href="car-single.html" class="btn btn-secondary py-2 ml-1">Details</a></p>
+
+						</div>
     				</div>
-    			</div>
+				</div>
+										<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+	<div class="modal-dialog modal-lg">
+  
+	  <!-- Modal content-->
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <button type="button" class="close" data-dismiss="modal">&times;</button>
+		  <h2 class="modal-title">Compre o seu carro!</h2>
+		</div>
+		<div class="modal-body">
+			<form action="#" class="request-form ftco-animate bg-primary">
+				<h2>Compre o seu carro</h2>
+				<div class="form-group">
+				  <label for="" class="label">Local de Recolha</label>
+				  <input type="text" class="form-control" placeholder="Porto, Lisboa">
+				</div>
+				<div class="form-group">
+				  <label for="" class="label">Quantidade</label>
+				  <input type="number" class="form-control" placeholder="City, Airport, Station, etc">
+				</div>
+				<div class="d-flex">
+				  <div class="form-group mr-2">
+					<label for="" class="label">Pick-up date</label>
+					<input type="text" class="form-control" id="book_pick_date" placeholder="Date">
+				  </div>
+				  <div class="form-group ml-2">
+					<label for="" class="label">Drop-off date</label>
+					<input type="text" class="form-control" id="book_off_date" placeholder="Date">
+				  </div>
+				</div>
+				<div class="form-group">
+				  <label for="" class="label">Pick-up time</label>
+				  <input type="text" class="form-control" id="time_pick" placeholder="Time">
+				</div>
+				<div class="form-group">
+				  <input type="submit" value="Rent A Car Now" class="btn btn-secondary py-3 px-4">
+				</div>
+			  </form>
+		</div>
+		<div class="modal-footer">
+		  <button type="button" class="btn btn-default" data-dismiss="modal">RENT A CAR NOW</button>
+		</div>
+	  </div>
+  
+	</div>
+  </div>
     			<div class="col-md-4">
     				<div class="car-wrap rounded ftco-animate">
     					<div class="img rounded d-flex align-items-end" style="background-image: url(images/car-2.jpg);">
