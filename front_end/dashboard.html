@@ -67,96 +67,25 @@
             </div>
         </div>
     </section>
+    <div class="text-center">
+    <h1>Lista de automóveis</h1>
+    </div>
+    <div id="lista_artigos" class="content table-responsive text-center">
+        <table class="table table-hover table-striped">
+            <thead>
+                <th>Código Artigo</th>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Preço</th>
+                <th>Unidade</th>
+            </thead>
+            <body>
 
-    <section class="ftco-section ftco-cart">
-        <div class="row justify-content-center">
-            <div class="col-lg-9">
-                <rd-widget>
-                    <rd-widget-header icon="fa-tasks" title="Servers">
-                        <a href="#">Lista de Automóveis</a>
-                    </rd-widget-header>
-                    <rd-widget-body classes="medium no-padding">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <tbody>
-                                    <tr>
-                                        <td>RDVMPC001</td>
-                                        <td>238.103.133.37</td>
-                                        <td><span class="text-success"><i class="fa fa-check"></i></span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>RDVMPC002</td>
-                                        <td>68.66.63.170</td>
-                                        <td><span class="text-success"><i class="fa fa-check"></i></span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>RDVMPC003</td>
-                                        <td>76.117.212.33</td>
-                                        <td><span tooltip="Server Down!" class="text-danger"><i
-                                                    class="fa fa-warning"></i></span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>RDPHPC001</td>
-                                        <td>91.88.224.5</td>
-                                        <td><span class="text-success"><i class="fa fa-check"></i></span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>RDESX001</td>
-                                        <td>197.188.15.93</td>
-                                        <td><span class="text-success"><i class="fa fa-check"></i></span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>RDESX002</td>
-                                        <td>168.85.154.251</td>
-                                        <td><span class="text-success"><i class="fa fa-check"></i></span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>RDESX003</td>
-                                        <td>209.25.191.61</td>
-                                        <td><span tooltip="Server Down!" class="text-danger"><i
-                                                    class="fa fa-warning"></i></span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>RDESX004</td>
-                                        <td>252.37.192.235</td>
-                                        <td><span class="text-success"><i class="fa fa-check"></i></span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>RDTerminal01</td>
-                                        <td>139.71.18.207</td>
-                                        <td><span class="text-success"><i class="fa fa-check"></i></span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>RDTerminal02</td>
-                                        <td>136.80.122.212</td>
-                                        <td><span tooltip="Could not connect!" class="text-warning"><i
-                                                    class="fa fa-flash"></i></span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>RDDomainCont01</td>
-                                        <td>196.80.245.33</td>
-                                        <td><span class="text-success"><i class="fa fa-check"></i></span></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </rd-widget-body>
-                    <rd-widget-footer>
-                        <ul class="pagination pagination-sm pull-right">
-                            <li><a href="#">&laquo;</a></li>
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">&raquo;</a></li>
-                        </ul>
-                        <div class="clearfix"></div>
-                    </rd-widget-footer>
-                </rd-widget>
-            </div>
-        </div>
-    </section>
+            </body>
+    </table> 
+    </div>
 
     <footer class="ftco-footer ftco-bg-dark ftco-section">
         <div class="container">
@@ -232,6 +161,16 @@
             <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
                 stroke="#F96D00" /></svg></div>
 
+    <script type="text/javascript" src="../js/controller/artigoscontroller.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery-migrate-3.0.1.min.js"></script>
