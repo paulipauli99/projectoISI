@@ -14,35 +14,52 @@ function filtarClientes(req, res) {
     };
     require(options, function(error, response, body) {
         if (error) throw new Error(error);
-        var a = body;
-        var b = JSON.parse(a);
-        var clientes = b.results;
-        console.log((filtrarCli(clientes)));
-        res.send((filtrarCli(clientes)));
+        var a = JSON.parse(body).results;
+        var w = []
+        for (i = 0; i < a.length; i++) {
+            d = a[i].properties;
+            w[i] = d;
+        }
 
+        console.log(w);
+        res.send(w);
     });;
 
 }
 
-function filtrarCli(clientes) {
-    var r = clientes;
-    var w = []
-    for (i = 0; i < r.length; i++) {
-        d = r[i].properties;
-        w[i] = d;
-    }
-    return w;
 
+
+function criarCliente() {
+    var request = require("request");
+
+    var options = {
+        method: 'POST',
+        url: 'https://api.hubapi.com/crm/v3/objects/contacts',
+        qs: { hapikey: '1816e278-334f-4911-b0e1-2f6f3898c900' },
+        headers: { accept: 'application/json', 'content-type': 'application/json' },
+        body: {
+            properties: {
+                property_number: '17',
+                property_dropdown: 'choice_b',
+                property_radio: 'option_1',
+                property_string: 'value',
+                property_multiple_checkboxes: 'chocolate;strawberry',
+                property_checkbox: 'false',
+                property_date: '1572480000000'
+            }
+        },
+        json: true
+    };
+
+    request(options, function(error, response, body) {
+        if (error) throw new Error(error);
+
+        console.log(body);
+    });
 }
 
 module.exports = {
-    read: filtarClientes
+    lista: filtarClientes,
+    criar: criarCliente
+        //entrar: entrarCliente
 };
-
-
-/*
-for (i = 0; i < c.length; i++) {
-    d = c[i].properties;
-    console.log(d);
-}
-*/
