@@ -7,7 +7,7 @@ app.use(bodyParser.json());
 app.use(express.static('../front_end'));
 
 const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => console.log("Running on: https://localhost:" + PORT + "/"));
+app.listen(PORT, () => console.log("Running on: http://localhost:" + PORT + "/"));
 
 module.exports = { app };
 

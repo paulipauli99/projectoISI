@@ -1,6 +1,6 @@
 var require = require("request-promise");
 
-function filtarClientes(req, res) {
+function listarClientes(req, res) {
     var options = {
         method: 'GET',
         url: 'https://api.hubapi.com/crm/v3/objects/contacts',
@@ -20,17 +20,20 @@ function filtarClientes(req, res) {
             d = a[i].properties;
             w[i] = d;
         }
-
-        console.log(w);
         res.send(w);
     });;
-
 }
 
-
-
-function criarCliente(nome, telemovel, email, rua, localidade, concelho, distrito, codigo_postal, password) {
-    var request = require("request");
+function criarCliente(req, res) {
+    var nome = req.body.nome;
+    var telemovel = req.body.tele;
+    var email = req.body.email;
+    var rua = req.body.rua;
+    var localidade = req.body.local;
+    var concelho = req.body.concelho;
+    var distrito = req.body.distrito;
+    var codigo_postal = req.body.cp;
+    var password = req.body.pass;
 
     var options = {
         method: 'POST',
@@ -53,15 +56,13 @@ function criarCliente(nome, telemovel, email, rua, localidade, concelho, distrit
         json: true
     };
 
-    request(options, function(error, response, body) {
+    require(options, function(error, response, body) {
         if (error) throw new Error(error);
-
-        console.log(body);
     });
 }
 
 module.exports = {
-    lista: filtarClientes,
+    lista: listarClientes,
     criar: criarCliente
         //entrar: entrarCliente
 };
