@@ -29,7 +29,7 @@ function filtarClientes(req, res) {
 
 
 
-function criarCliente() {
+function criarCliente(nome, telemovel, email, rua, localidade, concelho, distrito, codigo_postal, password) {
     var request = require("request");
 
     var options = {
@@ -39,13 +39,15 @@ function criarCliente() {
         headers: { accept: 'application/json', 'content-type': 'application/json' },
         body: {
             properties: {
-                property_number: '17',
-                property_dropdown: 'choice_b',
-                property_radio: 'option_1',
-                property_string: 'value',
-                property_multiple_checkboxes: 'chocolate;strawberry',
-                property_checkbox: 'false',
-                property_date: '1572480000000'
+                nome: nome,
+                telemovel: telemovel,
+                email: email,
+                rua: rua,
+                localidade: localidade,
+                concelho: concelho,
+                distrito: distrito,
+                codigo_postal: codigo_postal,
+                password: password
             }
         },
         json: true
