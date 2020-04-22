@@ -59,6 +59,7 @@ function criarCliente(req, res) {
     require(options, function(error, response, body) {
         if (error) throw new Error(error);
     });
+    return res.redirect('http://localhost:8080/login.html');
 }
 
 module.exports = {
