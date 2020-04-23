@@ -84,9 +84,9 @@
 <!--	<html>
 <head>
 <title>Iniciar conta</title>
-<!-- Include CSS File Here --
+Include CSS File Here --
 <link rel="stylesheet" href="css/style.css"/>
-<!-- Include JS File Here --
+Include JS File Here --
 <script src="js/login.js"></script>
 </head>
 <body>
@@ -135,13 +135,18 @@ window.location = "tableartigos.html"; // Redirecting to other page.
 return false;
 }
 else{
-attempt --;// Decrementing by one.
+/* attempt --;// Decrementing by one.
 alert("You have left "+attempt+" attempt;");
 // Disabling fields after 3 attempts.
 if( attempt == 0){
 document.getElementById("username").disabled = true;
 document.getElementById("password").disabled = true;
-document.getElementById("submit").disabled = true;
+document.getElementById("submit").disabled = true; */
+var username = document.getElementById("username").value;
+var password = document.getElementById("password").value;
+if ( username == "" && password == ""){
+alert ("Login successfully");
+window.location = "services.html";
 return false;
 }
 }
