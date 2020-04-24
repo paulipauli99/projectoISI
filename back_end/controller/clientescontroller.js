@@ -14,13 +14,13 @@ function listarClientes(req, res) {
     };
     require(options, function(error, response, body) {
         if (error) throw new Error(error);
-        var a = JSON.parse(body).results;
-        var w = []
-        for (i = 0; i < a.length; i++) {
-            d = a[i].properties;
-            w[i] = d;
+        var x = JSON.parse(body).results;
+        var y = []
+        for (i = 0; i < x.length; i++) {
+            a = x[i].properties;
+            y[i] = a;
         }
-        res.send(w);
+        res.send(y);
     });;
 }
 
@@ -55,15 +55,41 @@ function criarCliente(req, res) {
         },
         json: true
     };
-
     require(options, function(error, response, body) {
         if (error) throw new Error(error);
     });
-    return res.redirect('http://localhost:8080/login.html');
+    return res.redirect('/login.html');
+}
+
+function entrar(req, res) {
+    var email = req.body.email;
+    var pass = req.body.password;
+
+    var options = {
+        method: 'GET',
+        url: 'https://api.hubapi.com/crm/v3/objects/contacts',
+        qs: {
+            limit: '100',
+            properties: 'email,password',
+            archived: 'false',
+            hapikey: '1816e278-334f-4911-b0e1-2f6f3898c900'
+        },
+        headers: { accept: 'application/json' }
+    };
+    require(options, function(error, response, body) {
+        if (error) throw new Error(error);
+        var x = JSON.parse(body).results;
+        var y = []
+        for (i = 0; i < x.length; i++) {
+            a = x[i].properties;
+            y[i] = a;
+        }
+        res.send(y);
+    });;
 }
 
 module.exports = {
     lista: listarClientes,
-    criar: criarCliente
-        //entrar: entrarCliente
+    criar: criarCliente,
+    entrar: entrar
 };
