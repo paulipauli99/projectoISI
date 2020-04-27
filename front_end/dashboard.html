@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
+
 </head>
 
 
@@ -70,7 +71,103 @@
     </section>
     <div class="text-center">
     <h1>Lista de automóveis</h1>
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#registoArt">Registar artigo</button>    </div>
+<!--TESTE-->
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="registoArt" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <form class="validate-form flex-sb flex-w" id="regitarartigo" action="dashboard.html" method="POST"> 
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Registar Artigo</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <i class="fas fa-user prefix grey-text"></i>
+          <input type="text" id="codigo" class="form-control validate">
+          <label data-error="wrong" data-success="right" for="codigo">Código</label>
+        </div>
+        <div class="md-form mb-5">
+          <i class="fas fa-envelope prefix grey-text"></i>
+          <input type="text" id="nome" class="form-control validate">
+          <label data-error="wrong" data-success="right" for="nome">Nome</label>
+        </div>
+
+        <div class="md-form mb-4">
+          <i class="fas fa-lock prefix grey-text"></i>
+          <input type="text" id="descricao" class="form-control validate">
+          <label data-error="wrong" data-success="right" for="descricao">Descrição</label>
+        </div>
+
+        <div class="md-form mb-4">
+            <i class="fas fa-lock prefix grey-text"></i>
+            <input type="text" id="marca" class="form-control validate">
+            <label data-error="wrong" data-success="right" for="marca">Marca</label>
+          </div>
+
+          <div class="md-form mb-4">
+            <i class="fas fa-lock prefix grey-text"></i>
+            <input type="text" id="modelo" class="form-control validate">
+            <label data-error="wrong" data-success="right" for="modelo">Modelo</label>
+          </div>
+
+          <div class="md-form mb-4">
+            <i class="fas fa-lock prefix grey-text"></i>
+            <input type="text" id="preco" class="form-control validate">
+            <label data-error="wrong" data-success="right" for="preco">Preço</label>
+          </div>
+
+          <div class="md-form mb-4">
+            <i class="fas fa-lock prefix grey-text"></i>
+            <input type="text" id="armazem" class="form-control validate">
+            <label data-error="wrong" data-success="right" for="armazem">Armazém</label>
+          </div>
+
+          <div class="md-form mb-4">
+            <i class="fas fa-lock prefix grey-text"></i>
+            <input type='file'id="foto" onchange="readURL(this);" />
+            <img id="blah" src="#" />
+            <label data-error="wrong" data-success="right" for="foto">Fotografia</label>
+          </div>
+
+      </div>
+      <div class="modal-footer">
+        <input id="addartigo" type="submit" value="SUBMIT" class="btn" />
+      </div>
+      </form>
     </div>
+  </div>
+</div>
+
+
+<script>
+    function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      $('#blah')
+        .attr('src', e.target.result)
+        .width(150)
+        .height(200);
+    };
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+</script>
+
+
+
+<!--TESTE-->
+
     <div id="lista_artigos" class="content table-responsive text-center">
         <table class="table table-hover table-striped">
             <thead>
@@ -192,7 +289,7 @@
     <script src="js/google-map.js"></script>
     <script src="js/main.js"></script>
 
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </body>
 
 </html>
