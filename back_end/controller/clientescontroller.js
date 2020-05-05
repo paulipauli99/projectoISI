@@ -61,9 +61,10 @@ function criarCliente(req, res) {
     return res.redirect('/login.html');
 }
 
-function entrar(req, res) {
-    var email = req.body.email;
-    var pass = req.body.password;
+function login(req, res) {
+    typeof(window) === undefined;
+    var emaill = req.body.email;
+    var passs = req.body.password;
 
     var options = {
         method: 'GET',
@@ -84,12 +85,31 @@ function entrar(req, res) {
             a = x[i].properties;
             y[i] = a;
         }
-        res.send(y);
-    });;
+        for (i = 0; i < y.length; i++) {
+            console.log(y[i].email);
+            if (y[i].email == emaill && y[i].password == passs) {
+                console.log("login sucesso");
+                return res.redirect('/dashboard.html');
+            } else {
+                console.log("errofalso");
+                console.log(y.length - 1 + " " + i);
+                if (y.length - 1 == i) {
+                    console.log("acabou");
+                    return res.redirect('/loginErrado.html');
+                }
+            }
+        }
+
+    })
+}
+
+function logout(req, res) {
+
 }
 
 module.exports = {
     lista: listarClientes,
     criar: criarCliente,
-    entrar: entrar
+    entrar: login,
+    sair: logout
 };
