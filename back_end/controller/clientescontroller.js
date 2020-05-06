@@ -1,5 +1,7 @@
 var require = require("request-promise");
 
+var y = [];
+
 function listarClientes(req, res) {
     var options = {
         method: 'GET',
@@ -15,7 +17,7 @@ function listarClientes(req, res) {
     require(options, function(error, response, body) {
         if (error) throw new Error(error);
         var x = JSON.parse(body).results;
-        var y = []
+
         for (i = 0; i < x.length; i++) {
             a = x[i].properties;
             y[i] = a;
@@ -50,7 +52,8 @@ function criarCliente(req, res) {
                 concelho: concelho,
                 distrito: distrito,
                 codigo_postal: codigo_postal,
-                password: password
+                password: password,
+                admin: "n"
             }
         },
         json: true
@@ -71,7 +74,7 @@ function login(req, res) {
         url: 'https://api.hubapi.com/crm/v3/objects/contacts',
         qs: {
             limit: '100',
-            properties: 'email,password',
+            properties: 'email,password,hs_object_id,admin',
             archived: 'false',
             hapikey: '1816e278-334f-4911-b0e1-2f6f3898c900'
         },
@@ -86,15 +89,23 @@ function login(req, res) {
             y[i] = a;
         }
         for (i = 0; i < y.length; i++) {
-            console.log(y[i].email);
             if (y[i].email == emaill && y[i].password == passs) {
-                console.log("login sucesso");
-                return res.redirect('/dashboard.html');
+                if (y[i].admin === "s") {
+                    console.log("login sucesso admin");
+                    console.log(y[i]);
+                    req.session.userId = y[i].hs_object_id;
+                    console.log(req.session);
+                    return res.redirect('/dashboard.html');
+                } else {
+                    console.log("login sucesso cliente");
+                    console.log(y[i]);
+                    req.session.userId = y[i].hs_object_id;
+                    console.log(req.session);
+                    return res.redirect('/services.html');
+                }
             } else {
-                console.log("errofalso");
-                console.log(y.length - 1 + " " + i);
                 if (y.length - 1 == i) {
-                    console.log("acabou");
+                    console.log("nenhum contacto com essa correspondencia");
                     return res.redirect('/loginErrado.html');
                 }
             }
@@ -104,7 +115,11 @@ function login(req, res) {
 }
 
 function logout(req, res) {
-
+    console.log(req.session.userId + "logggout")
+    req.session.destroy(err => {
+        res.clearCookie('sid');
+        res.redirect('/index.html');
+    })
 }
 
 module.exports = {
