@@ -122,7 +122,358 @@ function filtrarInventario(inventario) {
 
 }
 
+function saveArtigo(req,res) {
+    console.log(req.body);
+    var form = {
+        
+            "itemKey" : req.body.codigo_artigo,
+            "description" : req.body.nome,
+            "complementaryDescription": req.body.descricao_completa,
+            "assortment":null,
+            "barcode":"----",
+            "brand": req.body.marca,
+            "brandModel": req.body.modelo,
+            "itemType":1,
+            "baseUnit":"UN",
+            "unit":"UN",
+            "itemTaxSchema":"IVA-TN",
+            "isExternallyManaged":false,
+            //"image":req.body.imagem,
+            "remarks": null,
+            "externalId": null,
+            "externalVersion": null,
+        };    
+    
+    console.log(form);
+   
+
+       jasmincontroller.get_token()
+       .then ((body) => {
+           var r = JSON.parse(body);
+           var access_token = r.access_token;
+           console.log("save artigos TOKEN");
+           console.log(form);
+         var formData = JSON.stringify(form);
+         var content_length = formData.length;
+           rp.post({
+               "headers": {
+                   "Content-Length" : content_length,
+                   "Content-Type" : "application/json",
+                   "Authorization" : "Bearer " + access_token
+               },
+               "url": "https://my.jasminsoftware.com/api/233421/233421-0001/businessCore/items",
+               "body": formData
+           }).then((body) => {
+               console.log(JSON.stringify(body));
+               res.status(200).send({resposta:"OK"});
+
+           }).catch((t) =>{
+            console.log("error");
+            console.log (t);
+           });
+                 
+       })
+
+      
+
+}
+
+function getMarcas(req,res) {
+    jasmincontroller.get_token()
+    .then ((body) => {
+        var r = JSON.parse(body);
+        var access_token = r.access_token;
+        console.log ('Token Jasmin');
+
+        rp.get({
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + access_token 
+            },
+            "url": "https://my.jasminsoftware.com/api/233421/233421-0001/businessCore/brands"
+            
+        })
+        .then( (body)=> {
+            console.log("getMARCAS");
+            
+            var marcas = JSON.parse (body);
+            console.log(marcas);
+           
+        res.status(200).send(filtro_marcas(marcas));     
+        })
+        .catch((t)=> {
+            console.log ("errror");
+            console.log (t);
+            });
+    
+
+        });
+}
+
+function filtro_marcas(marcas) {
+    return marcas.map(
+        marca => {
+            return {
+                marca:marca.naturalKey,
+                descricao:marca.description==null?marca.brandKey:marca.description
+            }
+        }
+    );
+
+
+}
+
+function getModelos(req,res) {
+    jasmincontroller.get_token()
+    .then ((body) => {
+        var r = JSON.parse(body);
+        var access_token = r.access_token;
+        console.log ('Token Jasmin');
+
+        rp.get({
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + access_token 
+            },
+            "url": "https://my.jasminsoftware.com/api/233421/233421-0001/businessCore/brandModels"
+            
+        })
+        .then( (body)=> {
+            console.log("getMODELOS");
+            
+            var modelos = JSON.parse (body);
+
+            console.log(modelos);
+
+           
+        res.status(200).send(filtro_modelos(modelos));     
+        })
+        .catch((t)=> {
+            console.log ("errror");
+            console.log (t);
+            });
+    
+
+        });
+}
+
+
+function filtro_modelos(modelos) {
+    var modelos_filtrados=[];
+
+    return modelos.map(
+        item=> {
+            return {
+            marca: item.brand,
+            descricao_marca: item.brandDescription==null?item.brand:item.brandDescription, 
+            modelo: item.modelKey,
+            descricao: item.description==null?item.modelKey:item.description 
+        }   
+    }     
+    );
+
+}
+
+
+function createSaleItem(req,res) {
+    console.log(req.body);
+    var form = {
+        
+            "unit":"UN",
+            "itemTaxSchema":"IVA-TN",
+            "incomeAccount":"71111",
+            "locked":false,
+            "baseEntityKey": req.body.codigo_artigo,
+        "priceListLines":
+            [
+                {
+                "priceList":"PVP1",
+                "priceAmount":{
+                  "amount":req.body.preco
+                },
+                "unit":"UN"
+                }
+            ]
+            
+        };    
+    
+    //console.log(form);
+   
+
+       jasmincontroller.get_token()
+       .then ((body) => {
+           var r = JSON.parse(body);
+           var access_token = r.access_token;
+           console.log("save artigos TOKEN");
+           console.log(form);
+         var formData = JSON.stringify(form);
+         var content_length = formData.length;
+           rp.post({
+               "headers": {
+                   "Content-Length" : content_length,
+                   "Content-Type" : "application/json",
+                   "Authorization" : "Bearer " + access_token
+               },
+               "url": "https://my.jasminsoftware.com/api/233421/233421-0001/salescore/salesitems/extension",
+               "body": formData
+           }).then((body) => {
+             //  console.log(JSON.stringify(body));
+               res.status(200).send({resposta:"OK"});
+
+           }).catch((t) =>{
+            console.log("error");
+            console.log (t);
+           });
+                 
+       })
+}
+
+function createMaterialItem(req,res) {
+    console.log(req.body);
+    var form = {
+	
+        "defaultWarehouse":"PORTO",
+        "baseEntityKey":req.body.codigo_artigo
+    };    
+    
+  //  console.log(form);
+   
+
+       jasmincontroller.get_token()
+       .then ((body) => {
+           var r = JSON.parse(body);
+           var access_token = r.access_token;
+           console.log("save artigos TOKEN");
+           console.log(form);
+         var formData = JSON.stringify(form);
+         var content_length = formData.length;
+           rp.post({
+               "headers": {
+                   "Content-Length" : content_length,
+                   "Content-Type" : "application/json",
+                   "Authorization" : "Bearer " + access_token
+               },
+               "url": "https://my.jasminsoftware.com/api/233421/233421-0001/materialscore/materialsitems/extension",
+               "body": formData
+           }).then((body) => {
+            //   console.log(JSON.stringify(body));
+               res.status(200).send({resposta:"OK"});
+
+           }).catch((t) =>{
+            console.log("error");
+            console.log (t);
+           });
+                 
+       })
+}
+
+function StockInicialPorto(req,res){
+    //console.log(req.body);
+    var form = {
+        
+            "warehouse": "PORTO",
+            "adjustmentReason": "12",
+            "company": "VC",
+            "documentLines":
+            [
+                {
+                    "materialsItem": req.body.codigo_artigo,
+                    "quantity": req.body.stock_porto,
+                    "unitPrice": {"amount": req.body.preco} 
+                }
+            ]
+        };   
+    
+    console.log(form);
+   
+
+       jasmincontroller.get_token()
+       .then ((body) => {
+           var r = JSON.parse(body);
+           var access_token = r.access_token;
+           console.log("save artigos TOKEN");
+           console.log(form);
+         var formData = JSON.stringify(form);
+         var content_length = formData.length;
+           rp.post({
+               "headers": {
+                   "Content-Length" : content_length,
+                   "Content-Type" : "application/json",
+                   "Authorization" : "Bearer " + access_token
+               },
+               "url": "https://my.jasminsoftware.com/api/233421/233421-0001/materialsmanagement/itemAdjustments",
+               "body": formData
+           }).then((body) => {
+              // console.log(JSON.stringify(body));
+               res.status(200).send({resposta:"OK"});
+
+           }).catch((t) =>{
+            console.log("error");
+            console.log (t);
+           });
+                 
+       })
+
+}
+
+function StockInicialLisboa(req,res){
+    //console.log(req.body);
+    var form = {
+        
+            "warehouse": "LISBOA",
+            "adjustmentReason": "12",
+            "company": "VC",
+            "documentLines":
+            [
+                {
+                    "materialsItem": req.body.codigo_artigo,
+                    "quantity": req.body.stock_lisboa,
+                    "unitPrice": {"amount": req.body.preco} 
+                }
+            ]
+        };   
+    
+  //  console.log(form);
+   
+
+       jasmincontroller.get_token()
+       .then ((body) => {
+           var r = JSON.parse(body);
+           var access_token = r.access_token;
+           console.log("save artigos TOKEN");
+           console.log(form);
+         var formData = JSON.stringify(form);
+         var content_length = formData.length;
+           rp.post({
+               "headers": {
+                   "Content-Length" : content_length,
+                   "Content-Type" : "application/json",
+                   "Authorization" : "Bearer " + access_token
+               },
+               "url": "https://my.jasminsoftware.com/api/233421/233421-0001/materialsmanagement/itemAdjustments",
+               "body": formData
+           }).then((body) => {
+             //  console.log(JSON.stringify(body));
+               res.status(200).send({resposta:"OK"});
+
+           }).catch((t) =>{
+            console.log("error");
+            console.log (t);
+           });
+                 
+       })
+
+}
+
+
 module.exports = {
     read: read,
-    readInventarioArtigo: readInventarioArtigo
+    readInventarioArtigo: readInventarioArtigo,
+    saveArtigo: saveArtigo,
+    getMarcas:getMarcas,
+    getModelos:getModelos,
+    createSaleItem:createSaleItem,
+    createMaterialItem:createMaterialItem,
+    StockInicialPorto:StockInicialPorto,
+    StockInicialLisboa:StockInicialLisboa
 };
