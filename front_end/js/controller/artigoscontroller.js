@@ -43,7 +43,7 @@ function tabela_artigos(artigos) {
         txt += "<td>" + artigo.marca + "</td>"; //cod_turno
         txt += "<td>" + artigo.modelo + "</td>";
         txt += "<td  align='center' nowrap>" + artigo.preco + " " + artigo.moeda + "</td>";
-        txt += "<td> <button type='button' class='btn btn-info btn-fill pull-right' onClick='abre_artigo(\"" + artigo.codigo_artigo + "\")' > Detalhes </td>"
+        txt += "<td> <button type='button' class='btn btn-outline-info'> <onClick='abre_artigo(\"" + artigo.codigo_artigo + "\")'> detalhes <p></p> </button> <p> <button type='button' class='btn btn-outline-danger'  > apagar </p> <p> <button type='button' class='btn btn-outline-warning'  > editar </p> </td>"        
         txt += "</tr>";
     }
     txt += "</tbody></table>";
