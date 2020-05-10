@@ -3,6 +3,7 @@ var inventario =[];
 
 window.onload = function() { //quando inicia a página - > chama a funçao
     listaArtigos();
+    
 }
 
 function listaArtigos() {

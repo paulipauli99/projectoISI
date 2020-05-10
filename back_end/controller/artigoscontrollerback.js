@@ -1,5 +1,8 @@
 const jasmincontroller = require('./jasmincontroller.js');
 const rp = require('request-promise');
+var formData = require('form-data');
+const multer = require('multer');
+const {upload} = require('../server.js');
 
 function read(req, res) {
     //console.log('ler');
@@ -138,13 +141,13 @@ function saveArtigo(req,res) {
             "unit":"UN",
             "itemTaxSchema":"IVA-TN",
             "isExternallyManaged":false,
-            //"image":req.body.imagem,
+            "image":req.body.imagem,
             "remarks": null,
             "externalId": null,
-            "externalVersion": null,
+            "externalVersion": null
         };    
     
-    console.log(form);
+    console.log("saveArtigos2");
    
 
        jasmincontroller.get_token()
@@ -152,7 +155,7 @@ function saveArtigo(req,res) {
            var r = JSON.parse(body);
            var access_token = r.access_token;
            console.log("save artigos TOKEN");
-           console.log(form);
+           //console.log(form);
          var formData = JSON.stringify(form);
          var content_length = formData.length;
            rp.post({
@@ -164,7 +167,7 @@ function saveArtigo(req,res) {
                "url": "https://my.jasminsoftware.com/api/233421/233421-0001/businessCore/items",
                "body": formData
            }).then((body) => {
-               console.log(JSON.stringify(body));
+              // console.log(JSON.stringify(body));
                res.status(200).send({resposta:"OK"});
 
            }).catch((t) =>{
@@ -465,6 +468,22 @@ function StockInicialLisboa(req,res){
 
 }
 
+function uploadImagem(req,res) {
+    console.log('upload imagem');
+   // console.log(req);
+    upload(req,res, (err) => {
+        if(err){
+             console.log('ERRO UPLOAD');
+             console.log(err);
+            }
+         else {
+            console.log('upload erro');
+            console.log(req.file);
+            res.status(200).send({resposta:"OK", path:req.file.path});
+        }
+    });
+}
+
 
 module.exports = {
     read: read,
@@ -475,5 +494,6 @@ module.exports = {
     createSaleItem:createSaleItem,
     createMaterialItem:createMaterialItem,
     StockInicialPorto:StockInicialPorto,
-    StockInicialLisboa:StockInicialLisboa
+    StockInicialLisboa:StockInicialLisboa,
+    uploadImagem:uploadImagem
 };
