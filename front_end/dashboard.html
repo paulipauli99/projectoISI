@@ -6,7 +6,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap"
+        rel="stylesheet">
 
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
@@ -27,41 +28,57 @@
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
+<style>
 
+.botao1 {
+  background-color:  	#FFA500; 
+  border: none;
+  color: white;
+  padding: 10px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.button1 {width: 250px;}
+</style>
 
 <body>
 
 
-    <!-- Modal -->
-    <div class="modal fade" id="modalDetalhes" role="dialog">
-        <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Inventário do Artigo</h4>
-                </div>
-                <div class="modal-body">
-                    <div id="artigo_inventario">
-
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-
+ <!-- Modal -->
+ <div class="modal fade" id="modalDetalhes" role="dialog">
+    <div class="modal-dialog modal-lg" >
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+           <h4 class="modal-title">Inventário do Artigo</h4>
         </div>
+        <div class="modal-body">
+            <div id="artigo_inventario">
+                
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
     </div>
-    <!-- FIm modal -->
+  </div>
+  <!-- FIm modal -->
 
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
         <div class="container">
 
 
-
+          
             <a class="navbar-brand" href="services.html">Virtual<span>Car</span></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+                aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="oi oi-menu"></span> Menu
             </button>
 
@@ -74,17 +91,29 @@
                     <li class="nav-item"><a href="car.html" class="nav-link">Carros</a></li>
                     <li class="nav-item"><a href="dashboard.html" class="nav-link">Admin</a></li>
                     <!--  <li class="nav-item"><a href="contact.html" class="nav-link">Contactos</a></li>-->
-                    <li class="nav-item"><a href="/logout" class="nav-link">LogOut</a></li>
+                    <li class="nav-item"><a href="index.html" class="nav-link">LogOut</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_3.jpg');" data-stellar-background-ratio="0.5">
+
+
+
+
+
+
+
+
+
+
+    
+    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_3.jpg');"
+        data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
         <div class="container">
 
-
+          
 
             <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
                 <div class="col-md-9 ftco-animate pb-5">
@@ -97,92 +126,129 @@
         </div>
     </section>
     <div class="text-center">
-        <h1>Lista de automóveis</h1>
-        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#registoArt">Registar artigo</button>
-    </div>
-    <div class="modal fade" id="registoArt" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <form class="validate-form flex-sb flex-w" id="regitarartigo" action="dashboard.html" method="POST">
-                    <div class="modal-header text-center">
-                        <h4 class="modal-title w-100 font-weight-bold">Registar Artigo</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <h1>Lista de automóveis</h1>
+
+    <!--<button type='button' class='btn btn-primary'> <i class='far fa-eye'> </i> </button> -->
+    
+    <button type="button" class="botao1 button1" data-toggle="modal" data-target="#registoArt">Registar artigo</button>   
+     </div>
+     <div class="modal fade" id="registoArt" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    
+
+    <!--FORM REGISTAR ARTIGO--> 
+    <div class="modal-content">
+    <form class="validate-form flex-sb flex-w" id="registo_artigo" name="registo_artigo" action="dashboard.html" method="POST" enctype="multipart/form-data"> 
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold" >Registar Artigo</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-                    </div>
-                    <div class="modal-body mx-3">
-                        <div class="md-form mb-5">
-                            <i class="fas fa-user prefix grey-text"></i>
-                            <input type="text" id="codigo" class="form-control validate">
-                            <label data-error="wrong" data-success="right" for="codigo">Código</label>
-                        </div>
-                        <div class="md-form mb-5">
-                            <i class="fas fa-envelope prefix grey-text"></i>
-                            <input type="text" id="nome" class="form-control validate">
-                            <label data-error="wrong" data-success="right" for="nome">Nome</label>
-                        </div>
+      </div>
 
-                        <div class="md-form mb-4">
-                            <i class="fas fa-lock prefix grey-text"></i>
-                            <input type="text" id="descricao" class="form-control validate">
-                            <label data-error="wrong" data-success="right" for="descricao">Descrição</label>
-                        </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <i class="fas fa-user prefix grey-text"></i>
+          <label data-error="wrong" data-success="right" for="codigo">Código</label>
+          <input type="text" id="codigo_artigo" name="codigo_artigo" class="form-control validate">
+          
+        </div>
+      
+        <div class="md-form mb-5">
+          <i class="fas fa-envelope prefix grey-text"></i>
+          <label data-error="wrong" data-success="right" for="nome">Nome</label>
+          <input type="text" id="nome" name="nome" class="form-control validate">
+        </div>
 
-                        <div class="md-form mb-4">
-                            <i class="fas fa-lock prefix grey-text"></i>
-                            <input type="text" id="marca" class="form-control validate">
-                            <label data-error="wrong" data-success="right" for="marca">Marca</label>
-                        </div>
+        <div class="md-form mb-4">
+          <i class="fas fa-lock prefix grey-text"></i>
+          <label data-error="wrong" data-success="right" for="descricao">Descrição</label>
+          <input type="text" id="descricao_completa" name="descricao_completa" class="form-control validate">
+         
+        </div>
 
-                        <div class="md-form mb-4">
-                            <i class="fas fa-lock prefix grey-text"></i>
-                            <input type="text" id="modelo" class="form-control validate">
-                            <label data-error="wrong" data-success="right" for="modelo">Modelo</label>
-                        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+              <label class="input-group-text" for="inputGroupSelect01">Marca</label>
+          </div>
+          <select class="custom-select" id="marca" name="marca" onchange="escolhe_marca()">
+              <option selected>Selecione a marca...</option>
+              <option value="1">SEAT</option>
+              <option value="2">FORD</option>
+              <option value="3">TOYOTA</option>
+          </select>
+      </div> 
 
-                        <div class="md-form mb-4">
-                            <i class="fas fa-lock prefix grey-text"></i>
-                            <input type="text" id="preco" class="form-control validate">
-                            <label data-error="wrong" data-success="right" for="preco">Preço</label>
-                        </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">Modelo</label>
+        </div>
+        <select class="custom-select" id="modelo" name="modelo">
+            <option selected>Selecione o modelo...</option>
+            <option value="1">ibiza</option>
+            <option value="2">focus</option>
+            <option value="3">yaris</option>
+        </select>
+    </div> 
 
-                        <div class="md-form mb-4">
-                            <i class="fas fa-lock prefix grey-text"></i>
-                            <input type="text" id="armazem" class="form-control validate">
-                            <label data-error="wrong" data-success="right" for="armazem">Armazém</label>
-                        </div>
+          <div class="md-form mb-4">
+            <i class="fas fa-lock prefix grey-text"></i>
+            <label data-error="wrong" data-success="right" for="preco">Preço</label>
+            <input type="text" id="preco" name="preco" class="form-control validate" placeholder="€">
+          </div>
 
-                        <div class="md-form mb-4">
-                            <i class="fas fa-lock prefix grey-text"></i>
-                            <input type='file' id="foto" onchange="readURL(this);" />
-                            <img id="blah" src="#" />
-                            <label data-error="wrong" data-success="right" for="foto">Fotografia</label>
-                        </div>
+        
 
-                    </div>
-                    <div class="modal-footer">
-                        <input id="addartigo" type="submit" value="SUBMIT" class="btn" />
-                    </div>
-                </form>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Stock nos Armazens</label><br>
+           <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Porto</label>
+            <input type="text" class="form-control" id="stock_porto" name="stock_porto" placeholder="0">
+                 </div>
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Lisboa</label>
+            <input type="text" class="form-control" id="stock_lisboa" name="stock_lisboa" placeholder="0">
+                 </div>
             </div>
         </div>
+
+          <div class="md-form mb-4">
+            <i class="fas fa-lock prefix grey-text"></i>
+            <input type='file' id="foto" name="myImage" onchange="readURL(this);" />
+            <input type="text" id="path_imagem">
+            <img id="blah" src="#" />
+            <label data-error="wrong" data-success="right" for="foto">Fotografia</label>
+          </div>
+
+      </div>
+      <div class="modal-footer">
+        <input id="addartigo" type="button" value="REGISTAR" onclick="gravarArtigos()" class="btn"/>
+      </div>
+      </form>
     </div>
+  </div>
+</div>
 
 
-    <script>
-        function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function(e) {
-                    $('#blah')
-                        .attr('src', e.target.result)
-                        .width(150)
-                        .height(200);
-                };
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-    </script>
+<script>
+    function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      $('#blah')
+        .attr('src', e.target.result)
+        .width(150)
+        .height(200);
+    };
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+</script>
 
 
 
@@ -197,14 +263,13 @@
                 <th>Modelo</th>
                 <th>Preço</th>
             </thead>
-
             <body>
 
             </body>
-        </table>
+    </table> 
     </div>
 
-
+     
 
     <footer class="ftco-footer ftco-bg-dark ftco-section">
         <div class="container">
@@ -248,7 +313,8 @@
                                         4800-058 Guimarães,
                                         Portugal</span></li>
                                 <li><span class="icon icon-phone"></span><span class="text">253 601 100</span></li>
-                                <li><span class="icon icon-envelope"></span><span class="text">ccultural@reitoria.uminho.pt​</span></li>
+                                <li><span class="icon icon-envelope"></span><span
+                                        class="text">ccultural@reitoria.uminho.pt​</span></li>
                             </ul>
                         </div>
                     </div>
@@ -260,10 +326,10 @@
                     <p>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         Copyright &copy;
-                        <script>
-                            document.write(new Date().getFullYear());
-                        </script> All rights reserved | This template is made with
-                        <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                        <script>document.write(new Date().getFullYear());</script> All rights reserved | This template
+                        is made with
+                        <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com"
+                            target="_blank">Colorlib</a>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </p>
                 </div>
@@ -279,19 +345,25 @@
             <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
                 stroke="#F96D00" /></svg></div>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
 
+   
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-
+   
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery-migrate-3.0.1.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-
-
+    
+    
     <script src="js/jquery.easing.1.3.js"></script>
     <script src="js/jquery.waypoints.min.js"></script>
     <script src="js/jquery.stellar.min.js"></script>
@@ -303,12 +375,22 @@
     <script src="js/jquery.timepicker.min.js"></script>
 
     <script src="js/scrollax.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
     <script src="js/google-map.js"></script>
     <script src="js/main.js"></script>
-
+    
     <script type="text/javascript" src="../js/controller/artigoscontroller.js"></script>
 
+    <script type="text/javascript" src="../js/controller/registarartigo.js"></script> 
+    
+    <script>
+       window.onload = function() { //quando inicia a página - > chama a funçao
+    listaArtigos();
+    carrega_marcas_modelos();
+    gravarArtigos();
+    } 
+    </script>
 
 </body>
 
