@@ -1,14 +1,14 @@
 var marcas=[];
 var modelos=[];
 
-
+/*
 window.onload = function () { 
     carrega_marcas_modelos();
     gravarArtigos();
   //  gravarImagem();
 	
 }
-
+*/
 function carrega_marcas_modelos() {
 
     let response = fetch('http://localhost:8080/modelos', {
