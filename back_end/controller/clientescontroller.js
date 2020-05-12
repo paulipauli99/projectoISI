@@ -8,7 +8,7 @@ function listarClientes(req, res) {
         url: 'https://api.hubapi.com/crm/v3/objects/contacts',
         qs: {
             limit: '100',
-            properties: 'nome,telemovel,email,rua,localidade,concelho,distrito,codigo_postal,password',
+            properties: 'nome,telemovel,email,rua,localidade,concelho,distrito,codigo_postal,password,hs_object_id',
             archived: 'false',
             hapikey: '1816e278-334f-4911-b0e1-2f6f3898c900'
         },
@@ -83,6 +83,7 @@ function login(req, res) {
     require(options, function(error, response, body) {
         if (error) throw new Error(error);
         var x = JSON.parse(body).results;
+        console.log(body);
         var y = []
         for (i = 0; i < x.length; i++) {
             a = x[i].properties;
@@ -122,9 +123,88 @@ function logout(req, res) {
     })
 }
 
+function apagarCliente(req, res) {
+    var contactId = req.body.idd;
+
+    var options = {
+        method: 'DELETE',
+        url: 'https://api.hubapi.com/crm/v3/objects/contacts/' + contactId,
+        qs: { hapikey: '1816e278-334f-4911-b0e1-2f6f3898c900' },
+        headers: { accept: 'application/json' }
+    };
+
+    require(options, function(error, response, body) {
+        if (error) throw new Error(error);
+        console.log("Apagado com sucesso");
+        res.redirect('/tableclientes.html');
+    });
+
+}
+
+function editarCliente(req, res) {
+    var nome = req.body.nome;
+    var telemovel = req.body.tele;
+    var email = req.body.email;
+    var rua = req.body.rua;
+    var localidade = req.body.local;
+    var concelho = req.body.concelho;
+    var distrito = req.body.distrito;
+    var codigo_postal = req.body.cp;
+    var password = req.body.pass;
+    var contactId = req.body.idd;
+
+    var options = {
+        method: 'PATCH',
+        url: 'https://api.hubapi.com/crm/v3/objects/contacts/' + contactId,
+        qs: { hapikey: '1816e278-334f-4911-b0e1-2f6f3898c900' },
+        headers: { accept: 'application/json', 'content-type': 'application/json' },
+        body: {
+            properties: {
+                nome: nome,
+                telemovel: telemovel,
+                email: email,
+                rua: rua,
+                localidade: localidade,
+                concelho: concelho,
+                distrito: distrito,
+                codigo_postal: codigo_postal,
+                password: password
+            }
+        },
+        json: true
+    };
+
+    require(options, function(error, response, body) {
+        if (error) throw new Error(error);
+
+        console.log(body);
+    });
+}
+
+function consultarCliente(req, res) {
+    var contactId = req.body.idd;
+
+    var options = {
+        method: 'GET',
+        url: 'https://api.hubapi.com/crm/v3/objects/contacts/' + contactId,
+        qs: { properties: 'nome,telemovel,email,rua,localidade,concelho,distrito,codigo_postal,password,hs_object_id', archived: 'false', hapikey: '1816e278-334f-4911-b0e1-2f6f3898c900' },
+        headers: { accept: 'application/json' }
+    };
+
+    require(options, function(error, response, body) {
+        if (error) throw new Error(error);
+
+        console.log(body);
+    });
+
+}
+
 module.exports = {
     lista: listarClientes,
     criar: criarCliente,
     entrar: login,
-    sair: logout
+    sair: logout,
+    apagar: apagarCliente,
+    editar: editarCliente,
+    consultar: consultarCliente
 };
