@@ -183,6 +183,16 @@ iframe {
   padding: 15px;
   
   background-color: #ebebeb;
+
+  background-image: url("images/bg_1.jpg");
+
+  /* Full height */
+  height: 100%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 
