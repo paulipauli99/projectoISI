@@ -19,6 +19,7 @@ function tabela_clientes(clientes) {
     txt = '<table class="table table-hover table-striped">';
     txt += '<thead>';
     txt += '<tr>';
+    txt += '<th>ID</th>';
     txt += '<th>Nome completo</th>';
     txt += '<th>Telemóvel</th>';
     txt += '<th>Email</th>';
@@ -27,12 +28,17 @@ function tabela_clientes(clientes) {
     txt += '<th>Concelho</th>';
     txt += '<th>Distrito</th>';
     txt += '<th>Código postal</th>';
+    txt += '<th></th>';
+    txt += '<th></th>';
     txt += '</tr>';
     txt += '</thead>';
     txt += '<tbody>';
 
     for (const cliente of clientes) { //cada user da variavel users
-        txt += "<tr><td>" + cliente.nome + "</td>";
+        var idCliente = cliente.hs_object_id;
+
+        txt += "<tr><td>" + cliente.hs_object_id + "</td>";
+        txt += "<td>" + cliente.nome + "</td>";
         txt += "<td>" + cliente.telemovel + "</td>";
         txt += "<td>" + cliente.email + "</td>";
         txt += "<td>" + cliente.rua + "</td>";
@@ -40,6 +46,9 @@ function tabela_clientes(clientes) {
         txt += "<td>" + cliente.concelho + "</td>";
         txt += "<td>" + cliente.distrito + "</td>";
         txt += "<td>" + cliente.codigo_postal + "</td>";
+
+        txt += "<td> <form action='' method='post'> <input type='hidden' id='idd' name='idd' value=" + idCliente + "></input> <button>Editar</button> </form> </td>";
+        txt += "<td> <form action='/apagarCliente' method='post'> <input type='hidden' id='idd' name='idd' value=" + idCliente + "></input> <button>Apagar</button> </form> </td>";
         txt += "</tr>";
     }
     txt += "</tbody></table>";
