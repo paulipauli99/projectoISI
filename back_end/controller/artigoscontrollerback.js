@@ -77,7 +77,7 @@ function readInventarioArtigo(req, res) {
 
 
 function filtrarArtigos(artigos) {
-    var r = artigos.filter(artigo => artigo.itemType == 1).map(
+    var r = artigos.filter(artigo => artigo.itemType==1 && artigo.isActive==true).map(
         artigo => {
             return {
                 codigo_artigo: artigo.itemKey,
@@ -484,6 +484,47 @@ function uploadImagem(req,res) {
     });
 }
 
+function desativarArtigo(req,res){
+    
+    var codigo_artigo = req.params.codigo_artigo;
+    
+    var form = {
+        "itemKey":codigo_artigo,
+        "value":false
+        
+    };   
+
+    jasmincontroller.get_token()
+    .then ((body) => {
+        var r = JSON.parse(body);
+        var access_token = r.access_token;
+        var formData = JSON.stringify(form);
+        
+        console.log ('formData');
+        console.log (formData);
+
+        rp.put({
+            "headers": {
+                "Content-Type": "application/x-www-form-urlencoded",
+                "Authorization": "Bearer " + access_token 
+            },
+            "url": "https://my.jasminsoftware.com/api/233421/233421-0001/salesCore/salesItems/" + codigo_artigo + "/isActive",
+            "body": formData
+        })
+        .then( (body)=> {
+           console.log(JSON.stringify(form));          
+            res.status(200).send({resposta:"OK"});
+                 
+        })
+        .catch((t)=> {
+            console.log ("errror");
+            console.log (t);
+            });
+    
+
+        });
+}
+
 
 module.exports = {
     read: read,
@@ -495,5 +536,6 @@ module.exports = {
     createMaterialItem:createMaterialItem,
     StockInicialPorto:StockInicialPorto,
     StockInicialLisboa:StockInicialLisboa,
-    uploadImagem:uploadImagem
+    uploadImagem:uploadImagem,
+    desativarArtigo:desativarArtigo
 };

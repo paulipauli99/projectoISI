@@ -17,3 +17,5 @@ app.post('/stinicialporto',controllerArtigos.StockInicialPorto);
 app.post('/stiniciallisboa',controllerArtigos.StockInicialLisboa);
 
 app.post('/upload',controllerArtigos.uploadImagem);
+
+app.get('/desativarArtigo/:codigo_artigo',controllerArtigos.desativarArtigo);

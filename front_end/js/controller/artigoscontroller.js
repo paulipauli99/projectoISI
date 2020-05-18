@@ -46,8 +46,10 @@ function tabela_artigos(artigos) {
         txt += "<td>" + artigo.marca + "</td>"; //cod_turno
         txt += "<td>" + artigo.modelo + "</td>";
         txt += "<td  align='center' nowrap>" + artigo.preco + " " + artigo.moeda + "</td>";
-        txt += "<td> <button type='button' class='btn btn-outline-info'> <onClick='abre_artigo(\"" + artigo.codigo_artigo + "\")'> detalhes <p></p> </button> <p> <button type='button' class='btn btn-outline-danger'  > apagar </p> <p> <button type='button' class='btn btn-outline-warning'  > editar </p> </td>"        
-        txt += "</tr>";
+        txt += "<td> <button type='button' class='btn btn-outline-info' onClick='abre_artigo(\"" + artigo.codigo_artigo + "\")'> detalhes </button><p>";     
+        txt += "</p> <button type='button' class='btn btn-outline-danger' onClick='eliminarArtigo(\"" + artigo.codigo_artigo + "\")' > apagar </button><p>";
+        txt += "</p> <button type='button' class='btn btn-outline-warning' > editar </button>";
+        txt += "</td></tr>";
     }
     txt += "</tbody></table>";
 
@@ -114,4 +116,19 @@ function abre_artigo(codigo_artigo) {
 
 	$("#modalDetalhes").modal();
 	});
+}
+
+function eliminarArtigo(codigo_artigo){
+	
+	fetch('http://localhost:8080/desativarArtigo/' + codigo_artigo)
+	.then( response => {
+		return response.json();
+	}).then(artigo => {
+		procura_artigo(codigo_artigo);
+		console.log("artigoeliminado");
+		listaArtigos();
+		}
+	)
+	
+
 }
