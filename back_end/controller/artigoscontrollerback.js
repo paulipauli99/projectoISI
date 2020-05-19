@@ -246,7 +246,7 @@ function getModelos(req,res) {
             
             var modelos = JSON.parse (body);
 
-            console.log(modelos);
+           // console.log(modelos);
 
            
         res.status(200).send(filtro_modelos(modelos));     
