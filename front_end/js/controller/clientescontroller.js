@@ -33,7 +33,7 @@ function tabela_clientes(clientes) {
     txt += '</tr>';
     txt += '</thead>';
     txt += '<tbody>';
-
+    console.log(clientes)
     for (const cliente of clientes) { //cada user da variavel users
         var idCliente = cliente.hs_object_id;
 
@@ -47,8 +47,8 @@ function tabela_clientes(clientes) {
         txt += "<td>" + cliente.distrito + "</td>";
         txt += "<td>" + cliente.codigo_postal + "</td>";
 
-        txt += "<td> <form action='' method='post'> <input type='hidden' id='idd' name='idd' value=" + idCliente + "></input> <button>Editar</button> </form> </td>";
-        txt += "<td> <form action='/apagarCliente' method='post'> <input type='hidden' id='idd' name='idd' value=" + idCliente + "></input> <button>Apagar</button> </form> </td>";
+        txt += "<td> <form action='editar.html'> <input type='hidden' id='editarID' name='editarID' value=" + idCliente + "></input> <button>Editar</button> </form> </td>";
+        txt += "<td> <form action='/apagarCliente' method='post'> <input type='hidden' id='apagarID' name='apagarID' value=" + idCliente + "></input> <button>Apagar</button> </form> </td>";
         txt += "</tr>";
     }
     txt += "</tbody></table>";

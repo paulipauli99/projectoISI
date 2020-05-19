@@ -1,5 +1,5 @@
-var lista_artigos=[];
-var inventario =[];
+var lista_artigos = [];
+var inventario = [];
 
 /*
 window.onload = function() { //quando inicia a página - > chama a funçao
@@ -14,8 +14,8 @@ function listaArtigos() {
         .then(response => { return response.json(); })
         .then(artigos => {
             lista_artigos = artigos;
-            tabela_artigos(artigos)}
-             );
+            tabela_artigos(artigos)
+        });
 
 }
 
@@ -46,7 +46,7 @@ function tabela_artigos(artigos) {
         txt += "<td>" + artigo.marca + "</td>"; //cod_turno
         txt += "<td>" + artigo.modelo + "</td>";
         txt += "<td  align='center' nowrap>" + artigo.preco + " " + artigo.moeda + "</td>";
-        txt += "<td> <button type='button' class='btn btn-outline-info' onClick='abre_artigo(\"" + artigo.codigo_artigo + "\")'> detalhes </button><p>";     
+        txt += "<td> <button type='button' class='btn btn-outline-info' onClick='abre_artigo(\"" + artigo.codigo_artigo + "\")'> detalhes </button><p>";
         txt += "</p> <button type='button' class='btn btn-outline-danger' onClick='eliminarArtigo(\"" + artigo.codigo_artigo + "\")' > apagar </button><p>";
         txt += "</p> <button type='button' class='btn btn-outline-warning' > editar </button>";
         txt += "</td></tr>";
@@ -54,81 +54,80 @@ function tabela_artigos(artigos) {
     txt += "</tbody></table>";
 
 
-   renderArtigos.innerHTML = txt; //envia a tabela construida para a view e mostra no object com ID result
+    renderArtigos.innerHTML = txt; //envia a tabela construida para a view e mostra no object com ID result
 }
 
 
 function procura_artigo(codigo_artigo) {
-	for (const artigo of lista_artigos) { 
-		if (artigo.codigo_artigo==codigo_artigo)
-			return artigo;
-	}
-	return null;
+    for (const artigo of lista_artigos) {
+        if (artigo.codigo_artigo == codigo_artigo)
+            return artigo;
+    }
+    return null;
 }
 
 function abre_artigo(codigo_artigo) {
-		
-	fetch('http://localhost:8080/inventario/' + codigo_artigo)
-	.then( response => {return response.json();})
-	.then ( artigo => {
 
-		const renderArtigoInventario = document.getElementById("artigo_inventario");
+    fetch('http://localhost:8080/inventario/' + codigo_artigo)
+        .then(response => { return response.json(); })
+        .then(artigo => {
 
-		let txt = "";
-		txt += "<p>Codigo: "  + artigo.codigo_artigo +  "</p>";
-		txt += "<p>Nome: "  + artigo.nome +  "</p>";
-		
+            const renderArtigoInventario = document.getElementById("artigo_inventario");
 
-	//	txt += "<p>Armazem: " + artigo.armazens + "</p>";
-	//	txt += "<p>Quantidade: " + inventario.quantidade + "</p>";
-
-	console.log ("abre_artigo:" + codigo_artigo);
-
-	const artigo_inventario = procura_artigo(codigo_artigo);
-
-	txt += "<p>Preço: "  + artigo_inventario.preco + artigo_inventario.moeda +  "</p>";
-	txt += '<table  class="table table-hover table-striped">';
-	txt += '<thead>';
-	txt += '<tr>';
-	txt += '<th >Armazém</th>';
-	txt += '<th align="center" >Quantidade</th>';                      
-	txt += '</tr>';                            
-	txt += '</thead>';                            
-	txt += '<tbody>'; 
-	
-	for (const armazem of artigo.armazens) { 
-		txt += "<tr><td>" + armazem.nome_armazem + "</td>";
-		txt += "<td align='center'>" + armazem.quantidade + "</td></tr>"; 
-
-	}
-	txt += '</tbody>';
-    txt += '</table>';
-    
+            let txt = "";
+            txt += "<p>Codigo: " + artigo.codigo_artigo + "</p>";
+            txt += "<p>Nome: " + artigo.nome + "</p>";
 
 
-	console.log (artigo_inventario);
+            //	txt += "<p>Armazem: " + artigo.armazens + "</p>";
+            //	txt += "<p>Quantidade: " + inventario.quantidade + "</p>";
 
-	console.log("Nome: " + artigo.nome);
-//	console.log("Preço: " + artigo.armazens);
-//	console.log("Armazem: " + inventario.armazem);	
+            console.log("abre_artigo:" + codigo_artigo);
 
-	renderArtigoInventario.innerHTML = txt;  
+            const artigo_inventario = procura_artigo(codigo_artigo);
 
-	$("#modalDetalhes").modal();
-	});
+            txt += "<p>Preço: " + artigo_inventario.preco + artigo_inventario.moeda + "</p>";
+            txt += '<table  class="table table-hover table-striped">';
+            txt += '<thead>';
+            txt += '<tr>';
+            txt += '<th >Armazém</th>';
+            txt += '<th align="center" >Quantidade</th>';
+            txt += '</tr>';
+            txt += '</thead>';
+            txt += '<tbody>';
+
+            for (const armazem of artigo.armazens) {
+                txt += "<tr><td>" + armazem.nome_armazem + "</td>";
+                txt += "<td align='center'>" + armazem.quantidade + "</td></tr>";
+
+            }
+            txt += '</tbody>';
+            txt += '</table>';
+
+
+
+            //console.log (artigo_inventario);
+
+            console.log("Nome: " + artigo.nome);
+            //	console.log("Preço: " + artigo.armazens);
+            //	console.log("Armazem: " + inventario.armazem);	
+
+            renderArtigoInventario.innerHTML = txt;
+
+            $("#modalDetalhes").modal();
+        });
 }
 
-function eliminarArtigo(codigo_artigo){
-	
-	fetch('http://localhost:8080/desativarArtigo/' + codigo_artigo)
-	.then( response => {
-		return response.json();
-	}).then(artigo => {
-		procura_artigo(codigo_artigo);
-		console.log("artigoeliminado");
-		listaArtigos();
-		}
-	)
-	
+function eliminarArtigo(codigo_artigo) {
+
+    fetch('http://localhost:8080/desativarArtigo/' + codigo_artigo)
+        .then(response => {
+            return response.json();
+        }).then(artigo => {
+            procura_artigo(codigo_artigo);
+            console.log("artigoeliminado");
+            listaArtigos();
+        })
+
 
 }
