@@ -87,8 +87,7 @@ function abre_artigo(codigo_artigo) {
 	const artigo_inventario = procura_artigo(codigo_artigo);
 
 	txt += "<p>Preço: "  + artigo_inventario.preco + artigo_inventario.moeda +  "</p>";
-    
-    /*txt += '<table  class="table table-hover table-striped">';
+	txt += '<table  class="table table-hover table-striped">';
 	txt += '<thead>';
 	txt += '<tr>';
 	txt += '<th >Armazém</th>';
@@ -106,13 +105,7 @@ function abre_artigo(codigo_artigo) {
     txt += '</table>';
     
 
-*/
 
-for (const armazem of artigo.armazens) { 
-    txt += "<p>" + armazem.nome_armazem + "</p>";
-    txt += "<p>" + armazem.quantidade + "</p>"; 
-
-}
 	console.log (artigo_inventario);
 
 	console.log("Nome: " + artigo.nome);
