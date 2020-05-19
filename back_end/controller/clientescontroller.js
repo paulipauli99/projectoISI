@@ -124,7 +124,7 @@ function logout(req, res) {
 }
 
 function apagarCliente(req, res) {
-    var contactId = req.body.idd;
+    var contactId = req.body.apagarID;
 
     var options = {
         method: 'DELETE',
@@ -151,7 +151,6 @@ function editarCliente(req, res) {
     var distrito = req.body.distrito;
     var codigo_postal = req.body.cp;
     var password = req.body.pass;
-    var contactId = req.body.idd;
 
     var options = {
         method: 'PATCH',
@@ -176,13 +175,12 @@ function editarCliente(req, res) {
 
     require(options, function(error, response, body) {
         if (error) throw new Error(error);
-
-        console.log(body);
     });
+    res.redirect();
 }
 
 function consultarCliente(req, res) {
-    var contactId = req.body.idd;
+    var contactId = req.body.editarID;
 
     var options = {
         method: 'GET',
@@ -193,10 +191,7 @@ function consultarCliente(req, res) {
 
     require(options, function(error, response, body) {
         if (error) throw new Error(error);
-
-        console.log(body);
     });
-
 }
 
 module.exports = {
