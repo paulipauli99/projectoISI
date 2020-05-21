@@ -46,6 +46,9 @@
     <link rel="stylesheet" href="css/style.css">
 
 
+
+
+
 </head>
 
 <body>
@@ -72,9 +75,11 @@
           </div>
         </div>
       </nav>
+      
 
 
-    <section class="limiter">
+    
+    <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
                 <form class="login100-form validate-form flex-sb flex-w" id="formulario" action="/signup" method="POST">
@@ -82,74 +87,74 @@
 						Criar Conta
 					</span>
 
-                    <span class="txt1 p-b-11">
+                    <span class="txt1 p-b-11 ">
 						Nome completo
 					</span>
-                    <div class="wrap-input100 validate-input m-b-36">
+                    <div class="wrap-input100 validate-input m-b-2" class="esquerda">
                         <input class="input100" type="text" id="nome" name="nome" required="required" tabindex="1">
                         <span class="focus-input100"></span>
                     </div>
 
-                    <span class="txt1 p-b-11">
+                    <span class="txt1 p-b-11 ">
 						Email
 					</span>
-                    <div class="wrap-input100 validate-input m-b-36">
+                    <div class="wrap-input100 validate-input m-b-2" class="esquerda">
                         <input class="input100" type="email" id="email" name="email" required="required" tabindex="2">
                         <span class="focus-input100"></span>
                     </div>
 
-                    <span class="txt1 p-b-11">
+                    <span class="txt1 p-b-11 ">
 						Telemóvel
 					</span>
-                    <div class="wrap-input100 validate-input m-b-36">
+                    <div class="wrap-input100 validate-input m-b-2" class="esquerda">
                         <input class="input100" type="text" id="tele" name="tele" required="required" tabindex="3" maxlength="9">
                         <span class="focus-input100"></span>
                     </div>
 
-                    <span class="txt1 p-b-11">
+                    <span class="txt1 p-b-11 ">
 						Rua
 					</span>
-                    <div class="wrap-input100 validate-input m-b-36">
+                    <div class="wrap-input100 validate-input m-b-2" class="esquerda">
                         <input class="input100" type="text" id="rua" name="rua" required="required" tabindex="4">
                         <span class="focus-input100"></span>
                     </div>
 
-                    <span class="txt1 p-b-11">
+                    <span class="txt1 p-b-11 ">
 						Localidade
 					</span>
-                    <div class="wrap-input100 validate-input m-b-36">
+                    <div class="wrap-input100 validate-input m-b-2" class="esquerda">
                         <input class="input100" type="text" id="local" name="local" required="required" tabindex="5">
                         <span class="focus-input100"></span>
                     </div>
 
-                    <span class="txt1 p-b-11">
+                    <span class="txt1 p-b-11 ">
 						Concelho
 					</span>
-                    <div class="wrap-input100 validate-input m-b-36">
+                    <div class="wrap-input100 validate-input m-b-2" >
                         <input class="input100" type="text" id="concelho" name="concelho" required="required" tabindex="6">
                         <span class="focus-input100"></span>
                     </div>
 
-                    <span class="txt1 p-b-11">
+                    <span class="txt1 p-b-11 ">
 						Distrito
 					</span>
-                    <div class="wrap-input100 validate-input m-b-36">
+                    <div class="wrap-input100 validate-input m-b-2">
                         <input class="input100" type="text" id="distrito" name="distrito" required="required" tabindex="7">
                         <span class="focus-input100"></span>
                     </div>
 
-                    <span class="txt1 p-b-11">
+                    <span class="txt1 p-b-11 ">
 						Código Postal
 					</span>
-                    <div class="wrap-input100 validate-input m-b-36">
+                    <div class="wrap-input100 validate-input m-b-2" class="direita">
                         <input class="input100" type="text" id="cp" name="cp" required="required" tabindex="8">
                         <span class="focus-input100"></span>
                     </div>
 
-                    <span class="txt1 p-b-11">
+                    <span class="txt1 p-b-11 ">
 						Password
 					</span>
-                    <div class="wrap-input100 validate-input m-b-12">
+                    <div class="wrap-input100 validate-input m-b-12" class="direita" >
                         <span class="btn-show-pass">
 							<i id="pass-status" class="fa fa-eye" onmouseover="mouseoverPass();" onmouseout="mouseoutPass();"></i>
 						</span>
@@ -168,8 +173,9 @@
                 </form>
             </div>
         </div>
-    </section>
+    </div>
 
+    <!--<span class="txt1 p-b-11 "></span>-->
 
     <!--===============================================================================================-->
     <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
