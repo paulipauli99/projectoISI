@@ -6,10 +6,10 @@ var ajuste_lisboa = "";
 var diferenca_lisboa = 0;
 var diferenca_porto = 0;
 
-window.onload = function () { 
-    const queryString = window.location.search;
-    this.console.log(queryString);
-    const params = new URLSearchParams(queryString);
+/*window.onload = function () { 
+   // const queryString = window.location.search;
+    //this.console.log(queryString);
+    //const params = new URLSearchParams(queryString);
     
      codigo_artigo = params.get("artigo");
      lineID = params.get("lineID");
@@ -19,9 +19,23 @@ window.onload = function () {
     preenche_artigo();
     preencherStocks();
     editarArtigos();
+    editarArtigo();
+    
    
-}
+}*/
 
+function editarArtigo(vcodigo_artigo,vlineID) {
+
+    codigo_artigo = vcodigo_artigo;
+    lineID = vlineID;
+    preenche_artigo();
+    preencherStocks();
+    editarArtigos();
+    
+    //	location.href=" dashboard.html?artigo=" + codigo_artigo + "&lineID=" + lineID;
+        $("#editar_artigo").modal();
+}
+    
 function preenche_artigo(){
     let response = fetch('http://localhost:8080/artigo/' + codigo_artigo, {
         method: 'GET',

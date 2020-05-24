@@ -306,16 +306,20 @@
                 </div>
             </div>
 
+            <div class="modal-footer">
+                <input id="addartigo" type="button" value="GRAVAR" onclick="editarArtigos()" class="btn" />
+            </div>
+            
         </div>
 
-        <div class="modal-footer">
-            <input id="addartigo" type="button" value="EDITAR" onclick="editarArtigos()" class="btn" />
+        
+            
             
         </div>
     </form>
 </div>
 </div>
-</div>
+
 
 
 
@@ -494,12 +498,10 @@
             
             carrega_marcas_modelos();
             gravarArtigos();
+           
             
-            preenche_artigo();
-            preencherStocks();
-            editarArtigos();
-
-            const queryString = window.location.search;
+            
+         //   const queryString = window.location.search;
 
         }
     </script>

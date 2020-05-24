@@ -137,11 +137,7 @@ function eliminarArtigo(codigo_artigo) {
 
 }
 
-function editarArtigo(codigo_artigo,lineID) {
-	location.href=" dashboard.html?artigo=" + codigo_artigo + "&lineID=" + lineID;
-	
-}
 
-function AbreModalEditar(){
+
+
     
-}
