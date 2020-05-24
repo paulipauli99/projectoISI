@@ -96,7 +96,7 @@ function login(req, res) {
                     console.log(y[i]);
                     req.session.userId = y[i].hs_object_id;
                     console.log(req.session);
-                    return res.redirect('/dashboard.html');
+                    return res.redirect('/tabelacliente.html');
                 } else {
                     console.log("login sucesso cliente");
                     console.log(y[i]);
