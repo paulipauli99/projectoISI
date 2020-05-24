@@ -116,7 +116,7 @@ function login(req, res) {
 }
 
 function logout(req, res) {
-    console.log(req.session.userId + "logggout")
+    console.log(req.session.userId + " logggout")
     req.session.destroy(err => {
         res.clearCookie('sid');
         res.redirect('/index.html');
@@ -142,6 +142,7 @@ function apagarCliente(req, res) {
 }
 
 function editarCliente(req, res) {
+    var contactId = req.session.userId;
     var nome = req.body.nome;
     var telemovel = req.body.tele;
     var email = req.body.email;
@@ -176,22 +177,34 @@ function editarCliente(req, res) {
     require(options, function(error, response, body) {
         if (error) throw new Error(error);
     });
-    res.redirect();
+    //res.redirect();
 }
 
 function consultarCliente(req, res) {
-    var contactId = req.body.editarID;
+    var contactId = req.session.userId;
 
     var options = {
         method: 'GET',
         url: 'https://api.hubapi.com/crm/v3/objects/contacts/' + contactId,
-        qs: { properties: 'nome,telemovel,email,rua,localidade,concelho,distrito,codigo_postal,password,hs_object_id', archived: 'false', hapikey: '1816e278-334f-4911-b0e1-2f6f3898c900' },
+        qs: {
+            properties: 'nome,telemovel,email,rua,localidade,concelho,distrito,codigo_postal,password,hs_object_id',
+            archived: 'false',
+            hapikey: '1816e278-334f-4911-b0e1-2f6f3898c900'
+        },
         headers: { accept: 'application/json' }
     };
 
     require(options, function(error, response, body) {
         if (error) throw new Error(error);
+        var x = JSON.parse(body).results;
+
+        for (i = 0; i < x.length; i++) {
+            a = x[i].properties;
+            y[i] = a;
+        }
+        res.send(y);
     });
+    res.send();
 }
 
 module.exports = {
