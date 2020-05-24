@@ -196,15 +196,12 @@ function consultarCliente(req, res) {
 
     require(options, function(error, response, body) {
         if (error) throw new Error(error);
-        var x = JSON.parse(body).results;
+        var x = JSON.parse(body).properties;
 
-        for (i = 0; i < x.length; i++) {
-            a = x[i].properties;
-            y[i] = a;
-        }
-        res.send(y);
+        console.log(x);
+        console.log(x.email);
+        res.send(x);
     });
-    res.send();
 }
 
 module.exports = {
