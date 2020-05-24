@@ -83,7 +83,6 @@ function login(req, res) {
     require(options, function(error, response, body) {
         if (error) throw new Error(error);
         var x = JSON.parse(body).results;
-        console.log(body);
         var y = []
         for (i = 0; i < x.length; i++) {
             a = x[i].properties;
@@ -91,21 +90,20 @@ function login(req, res) {
         }
         for (i = 0; i < y.length; i++) {
             if (y[i].email == emaill && y[i].password == passs) {
-                if (y[i].admin === "s") {
+                if (y[i].admin == "s") {
                     console.log("login sucesso admin");
-                    console.log(y[i]);
                     req.session.userId = y[i].hs_object_id;
                     console.log(req.session);
                     return res.redirect('/dashboard.html');
                 } else {
                     console.log("login sucesso cliente");
-                    console.log(y[i]);
                     req.session.userId = y[i].hs_object_id;
                     console.log(req.session);
                     return res.redirect('/services.html');
                 }
             } else {
                 if (y.length - 1 == i) {
+                    console.log(i + "  " + y.length);
                     console.log("nenhum contacto com essa correspondencia");
                     return res.redirect('/loginErrado.html');
                 }
@@ -176,8 +174,9 @@ function editarCliente(req, res) {
 
     require(options, function(error, response, body) {
         if (error) throw new Error(error);
+        console.log("user " + contactId + " editado")
     });
-    //res.redirect();
+    res.redirect('/services.html');
 }
 
 function consultarCliente(req, res) {
@@ -198,8 +197,6 @@ function consultarCliente(req, res) {
         if (error) throw new Error(error);
         var x = JSON.parse(body).properties;
 
-        console.log(x);
-        console.log(x.email);
         res.send(x);
     });
 }

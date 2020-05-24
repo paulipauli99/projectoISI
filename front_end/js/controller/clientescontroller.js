@@ -33,7 +33,6 @@ function tabela_clientes(clientes) {
     txt += '</tr>';
     txt += '</thead>';
     txt += '<tbody>';
-    console.log(clientes)
     for (const cliente of clientes) { //cada user da variavel users
         var idCliente = cliente.hs_object_id;
 
