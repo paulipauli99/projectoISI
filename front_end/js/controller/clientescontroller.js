@@ -34,21 +34,23 @@ function tabela_clientes(clientes) {
     txt += '</thead>';
     txt += '<tbody>';
     for (const cliente of clientes) { //cada user da variavel users
-        var idCliente = cliente.hs_object_id;
+        if (cliente.admin === "n") {
+            var idCliente = cliente.hs_object_id;
 
-        txt += "<tr><td>" + cliente.hs_object_id + "</td>";
-        txt += "<td>" + cliente.nome + "</td>";
-        txt += "<td>" + cliente.telemovel + "</td>";
-        txt += "<td>" + cliente.email + "</td>";
-        txt += "<td>" + cliente.rua + "</td>";
-        txt += "<td>" + cliente.localidade + "</td>";
-        txt += "<td>" + cliente.concelho + "</td>";
-        txt += "<td>" + cliente.distrito + "</td>";
-        txt += "<td>" + cliente.codigo_postal + "</td>";
+            txt += "<tr><td>" + cliente.hs_object_id + "</td>";
+            txt += "<td>" + cliente.nome + "</td>";
+            txt += "<td>" + cliente.telemovel + "</td>";
+            txt += "<td>" + cliente.email + "</td>";
+            txt += "<td>" + cliente.rua + "</td>";
+            txt += "<td>" + cliente.localidade + "</td>";
+            txt += "<td>" + cliente.concelho + "</td>";
+            txt += "<td>" + cliente.distrito + "</td>";
+            txt += "<td>" + cliente.codigo_postal + "</td>";
 
-        txt += "<td> <form action='editar.html'> <input type='hidden' id='editarID' name='editarID' value=" + idCliente + "></input> <button>Editar</button> </form> </td>";
-        txt += "<td> <form action='/apagarCliente' method='post'> <input type='hidden' id='apagarID' name='apagarID' value=" + idCliente + "></input> <button>Apagar</button> </form> </td>";
-        txt += "</tr>";
+            txt += "<td> <form action='editar.html'> <input type='hidden' id='editarID' name='editarID' value=" + idCliente + "></input> <button>Editar</button> </form> </td>";
+            txt += "<td> <form action='/apagarCliente' method='post'> <input type='hidden' id='apagarID' name='apagarID' value=" + idCliente + "></input> <button>Apagar</button> </form> </td>";
+            txt += "</tr>";
+        }
     }
     txt += "</tbody></table>";
 
