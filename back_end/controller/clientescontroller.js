@@ -213,6 +213,20 @@ function editAdmin(req, res) {
     res.redirect('/editarcliente.html');
 }
 
+function sessionCheck(req, res) {
+    var sessao = "";
+    if (req.session.admin) {
+        if (req.session.admin == "n") {
+            sessao = "cli";
+        } else {
+            sessao = "admin";
+        }
+    } else {
+        sessao = "nada";
+    }
+    res.send('{"sessao":"' + sessao + '"}');
+}
+
 module.exports = {
     lista: listarClientes,
     criar: criarCliente,
@@ -221,5 +235,6 @@ module.exports = {
     apagar: apagarCliente,
     editar: editarPerfil,
     consultar: consultarCliente,
-    editAdmin: editAdmin
+    edit: editAdmin,
+    session: sessionCheck
 };

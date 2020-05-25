@@ -8,4 +8,5 @@ app.get('/logout', controllerClientes.sair);
 app.post('/apagarCliente', controllerClientes.apagar);
 app.post('/editarCliente', controllerClientes.editar);
 app.get('/consultarCliente', controllerClientes.consultar);
-app.post('/editarAdmin', controllerClientes.editAdmin);
+app.post('/editarAdmin', controllerClientes.edit);
+app.get('/sessionCheck', controllerClientes.session);
