@@ -26,4 +26,8 @@ function checka() {
                 window.onload = fnc;
         }
     }
+    addOnloadEvent(funcao);
+
+
+
 }
