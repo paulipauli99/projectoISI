@@ -92,11 +92,13 @@ function login(req, res) {
                 if (y[i].admin == "s") {
                     console.log("login sucesso admin");
                     req.session.userId = y[i].hs_object_id;
+                    req.session.admin = "s";
                     console.log(req.session);
                     return res.redirect('/tabelacliente.html');
                 } else {
                     console.log("login sucesso cliente");
                     req.session.userId = y[i].hs_object_id;
+                    req.session.admin = "n";
                     console.log(req.session);
                     return res.redirect('/services.html');
                 }
