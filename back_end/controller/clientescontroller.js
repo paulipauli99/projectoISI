@@ -140,7 +140,11 @@ function apagarCliente(req, res) {
 }
 
 function editarPerfil(req, res) {
-    var contactId = req.session.userId;
+    if (req.session.admin == "s") {
+        var contactId = req.session.editID;
+    } else {
+        var contactId = req.session.userId;
+    }
     var nome = req.body.nome;
     var telemovel = req.body.tele;
     var email = req.body.email;
@@ -179,49 +183,12 @@ function editarPerfil(req, res) {
     res.redirect('/services.html');
 }
 
-function editarPerfilAdmin(req, res) {
-    var contactId = req.session.editID;
-    var nome = req.body.nome;
-    var telemovel = req.body.tele;
-    var email = req.body.email;
-    var rua = req.body.rua;
-    var localidade = req.body.local;
-    var concelho = req.body.concelho;
-    var distrito = req.body.distrito;
-    var codigo_postal = req.body.cp;
-    var password = req.body.pass;
-
-    var options = {
-        method: 'PATCH',
-        url: 'https://api.hubapi.com/crm/v3/objects/contacts/' + contactId,
-        qs: { hapikey: '1816e278-334f-4911-b0e1-2f6f3898c900' },
-        headers: { accept: 'application/json', 'content-type': 'application/json' },
-        body: {
-            properties: {
-                nome: nome,
-                telemovel: telemovel,
-                email: email,
-                rua: rua,
-                localidade: localidade,
-                concelho: concelho,
-                distrito: distrito,
-                codigo_postal: codigo_postal,
-                password: password
-            }
-        },
-        json: true
-    };
-
-    require(options, function(error, response, body) {
-        if (error) throw new Error(error);
-        console.log("user " + contactId + " editado")
-    });
-    res.redirect('/tabelacliente.html');
-}
-
 function consultarCliente(req, res) {
-    var contactId = req.session.userId;
-
+    if (req.session.admin == "s") {
+        var contactId = req.session.editID;
+    } else {
+        var contactId = req.session.userId;
+    }
     var options = {
         method: 'GET',
         url: 'https://api.hubapi.com/crm/v3/objects/contacts/' + contactId,
@@ -236,29 +203,6 @@ function consultarCliente(req, res) {
     require(options, function(error, response, body) {
         if (error) throw new Error(error);
         var x = JSON.parse(body).properties;
-
-        res.send(x);
-    });
-}
-
-function consultarClienteAdmin(req, res) {
-    var contactId = req.session.editID;
-
-    var options = {
-        method: 'GET',
-        url: 'https://api.hubapi.com/crm/v3/objects/contacts/' + contactId,
-        qs: {
-            properties: 'nome,telemovel,email,rua,localidade,concelho,distrito,codigo_postal,password,hs_object_id',
-            archived: 'false',
-            hapikey: '1816e278-334f-4911-b0e1-2f6f3898c900'
-        },
-        headers: { accept: 'application/json' }
-    };
-
-    require(options, function(error, response, body) {
-        if (error) throw new Error(error);
-        var x = JSON.parse(body).properties;
-
         res.send(x);
     });
 }
@@ -276,8 +220,6 @@ module.exports = {
     sair: logout,
     apagar: apagarCliente,
     editar: editarPerfil,
-    editarAdmin: editarPerfilAdmin,
-    consultarCliente: consultarCliente,
-    consultarClienteAdmin: consultarClienteAdmin,
+    consultar: consultarCliente,
     editAdmin: editAdmin
 };

@@ -7,7 +7,5 @@ app.post('/login', controllerClientes.entrar);
 app.get('/logout', controllerClientes.sair);
 app.post('/apagarCliente', controllerClientes.apagar);
 app.post('/editarCliente', controllerClientes.editar);
-app.post('/editarClienteAdmin', controllerClientes.editarAdmin);
-app.get('/consultarCliente', controllerClientes.consultarCliente);
-app.get('/consultarClienteAdmin', controllerClientes.consultarClienteAdmin);
+app.get('/consultarCliente', controllerClientes.consultar);
 app.post('/editarAdmin', controllerClientes.editAdmin);
