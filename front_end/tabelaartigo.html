@@ -3,29 +3,11 @@
 
 <head>
     <title>VirtualCar</title>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="css/util.css">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
 
@@ -44,203 +26,363 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
-
-    <!-- Google Fonts
-		============================================ -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
-    <!-- Bootstrap CSS
-		============================================ -->
-    <link rel="stylesheet" href="ccss/bootstrap.min.css">
-    <!-- Bootstrap CSS
-		============================================ -->
-    <link rel="stylesheet" href="ccss/font-awesome.min.css">
-    <!-- owl.carousel CSS
-		============================================ -->
-    <link rel="stylesheet" href="ccss/owl.carousel.css">
-    <link rel="stylesheet" href="ccss/owl.theme.css">
-    <link rel="stylesheet" href="ccss/owl.transitions.css">
-    <!-- meanmenu CSS
-		============================================ -->
-    <link rel="stylesheet" href="ccss/meanmenu/meanmenu.min.css">
-    <!-- animate CSS
-		============================================ -->
-    <link rel="stylesheet" href="ccss/animate.css">
-    <!-- normalize CSS
-		============================================ -->
-    <link rel="stylesheet" href="ccss/normalize.css">
-    <!-- mCustomScrollbar CSS
-		============================================ -->
-    <link rel="stylesheet" href="ccss/scrollbar/jquery.mCustomScrollbar.min.css">
-    <!-- jvectormap CSS
-		============================================ -->
-    <link rel="stylesheet" href="ccss/jvectormap/jquery-jvectormap-2.0.3.css">
-    <!-- notika icon CSS
-		============================================ -->
-    <link rel="stylesheet" href="ccss/notika-custom-icon.css">
-    <!-- wave CSS
-		============================================ -->
-    <link rel="stylesheet" href="ccss/wave/waves.min.css">
-    <!-- main CSS
-		============================================ -->
-    <link rel="stylesheet" href="ccss/main.css">
-    <!-- style CSS
-		============================================ -->
-    <link rel="stylesheet" href="ccss/style.css">
-    <!-- responsive CSS
-		============================================ -->
-    <link rel="stylesheet" href="ccss/responsive.css">
-    <!-- modernizr JS
-		============================================ -->
-    <script src="cjs/vendor/modernizr-2.8.3.min.js"></script>
 </head>
+<style>
+    .botao1 {
+        background-color: #FFA500;
+        border: none;
+        color: white;
+        padding: 10px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+    
+    .button1 {
+        width: 250px;
+    }
+</style>
 
 <body>
-    <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-    <!-- Start Header Top Area -->
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalDetalhes" role="dialog">
+        <div class="modal-dialog modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Inventário do Artigo</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="artigo_inventario">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- FIm modal -->
+
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
         <div class="container">
+
+
+
             <a class="navbar-brand" href="services.html">Virtual<span>Car</span></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
-                aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="oi oi-menu"></span> Menu
             </button>
 
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a href="tableartigos.html" class="nav-link">Artigos</a></li>
-                    <li class="nav-item"><a href="tableclientes.html" class="nav-link">Clientes</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Faturas</a></li>
+                    <!--  <li class="nav-item active"><a href="index.html" class="nav-link">Pagina Inicial</a></li> -->
+                    <!-- <li class="nav-item"><a href="about.html" class="nav-link">Sobre Nós</a></li> -->
+                    <li class="nav-item"><a href="tabelaartigo.html" class="nav-link">Artigos</a></li>
+                    <li class="nav-item"><a href="tabelacliente.html" class="nav-link">Clientes</a></li>
+                    <li class="nav-item"><a href="tabelafaturas.html" class="nav-link">Faturas</a></li>
                     <li class="nav-item"><a href="/logout" class="nav-link">LogOut</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- End Header Top Area -->
-    <!-- Mobile Menu start -->
-    <div class="mobile-menu-area">
+
+
+
+
+
+
+
+
+
+
+
+    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_3.jpg');" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="mobile-menu">
-                        <nav id="dropdown">
-                            <ul class="mobile-menu-nav">
-                                <li><a data-toggle="collapse" data-target="#demodepart" href="#">Tables</a>
-                                    <ul id="demodepart" class="collapse dropdown-header-top">
-                                        <li><a href="normal-table.html">Tabela Clientes</a></li>
-                                        <li><a href="data-table.html">Data Table</a></li>
-                                    </ul>
-                                </li>
-                                <li><a data-toggle="collapse" data-target="#demodepart" href="#">Tables1</a>
-                                    <ul id="demodepart" class="collapse dropdown-header-top">
-                                        <li><a href="normal-table.html">Tabela Artigos</a></li>
-                                        <li><a href="data-table.html">Data Table</a></li>
-                                    </ul>
-                                </li>
-                                <li><a data-toggle="collapse" data-target="#demodepart" href="#">Tables2</a>
-                                    <ul id="demodepart" class="collapse dropdown-header-top">
-                                        <li><a href="normal-table.html">Tabela Faturas</a></li>
-                                        <li><a href="data-table.html">Data Table</a></li>
-                                    </ul>
-                                </li>
-                                <!--    <li><a data-toggle="collapse" data-target="#demo" href="#">Forms</a>
-                                    <ul id="demo" class="collapse dropdown-header-top">
-                                        <li><a href="form-elements.html">Form Elements</a></li>
-                                        <li><a href="form-components.html">Form Components</a></li>
-                                        <li><a href="form-examples.html">Form Examples</a></li>
-                                    </ul>
-                                </li> -->
-                            </ul>
-                        </nav>
-                    </div>
+
+
+
+            <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+                <div class="col-md-9 ftco-animate pb-5">
+                    <p class="breadcrumbs"><span class="mr-2"><a href="services.html">Armazéns <i
+                                    class="ion-ios-arrow-forward"></i></a></span> <span>Admin <i
+                                class="ion-ios-arrow-forward"></i></span></p>
+                    <h1 class="mb-3 bread">Admin</h1>
                 </div>
             </div>
         </div>
+    </section>
+    <div class="text-center">
+        <h1>Lista de automóveis</h1>
+
+        <!--<button type='button' class='btn btn-primary'> <i class='far fa-eye'> </i> </button> -->
+
+        <button type="button" class="botao1 button1" data-toggle="modal" data-target="#registoArt">Registar artigo</button>
     </div>
-    <!-- Mobile Menu end -->
-    <!-- Main Menu area start-->
-    <div class="main-menu-area mg-tb-40">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <ul class="nav nav-tabs notika-menu-wrap menu-it-icon-pro">
-                        <li><a data-toggle="tab" href="#Tables"><i class=""></i>Clientes</a>
-                        </li>
-                        <li class="active"><a data-toggle="tab" href="#Tables1"><i class=""></i> Artigos</a>
-                        </li>
-                        <li><a data-toggle="tab" href="#Tables2"><i class=""></i> Faturas</a>
-                        </li>
-                        <!-- <li><a data-toggle="tab" href="#Forms"><i class="notika-icon notika-form"></i> Forms</a>
-                        </li> -->
-                    </ul>
-                    <div class="tab-content custom-menu-content">
-                        <div id="Tables" class="tab-pane notika-tab-menu-bg animated flipInX">
-                            <ul class="notika-main-menu-dropdown">
-                                <li><a href="tabelacliente.html">Tabela Clientes</a>
-                                </li>
-                                <li><a href="data-table.html">Data Table</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div id="Tables1" class="tab-pane notika-tab-menu-bg animated flipInX">
-                            <ul class="notika-main-menu-dropdown">
-                                <li><a href="tabelaartigo.html">Tabela Artigos</a>
-                                </li>
-                                <li><a href="data-table.html">Data Table</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div id="Tables2" class="tab-pane notika-tab-menu-bg animated flipInX">
-                            <ul class="notika-main-menu-dropdown">
-                                <li><a href="normal-table.html">Tabela Faturas</a>
-                                </li>
-                                <li><a href="data-table.html">Data Table</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <!--  <div id="Forms" class="tab-pane notika-tab-menu-bg animated flipInX">
-                            <ul class="notika-main-menu-dropdown">
-                                <li><a href="form-elements.html">Form Elements</a>
-                                </li>
-                                <li><a href="form-components.html">Form Components</a>
-                                </li>
-                                <li><a href="form-examples.html">Form Examples</a>
-                                </li>
-                            </ul>
-                        </div> -->
+    <div class="modal fade" id="registoArt" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+
+
+            <!--FORM REGISTAR ARTIGO-->
+            <div class="modal-content">
+                <form class="validate-form flex-sb flex-w" id="registo_artigo" name="registo_artigo" action="dashboard.html" method="POST" enctype="multipart/form-data">
+                    <div class="modal-header text-center">
+                        <h4 class="modal-title w-100 font-weight-bold">Registar Artigo</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
                     </div>
-                </div>
+
+                    <div class="modal-body mx-3">
+                        <div class="md-form mb-5">
+                            <i class="fas fa-user prefix grey-text"></i>
+                            <label data-error="wrong" data-success="right" for="codigo">Código</label>
+                            <input type="text" id="codigo_artigo" name="codigo_artigo" class="form-control validate">
+
+                        </div>
+
+                        <div class="md-form mb-5">
+                            <i class="fas fa-envelope prefix grey-text"></i>
+                            <label data-error="wrong" data-success="right" for="nome">Nome</label>
+                            <input type="text" id="nome" name="nome" class="form-control validate">
+                        </div>
+
+                        <div class="md-form mb-4">
+                            <i class="fas fa-lock prefix grey-text"></i>
+                            <label data-error="wrong" data-success="right" for="descricao">Descrição</label>
+                            <input type="text" id="descricao_completa" name="descricao_completa" class="form-control validate">
+
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect01">Marca</label>
+                            </div>
+                            <select class="custom-select" id="marca" name="marca" onchange="escolhe_marca()">
+              <option selected>Selecione a marca...</option>
+              <option value="1">SEAT</option>
+              <option value="2">FORD</option>
+              <option value="3">TOYOTA</option>
+          </select>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect01">Modelo</label>
+                            </div>
+                            <select class="custom-select" id="modelo" name="modelo">
+            <option selected>Selecione o modelo...</option>
+            <option value="1">ibiza</option>
+            <option value="2">focus</option>
+            <option value="3">yaris</option>
+        </select>
+                        </div>
+
+                        <div class="md-form mb-4">
+                            <i class="fas fa-lock prefix grey-text"></i>
+                            <label data-error="wrong" data-success="right" for="preco">Preço</label>
+                            <input type="text" id="preco" name="preco" class="form-control validate" placeholder="€">
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Stock nos Armazens</label><br>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" for="inputGroupSelect01">Porto</label>
+                                    <input type="text" class="form-control" id="stock_porto" name="stock_porto" placeholder="0">
+                                </div>
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" for="inputGroupSelect01">Lisboa</label>
+                                    <input type="text" class="form-control" id="stock_lisboa" name="stock_lisboa" placeholder="0">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="md-form mb-4">
+                            <i class="fas fa-lock prefix grey-text"></i>
+                            <input type='file' id="foto" name="myImage" onchange="readURL(this);" />
+                            <input type="text" id="path_imagem">
+                            <img id="blah" src="#" />
+                            <label data-error="wrong" data-success="right" for="foto">Fotografia</label>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <input id="addartigo" type="button" value="REGISTAR" onclick="gravarArtigos()" class="btn" />
+                        
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 
-    <!-- Breadcomb area End-->
-    <!-- Normal Table area Start-->
-    <div class="normal-table-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="normal-table-list">
-                        <div class="basic-tb-hd">
-                            <h2>Tabela Artigos</h2>
-                        </div>
-                        <div class="bsc-tbl">
-                            <table id="lista_artigos" class="table table-sc-ex">
-                                <thead>
-                                </thead>
-                                <tbody>
-                                </tbody>
-                            </table>
-                        </div>
+
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#blah')
+                        .attr('src', e.target.result)
+                        .width(150)
+                        .height(200);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+
+
+
+<!--EDITAR ARTIGO-->
+<div class="modal fade" id="editar_artigo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+
+<div class="modal-content">
+
+    <form class="validate-form flex-sb flex-w" id="editar_artigo" name="editar_artigo" action="" method="PUT" enctype="multipart/form-data">
+        <div class="modal-header text-center">
+            <h4 class="modal-title w-100 font-weight-bold">Editar Artigo</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+        </div>
+            <div class="md-form mb-5">
+                <i class="fas fa-envelope prefix grey-text"></i>
+                <label data-error="wrong" data-success="right" for="nome">Nome</label>
+                <input type="text" id="nome_editar" name="nome_editar" class="form-control validate">
+            </div>
+
+            <div class="md-form mb-4">
+                <i class="fas fa-lock prefix grey-text"></i>
+                <label data-error="wrong" data-success="right" for="descricao">Descrição</label>
+                <input type="text" id="descricao_completa_editar" name="descricao_completa_editar" class="form-control validate">
+
+            </div>
+
+            
+
+            <div class="md-form mb-4">
+                <i class="fas fa-lock prefix grey-text"></i>
+                <label data-error="wrong" data-success="right" for="preco">Preço</label>
+                <input type="text" id="preco_editar" name="preco_editar" class="form-control validate" placeholder="€">
+            </div>
+
+
+
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Stock nos Armazens</label><br>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect01">Porto</label>
+                        <input type="text" class="form-control" id="stock_porto_editar" name="stock_porto_editar" placeholder="0">
+                        <input type="text" class="form-control" id="stock_porto_atual_editar" name="stock_porto_atual_editar" readonly>
+                    </div>
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect01">Lisboa</label>
+                        <input type="text" class="form-control" id="stock_lisboa_editar" name="stock_lisboa_editar" placeholder="0">
+                        <input type="text" class="form-control" id="stock_lisboa_atual_editar" name="stock_lisboa_atual_editar" readonly>
                     </div>
                 </div>
             </div>
+
+            <div class="modal-footer">
+                <input id="addartigo" type="button" value="GRAVAR" onclick="editarArtigos()" class="btn" />
+            </div>
+            
         </div>
+
+        
+            
+            
+        </div>
+    </form>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </div>
-    <!-- Normal Table area End-->
-    <!-- Start Footer area-->
+
+
+    <div class="container">
+    <div id="lista_artigos" class="content table-responsive text-center">
+        <table class="table table-hover table-striped">
+            <thead>
+                <th>Código Artigo</th>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Preço</th>
+            </thead>
+
+            <body>
+
+            </body>
+        </table>
+    </div>
+</div>
+
+
+
     <footer class="ftco-footer ftco-bg-dark ftco-section">
         <div class="container">
             <div class="row mb-5">
@@ -254,8 +396,8 @@
                     <div class="ftco-footer-widget mb-4 ml-md-5">
                         <h2 class="ftco-heading-2">Informação</h2>
                         <ul class="list-unstyled">
-                            <li><a href="about.html" class="py-2 d-block">Sobre Nós</a></li>
-                            <li><a href="logIn.html" class="py-2 d-block">Serviços</a></li>
+                            <li><a href="about.html" class="py-2 d-block">Sobre</a></li>
+                            <li><a href="services.html" class="py-2 d-block">Serviços</a></li>
                             <!-- <li><a href="#" class="py-2 d-block">Term and Conditions</a></li> -->
                             <!-- <li><a href="#" class="py-2 d-block">Best Price Guarantee</a></li> -->
                             <!-- <li><a href="#" class="py-2 d-block">Privacy &amp; Cookies Policy</a></li> -->
@@ -267,8 +409,8 @@
                         <h2 class="ftco-heading-2">Suporte ao Cliente</h2>
                         <ul class="list-unstyled">
                             <li><a href="contact.html" class="py-2 d-block">Contactos</a></li>
-                            <li><a href="logIn.html" class="py-2 d-block">Preços</a></li>
-                            <li><a href="logIn.html" class="py-2 d-block">Carros</a></li>
+                            <li><a href="pricing.html" class="py-2 d-block">Preços</a></li>
+                            <li><a href="car.html" class="py-2 d-block">Carros</a></li>
                             <!--  <li><a href="#" class="py-2 d-block">Booking Tips</a></li> -->
                             <!--  <li><a href="#" class="py-2 d-block">How it works</a></li> -->
                         </ul>
@@ -283,8 +425,7 @@
                                         4800-058 Guimarães,
                                         Portugal</span></li>
                                 <li><span class="icon icon-phone"></span><span class="text">253 601 100</span></li>
-                                <li><span class="icon icon-envelope"></span><span
-                                        class="text">ccultural@reitoria.uminho.pt​</span></li>
+                                <li><span class="icon icon-envelope"></span><span class="text">ccultural@reitoria.uminho.pt​</span></li>
                             </ul>
                         </div>
                     </div>
@@ -296,106 +437,38 @@
                     <p>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         Copyright &copy;
-                        <script>document.write(new Date().getFullYear());</script> All rights reserved | This template
-                        is made with
-                        <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com"
-                            target="_blank">Colorlib</a>
+                        <script>
+                            document.write(new Date().getFullYear());
+                        </script> All rights reserved | This template is made with
+                        <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </p>
                 </div>
             </div>
         </div>
     </footer>
-    <!-- End Footer area-->
-    <!-- jquery
-        ============================================ -->
 
+
+
+    <!-- loader -->
     <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
             <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
             <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
                 stroke="#F96D00" /></svg></div>
 
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 
-    <script src="cjs/vendor/jquery-1.12.4.min.js"></script>
-    <!-- bootstrap JS
-		============================================ -->
-    <script src="cjs/bootstrap.min.js"></script>
-    <!-- wow JS
-		============================================ -->
-    <script src="cjs/wow.min.js"></script>
-    <!-- price-slider JS
-		============================================ -->
-    <script src="cjs/jquery-price-slider.js"></script>
-    <!-- owl.carousel JS
-		============================================ -->
-    <script src="cjs/owl.carousel.min.js"></script>
-    <!-- scrollUp JS
-		============================================ -->
-    <script src="cjs/jquery.scrollUp.min.js"></script>
-    <!-- meanmenu JS
-		============================================ -->
-    <script src="cjs/meanmenu/jquery.meanmenu.js"></script>
-    <!-- counterup JS
-		============================================ -->
-    <script src="cjs/counterup/jquery.counterup.min.js"></script>
-    <script src="cjs/counterup/waypoints.min.js"></script>
-    <script src="cjs/counterup/counterup-active.js"></script>
-    <!-- mCustomScrollbar JS
-		============================================ -->
-    <script src="cjs/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
-    <!-- jvectormap JS
-		============================================ -->
-    <script src="cjs/jvectormap/jquery-jvectormap-2.0.2.min.js"></script>
-    <script src="cjs/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-    <script src="cjs/jvectormap/jvectormap-active.js"></script>
-    <!-- sparkline JS
-		============================================ -->
-    <script src="cjs/sparkline/jquery.sparkline.min.js"></script>
-    <script src="cjs/sparkline/sparkline-active.js"></script>
-    <!-- sparkline JS
-		============================================ -->
-    <script src="cjs/flot/jquery.flot.js"></script>
-    <script src="cjs/flot/jquery.flot.resize.js"></script>
-    <script src="cjs/flot/curvedLines.js"></script>
-    <script src="cjs/flot/flot-active.js"></script>
-    <!-- knob JS
-		============================================ -->
-    <script src="cjs/knob/jquery.knob.js"></script>
-    <script src="cjs/knob/jquery.appear.js"></script>
-    <script src="cjs/knob/knob-active.js"></script>
-    <!--  wave JS
-		============================================ -->
-    <script src="cjs/wave/waves.min.js"></script>
-    <script src="cjs/wave/wave-active.js"></script>
-    <!--  todo JS
-		============================================ -->
-    <script src="cjs/todo/jquery.todo.js"></script>
-    <!-- plugins JS
-		============================================ -->
-    <script src="cjs/plugins.js"></script>
-    <!--  Chat JS
-		============================================ -->
-    <script src="cjs/chat/moment.min.js"></script>
-    <script src="cjs/chat/jquery.chat.js"></script>
-    <!-- main JS
-		============================================ -->
-    <script src="cjs/main.js"></script>
 
-    <script type="text/javascript" src="../js/controller/artigoscontroller.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery-migrate-3.0.1.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+
+
     <script src="js/jquery.easing.1.3.js"></script>
     <script src="js/jquery.waypoints.min.js"></script>
     <script src="js/jquery.stellar.min.js"></script>
@@ -405,11 +478,31 @@
     <script src="js/jquery.animateNumber.min.js"></script>
     <script src="js/bootstrap-datepicker.js"></script>
     <script src="js/jquery.timepicker.min.js"></script>
+
     <script src="js/scrollax.min.js"></script>
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
     <script src="js/google-map.js"></script>
     <script src="js/main.js"></script>
+
+    <script type="text/javascript" src="../js/controller/artigoscontroller.js"></script>
+
+    <script type="text/javascript" src="../js/controller/registarartigo.js"></script>
+
+    <script type="text/javascript" src="../js/controller/editarartigo.js"></script> 
+
+    <script>
+        window.onload = function() { //quando inicia a página - > chama a funçao
+            listaArtigos();
+            
+            carrega_marcas_modelos();
+            gravarArtigos();
+           
+            
+            
+         //   const queryString = window.location.search;
+
+        }
+    </script>
 
 </body>
 
