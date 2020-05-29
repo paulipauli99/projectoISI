@@ -1,31 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
     <title>VirtualCar</title>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="css/util.css">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
 
@@ -44,202 +27,107 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
-
-     <!-- Google Fonts
-		============================================ -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
-    <!-- Bootstrap CSS
-		============================================ -->
-    <link rel="stylesheet" href="ccss/bootstrap.min.css">
-    <!-- Bootstrap CSS
-		============================================ -->
-    <link rel="stylesheet" href="ccss/font-awesome.min.css">
-    <!-- owl.carousel CSS
-		============================================ -->
-    <link rel="stylesheet" href="ccss/owl.carousel.css">
-    <link rel="stylesheet" href="ccss/owl.theme.css">
-    <link rel="stylesheet" href="ccss/owl.transitions.css">
-    <!-- meanmenu CSS
-		============================================ -->
-    <link rel="stylesheet" href="ccss/meanmenu/meanmenu.min.css">
-    <!-- animate CSS
-		============================================ -->
-    <link rel="stylesheet" href="ccss/animate.css">
-    <!-- normalize CSS
-		============================================ -->
-    <link rel="stylesheet" href="ccss/normalize.css">
-    <!-- mCustomScrollbar CSS
-		============================================ -->
-    <link rel="stylesheet" href="ccss/scrollbar/jquery.mCustomScrollbar.min.css">
-    <!-- jvectormap CSS
-		============================================ -->
-    <link rel="stylesheet" href="ccss/jvectormap/jquery-jvectormap-2.0.3.css">
-    <!-- notika icon CSS
-		============================================ -->
-    <link rel="stylesheet" href="ccss/notika-custom-icon.css">
-    <!-- wave CSS
-		============================================ -->
-    <link rel="stylesheet" href="ccss/wave/waves.min.css">
-    <!-- main CSS
-		============================================ -->
-    <link rel="stylesheet" href="ccss/main.css">
-    <!-- style CSS
-		============================================ -->
-    <link rel="stylesheet" href="ccss/style.css">
-    <!-- responsive CSS
-		============================================ -->
-    <link rel="stylesheet" href="ccss/responsive.css">
-    <!-- modernizr JS
-		============================================ -->
-    <script src="cjs/vendor/modernizr-2.8.3.min.js"></script>
-   
 </head>
+<style>
+  .botao1 {
+      background-color: #FFA500;
+      border: none;
+      color: white;
+      padding: 10px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+  }
+
+  .button1 {
+      width: 250px;
+  }
+</style>
 
 <body>
-    <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-    <!-- Start Header Top Area -->
-    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-        <div class="container">
-            <a class="navbar-brand" href="services.html">Virtual<span>Car</span></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
-                aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="oi oi-menu"></span> Menu
-            </button>
+  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
 
-            <div class="collapse navbar-collapse" id="ftco-nav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a href="tableartigos.html" class="nav-link">Artigos</a></li>
-                    <li class="nav-item"><a href="tableclientes.html" class="nav-link">Clientes</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Faturas</a></li>
-                    <li class="nav-item"><a href="/logout" class="nav-link">LogOut</a></li>
-                </ul>
-            </div>
+
+
+        <a class="navbar-brand" href="services.html">Virtual<span>Car</span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+            aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="oi oi-menu"></span> Menu
+        </button>
+
+        <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul class="navbar-nav ml-auto">
+                <!--  <li class="nav-item active"><a href="index.html" class="nav-link">Pagina Inicial</a></li> -->
+                <!-- <li class="nav-item"><a href="about.html" class="nav-link">Sobre Nós</a></li> -->
+                <li class="nav-item"><a href="tabelaartigo.html" class="nav-link">Artigos</a></li>
+                <li class="nav-item"><a href="tabelacliente.html" class="nav-link">Clientes</a></li>
+                <li class="nav-item"><a href="tabelafatura.html" class="nav-link">Faturas</a></li>
+                <!--  <li class="nav-item"><a href="contact.html" class="nav-link">Contactos</a></li>-->
+                <li class="nav-item"><a href="/logout" class="nav-link">LogOut</a></li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
 
-    <!-- End Header Top Area -->
-    <!-- Mobile Menu start -->
-    <div class="mobile-menu-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="mobile-menu">
-                        <nav id="dropdown">
-                            <ul class="mobile-menu-nav">
-                                <li><a data-toggle="collapse" data-target="#demodepart" href="#">Tables</a>
-                                    <ul id="demodepart" class="collapse dropdown-header-top">
-                                        <li><a href="normal-table.html">Tabela Clientes</a></li>
-                                        <li><a href="data-table.html">Data Table</a></li>
-                                    </ul>
-                                </li>
-                                <li><a data-toggle="collapse" data-target="#demodepart" href="#">Tables1</a>
-                                    <ul id="demodepart" class="collapse dropdown-header-top">
-                                        <li><a href="normal-table.html">Tabela Artigos</a></li>
-                                        <li><a href="data-table.html">Data Table</a></li>
-                                    </ul>
-                                </li>
-                                <li><a data-toggle="collapse" data-target="#demodepart" href="#">Tables2</a>
-                                    <ul id="demodepart" class="collapse dropdown-header-top">
-                                        <li><a href="normal-table.html">Tabela Faturas</a></li>
-                                        <li><a href="data-table.html">Data Table</a></li>
-                                    </ul>
-                                </li>
-                            <!--    <li><a data-toggle="collapse" data-target="#demo" href="#">Forms</a>
-                                    <ul id="demo" class="collapse dropdown-header-top">
-                                        <li><a href="form-elements.html">Form Elements</a></li>
-                                        <li><a href="form-components.html">Form Components</a></li>
-                                        <li><a href="form-examples.html">Form Examples</a></li>
-                                    </ul>
-                                </li> -->
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
+
+
+
+
+
+
+
+
+
+
+
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_3.jpg');"
+    data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+
+
+
+        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+            <div class="col-md-9 ftco-animate pb-5">
+                <p class="breadcrumbs"><span class="mr-2"><a>Admin <i
+                                class="ion-ios-arrow-forward"></i></a></span> <span>Clientes <i
+                            class="ion-ios-arrow-forward"></i></span></p>
+                <h1 class="mb-3 bread" href="tabelacliente.html">Clientes</h1>
             </div>
         </div>
     </div>
-    <!-- Mobile Menu end -->
-    <!-- Main Menu area start-->
-    <div class="main-menu-area mg-tb-40">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <ul class="nav nav-tabs notika-menu-wrap menu-it-icon-pro">
-                        <li class="active"><a data-toggle="tab" href="#Tables"><i class=""></i>Clientes</a>
-                        </li>
-                        <li><a data-toggle="tab" href="#Tables1"><i class=""></i> Artigos</a>
-                        </li>
-                        <li><a data-toggle="tab" href="#Tables2"><i class=""></i> Faturas</a>
-                        </li>
-                       <!-- <li><a data-toggle="tab" href="#Forms"><i class="notika-icon notika-form"></i> Forms</a>
-                        </li> -->
-                    </ul>
-                    <div class="tab-content custom-menu-content">
-                        <div id="Tables" class="tab-pane notika-tab-menu-bg animated flipInX">
-                            <ul class="notika-main-menu-dropdown">
-                                <li><a href="tabelacliente.html">Tabela Clientes</a>
-                                </li>
-                                <li><a href="data-table.html">Data Table</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div id="Tables1" class="tab-pane notika-tab-menu-bg animated flipInX">
-                            <ul class="notika-main-menu-dropdown">
-                                <li><a href="tabelaartigo.html">Tabela Artigos</a>
-                                </li>
-                                <li><a href="data-table.html">Data Table</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div id="Tables2" class="tab-pane notika-tab-menu-bg animated flipInX">
-                            <ul class="notika-main-menu-dropdown">
-                                <li><a href="normal-table.html">Tabela Faturas</a>
-                                </li>
-                                <li><a href="data-table.html">Data Table</a>
-                                </li>
-                            </ul>
-                        </div>
-                      <!--  <div id="Forms" class="tab-pane notika-tab-menu-bg animated flipInX">
-                            <ul class="notika-main-menu-dropdown">
-                                <li><a href="form-elements.html">Form Elements</a>
-                                </li>
-                                <li><a href="form-components.html">Form Components</a>
-                                </li>
-                                <li><a href="form-examples.html">Form Examples</a>
-                                </li>
-                            </ul>
-                        </div> -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+</section>
 
-    <!-- Breadcomb area End-->
-    <!-- Normal Table area Start-->
-    <div class="normal-table-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="normal-table-list">
-                        <div class="basic-tb-hd">
-                            <h2>Tabela Clientes</h2>
-                        </div>
-                        <div  class="bsc-tbl">
-                            <table id="lista_clientes" class="table table-sc-ex">
-                                <thead>
-                                </thead>
-                                <tbody>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="text-center">
+  <h1>Lista de Clientes</h1>
+</div>
+
+<div class="container">
+  <div id="lista_clientes" class="content table-responsive text-center">
+      <table class="table table-hover table-striped">
+          <thead>
+            <th>ID</th>
+            <th>Nome Completo</th>
+            <th>Telemovel</th>
+            <th>Email</th>
+            <th>Rua</th>
+            <th>Localidade</th>
+            <th>Concelho</th>
+            <th>Distrito</th>
+            <th>Código Postal</th>
+          </thead>
+
+          <tbody>
+
+          </tbody>
+      </table>
+  </div>
+</div>
+
     <!-- Normal Table area End-->
     <!-- Start Footer area-->
     <footer class="ftco-footer ftco-bg-dark ftco-section">
@@ -312,72 +200,6 @@
             <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
             <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
                 stroke="#F96D00" /></svg></div>
-
-
-    <script src="cjs/vendor/jquery-1.12.4.min.js"></script>
-    <!-- bootstrap JS
-		============================================ -->
-    <script src="cjs/bootstrap.min.js"></script>
-    <!-- wow JS
-		============================================ -->
-    <script src="cjs/wow.min.js"></script>
-    <!-- price-slider JS
-		============================================ -->
-    <script src="cjs/jquery-price-slider.js"></script>
-    <!-- owl.carousel JS
-		============================================ -->
-    <script src="cjs/owl.carousel.min.js"></script>
-    <!-- scrollUp JS
-		============================================ -->
-    <script src="cjs/jquery.scrollUp.min.js"></script>
-    <!-- meanmenu JS
-		============================================ -->
-    <script src="cjs/meanmenu/jquery.meanmenu.js"></script>
-    <!-- counterup JS
-		============================================ -->
-    <script src="cjs/counterup/jquery.counterup.min.js"></script>
-    <script src="cjs/counterup/waypoints.min.js"></script>
-    <script src="cjs/counterup/counterup-active.js"></script>
-    <!-- mCustomScrollbar JS
-		============================================ -->
-    <script src="cjs/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
-    <!-- jvectormap JS
-		============================================ -->
-    <script src="cjs/jvectormap/jquery-jvectormap-2.0.2.min.js"></script>
-    <script src="cjs/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-    <script src="cjs/jvectormap/jvectormap-active.js"></script>
-    <!-- sparkline JS
-		============================================ -->
-    <script src="cjs/sparkline/jquery.sparkline.min.js"></script>
-    <script src="cjs/sparkline/sparkline-active.js"></script>
-    <!-- sparkline JS
-		============================================ -->
-    <script src="cjs/flot/jquery.flot.js"></script>
-    <script src="cjs/flot/jquery.flot.resize.js"></script>
-    <script src="cjs/flot/curvedLines.js"></script>
-    <script src="cjs/flot/flot-active.js"></script>
-    <!-- knob JS
-		============================================ -->
-    <script src="cjs/knob/jquery.knob.js"></script>
-    <script src="cjs/knob/jquery.appear.js"></script>
-    <script src="cjs/knob/knob-active.js"></script>
-    <!--  wave JS
-		============================================ -->
-    <script src="cjs/wave/waves.min.js"></script>
-    <script src="cjs/wave/wave-active.js"></script>
-    <!--  todo JS
-		============================================ -->
-    <script src="cjs/todo/jquery.todo.js"></script>
-    <!-- plugins JS
-		============================================ -->
-    <script src="cjs/plugins.js"></script>
-    <!--  Chat JS
-		============================================ -->
-    <script src="cjs/chat/moment.min.js"></script>
-    <script src="cjs/chat/jquery.chat.js"></script>
-    <!-- main JS
-		============================================ -->
-    <script src="cjs/main.js"></script>
 
     <script type="text/javascript" src="../js/controller/clientescontroller.js"></script>
 
