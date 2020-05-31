@@ -45,39 +45,39 @@ function readArtigo(req, res) {
     console.log('ler');
 
     var codigo_artigo = req.params.codigo_artigo;
-    
+
     jasmincontroller.get_token()
-    .then ((body) => {
-        var r = JSON.parse(body);
-        var access_token = r.access_token;
-        console.log ('Token Jasmin');
+        .then((body) => {
+            var r = JSON.parse(body);
+            var access_token = r.access_token;
+            console.log('Token Jasmin');
 
-        rp.get({
-            "headers": {
-                "Content-Type": "application/json",
-                "Authorization": "Bearer " + access_token 
-            },
-            "url": "https://my.jasminsoftware.com/api/233421/233421-0001/salescore/salesitems/" + codigo_artigo
-            
-        })
-        .then( (body)=> {
-            console.log("getartigos");
-            //console.log(body);
+            rp.get({
+                    "headers": {
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer " + access_token
+                    },
+                    "url": "https://my.jasminsoftware.com/api/233421/233421-0001/salescore/salesitems/" + codigo_artigo
 
-            var artigos = [JSON.parse (body)];
+                })
+                .then((body) => {
+                    console.log("getartigos");
+                    //console.log(body);
 
-            console.log (artigos);
-            //console.log (artigos[12].brand);
+                    var artigos = [JSON.parse(body)];
 
-         //  console.log (artigos);
+                    console.log(artigos);
+                    //console.log (artigos[12].brand);
 
-         res.status(200).send(filtrarArtigos(artigos));     
-        })
-        .catch((t)=> {
-            console.log ("errror");
-            console.log (t);
-            });
-    
+                    //  console.log (artigos);
+
+                    res.status(200).send(filtrarArtigos(artigos));
+                })
+                .catch((t) => {
+                    console.log("errror");
+                    console.log(t);
+                });
+
 
         });
 }
@@ -128,7 +128,7 @@ function filtrarArtigos(artigos) {
                 imagem: artigo.image,
                 preco: artigo.priceListLines.length > 0 ? artigo.priceListLines[0].priceAmount.amount : 0,
                 moeda: artigo.priceListLines.length > 0 ? artigo.priceListLines[0].priceAmount.symbol : "",
-                lineID:artigo.priceListLines.length>0?artigo.priceListLines[0].id:"",
+                lineID: artigo.priceListLines.length > 0 ? artigo.priceListLines[0].id : "",
                 //unidade:artigo.priceListLines[0].unit,
                 marca: artigo.brand,
                 modelo: artigo.brandModel
@@ -557,221 +557,215 @@ function desativarArtigo(req, res) {
         });
 }
 
-function alterarNome(req,res){
+function alterarNome(req, res) {
     var codigo_artigo = req.params.codigo_artigo;
-    
+
     var form = req.body.nome;
-    
-    
+
+
 
     jasmincontroller.get_token()
-    .then ((body) => {
-        var r = JSON.parse(body);
-        var access_token = r.access_token;
-        var formData = JSON.stringify(form);
-        
-        console.log ('formData');
-        console.log (formData);
+        .then((body) => {
+            var r = JSON.parse(body);
+            var access_token = r.access_token;
+            var formData = JSON.stringify(form);
 
-        rp.put({
-            "headers": {
-                "Content-Type": "application/json",
-                "Authorization": "Bearer " + access_token 
-            },
-            "url": "https://my.jasminsoftware.com/api/233421/233421-0001/businessCore/items/" + codigo_artigo + "/description",
-            "body": formData
-        })
-        .then((body)=> {
-           console.log(JSON.stringify(form));          
-            res.status(200).send({resposta:"OK"});
-                 
-        })
-        .catch((t)=> {
-            console.log ("errror");
-            console.log (t);
-            });
-    
+            console.log('formData');
+            console.log(formData);
+
+            rp.put({
+                    "headers": {
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer " + access_token
+                    },
+                    "url": "https://my.jasminsoftware.com/api/233421/233421-0001/businessCore/items/" + codigo_artigo + "/description",
+                    "body": formData
+                })
+                .then((body) => {
+                    console.log(JSON.stringify(form));
+                    res.status(200).send({ resposta: "OK" });
+
+                })
+                .catch((t) => {
+                    console.log("errror");
+                    console.log(t);
+                });
+
 
         });
 }
 
-function alterarDescricao(req,res){
+function alterarDescricao(req, res) {
     var codigo_artigo = req.params.codigo_artigo;
-    
+
     var form = req.body.descricao_completa;
-    
-    
+
+
 
     jasmincontroller.get_token()
-    .then ((body) => {
-        var r = JSON.parse(body);
-        var access_token = r.access_token;
-        var formData = JSON.stringify(form);
-        
-        console.log ('formData');
-        console.log (formData);
+        .then((body) => {
+            var r = JSON.parse(body);
+            var access_token = r.access_token;
+            var formData = JSON.stringify(form);
 
-        rp.put({
-            "headers": {
-                "Content-Type": "application/json",
-                "Authorization": "Bearer " + access_token 
-            },
-            "url": "https://my.jasminsoftware.com/api/233421/233421-0001/businessCore/items/" + codigo_artigo + "/complementaryDescription",
-            "body": formData
-        })
-        .then( (body)=> {
-           console.log(JSON.stringify(form));
-           console.log("Descricao Alterada");          
-            res.status(200).send({resposta:"OK"});
-                 
-        })
-        .catch((t)=> {
-            console.log ("errror");
-            console.log (t);
-            });
-    
+            console.log('formData');
+            console.log(formData);
+
+            rp.put({
+                    "headers": {
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer " + access_token
+                    },
+                    "url": "https://my.jasminsoftware.com/api/233421/233421-0001/businessCore/items/" + codigo_artigo + "/complementaryDescription",
+                    "body": formData
+                })
+                .then((body) => {
+                    console.log(JSON.stringify(form));
+                    console.log("Descricao Alterada");
+                    res.status(200).send({ resposta: "OK" });
+
+                })
+                .catch((t) => {
+                    console.log("errror");
+                    console.log(t);
+                });
+
 
         });
 }
 
-function alterarPreco(req,res){
-    
+function alterarPreco(req, res) {
+
     var codigo_artigo = req.params.codigo_artigo;
     var lineID = req.params.lineID;
-    
+
     var form = req.body.preco;
 
-    
+
     console.log("lineID: " + lineID);
 
     jasmincontroller.get_token()
-    .then ((body) => {
-        var r = JSON.parse(body);
-        var access_token = r.access_token;
-        var formData = JSON.stringify(form);
-        
-        console.log ('formData');
-        console.log (formData);
+        .then((body) => {
+            var r = JSON.parse(body);
+            var access_token = r.access_token;
+            var formData = JSON.stringify(form);
 
-        rp.put({
-            "headers": {
-                "Content-Type": "application/json",
-                "Authorization": "Bearer " + access_token 
-            },
-            "url": "https://my.jasminsoftware.com/api/233421/233421-0001/salesCore/salesItems/" + codigo_artigo + "/priceListLines/" + lineID +"/priceAmount",
-            "body": formData
-        })
-        .then( (body)=> {
-           console.log(JSON.stringify(form));
-           console.log("PREÇO ALTERADO");          
-            res.status(200).send({resposta:"OK"});
-                 
-        })
-        .catch((t)=> {
-            console.log ("errror");
-            console.log (t);
-            });
-    
+            console.log('formData');
+            console.log(formData);
+
+            rp.put({
+                    "headers": {
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer " + access_token
+                    },
+                    "url": "https://my.jasminsoftware.com/api/233421/233421-0001/salesCore/salesItems/" + codigo_artigo + "/priceListLines/" + lineID + "/priceAmount",
+                    "body": formData
+                })
+                .then((body) => {
+                    console.log(JSON.stringify(form));
+                    console.log("PREÇO ALTERADO");
+                    res.status(200).send({ resposta: "OK" });
+
+                })
+                .catch((t) => {
+                    console.log("errror");
+                    console.log(t);
+                });
+
 
         });
 }
 
-function editarStockLisboa(req,res){
-        
+function editarStockLisboa(req, res) {
+
     var form = {
-        
+
         "warehouse": "LISBOA",
         "adjustmentReason": req.body.ajuste_lisboa,
         "company": "VC",
-        "documentLines":
-        [
-            {
-                "materialsItem": req.body.codigo_artigo,
-                "quantity": req.body.diferenca_lisboa,
-                "unitPrice": {"amount":req.body.preco} 
-            }
-        ]
-    };   
+        "documentLines": [{
+            "materialsItem": req.body.codigo_artigo,
+            "quantity": req.body.diferenca_lisboa,
+            "unitPrice": { "amount": req.body.preco }
+        }]
+    };
 
-    
+
     jasmincontroller.get_token()
-       .then ((body) => {
-           var r = JSON.parse(body);
-           var access_token = r.access_token;
-           console.log("save artigos TOKEN");
-           console.log(form);
-         var formData = JSON.stringify(form);
-         var content_length = formData.length;
-           rp.post({
-               "headers": {
-                   "Content-Length" : content_length,
-                   "Content-Type" : "application/json",
-                   "Authorization" : "Bearer " + access_token
-               },
-               "url": "https://my.jasminsoftware.com/api/233421/233421-0001/materialsmanagement/itemAdjustments",
-               "body": formData
-           }).then((body) => {
-             //  console.log(JSON.stringify(body));
-               res.status(200).send({resposta:"OK"});
+        .then((body) => {
+            var r = JSON.parse(body);
+            var access_token = r.access_token;
+            console.log("save artigos TOKEN");
+            console.log(form);
+            var formData = JSON.stringify(form);
+            var content_length = formData.length;
+            rp.post({
+                "headers": {
+                    "Content-Length": content_length,
+                    "Content-Type": "application/json",
+                    "Authorization": "Bearer " + access_token
+                },
+                "url": "https://my.jasminsoftware.com/api/233421/233421-0001/materialsmanagement/itemAdjustments",
+                "body": formData
+            }).then((body) => {
+                //  console.log(JSON.stringify(body));
+                res.status(200).send({ resposta: "OK" });
 
-           }).catch((t) =>{
-            console.log("error");
-            console.log (t);
-           });
-                 
-       })
+            }).catch((t) => {
+                console.log("error");
+                console.log(t);
+            });
+
+        })
 }
 
-function editarStockPorto(req,res){
-        
+function editarStockPorto(req, res) {
+
     var form = {
-        
+
         "warehouse": "PORTO",
         "adjustmentReason": req.body.ajuste_porto,
         "company": "VC",
-        "documentLines":
-        [
-            {
-                "materialsItem": req.body.codigo_artigo,
-                "quantity": req.body.diferenca_porto,
-                 "unitPrice": {"amount": req.body.preco} 
-            }
-        ]
-    };   
+        "documentLines": [{
+            "materialsItem": req.body.codigo_artigo,
+            "quantity": req.body.diferenca_porto,
+            "unitPrice": { "amount": req.body.preco }
+        }]
+    };
 
-    
+
     jasmincontroller.get_token()
-       .then ((body) => {
-           var r = JSON.parse(body);
-           var access_token = r.access_token;
-           console.log("save artigos TOKEN");
-           console.log(form);
-         var formData = JSON.stringify(form);
-         var content_length = formData.length;
-           rp.post({
-               "headers": {
-                   "Content-Length" : content_length,
-                   "Content-Type" : "application/json",
-                   "Authorization" : "Bearer " + access_token
-               },
-               "url": "https://my.jasminsoftware.com/api/233421/233421-0001/materialsmanagement/itemAdjustments",
-               "body": formData
-           }).then((body) => {
-             //  console.log(JSON.stringify(body));
-               res.status(200).send({resposta:"OK"});
+        .then((body) => {
+            var r = JSON.parse(body);
+            var access_token = r.access_token;
+            console.log("save artigos TOKEN");
+            console.log(form);
+            var formData = JSON.stringify(form);
+            var content_length = formData.length;
+            rp.post({
+                "headers": {
+                    "Content-Length": content_length,
+                    "Content-Type": "application/json",
+                    "Authorization": "Bearer " + access_token
+                },
+                "url": "https://my.jasminsoftware.com/api/233421/233421-0001/materialsmanagement/itemAdjustments",
+                "body": formData
+            }).then((body) => {
+                //  console.log(JSON.stringify(body));
+                res.status(200).send({ resposta: "OK" });
 
-           }).catch((t) =>{
-            console.log("error");
-            console.log (t);
-           });
-                 
-       })
+            }).catch((t) => {
+                console.log("error");
+                console.log(t);
+            });
+
+        })
 }
 
 
 module.exports = {
     read: read,
-    readArtigo:readArtigo,
+    readArtigo: readArtigo,
     readInventarioArtigo: readInventarioArtigo,
     saveArtigo: saveArtigo,
     getMarcas: getMarcas,
@@ -782,9 +776,9 @@ module.exports = {
     StockInicialLisboa: StockInicialLisboa,
     uploadImagem: uploadImagem,
     desativarArtigo: desativarArtigo,
-    alterarNome:alterarNome,
-    alterarDescricao:alterarDescricao, 
-    alterarPreco:alterarPreco,
-    editarStockLisboa:editarStockLisboa,
-    editarStockPorto:editarStockPorto
+    alterarNome: alterarNome,
+    alterarDescricao: alterarDescricao,
+    alterarPreco: alterarPreco,
+    editarStockLisboa: editarStockLisboa,
+    editarStockPorto: editarStockPorto
 };

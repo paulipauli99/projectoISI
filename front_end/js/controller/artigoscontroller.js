@@ -35,6 +35,9 @@ function tabela_artigos(artigos) {
     txt += '<th>Marca</th>';
     txt += '<th>Modelo</th>';
     txt += '<th align="right">Preço</th>';
+    txt += '<th></th>';
+    txt += '<th></th>';
+    txt += '<th></th>';
     txt += '</tr>';
     txt += '</thead>';
     txt += '<tbody>';
@@ -48,7 +51,7 @@ function tabela_artigos(artigos) {
         txt += "<td  align='center' nowrap>" + artigo.preco + " " + artigo.moeda + "</td>";
         txt += "<td> <button type='button' class='btn btn-outline-info' onClick='abre_artigo(\"" + artigo.codigo_artigo + "\")'> detalhes </button></td>";
         txt += "<td> <button type='button' class='btn btn-outline-danger' onClick='eliminarArtigo(\"" + artigo.codigo_artigo + "\")'> apagar </button></td>";
-        txt += "<td> <button type='button' class='btn btn-outline-warning' onClick='editarArtigo(\"" + artigo.codigo_artigo + "\",\""+ artigo.lineID + "\")'> Editar </button></td>";
+        txt += "<td> <button type='button' class='btn btn-outline-warning' onClick='editarArtigo(\"" + artigo.codigo_artigo + "\",\"" + artigo.lineID + "\")'> Editar </button></td>";
         txt += "</tr>";
     }
     txt += "</tbody></table>";
@@ -86,7 +89,7 @@ function abre_artigo(codigo_artigo) {
 
             const artigo_inventario = procura_artigo(codigo_artigo);
 
-        /*    txt += "<p>Preço: " + artigo_inventario.preco + artigo_inventario.moeda + "</p>";
+            /*    txt += "<p>Preço: " + artigo_inventario.preco + artigo_inventario.moeda + "</p>";
             txt += '<table  class="table table-hover table-striped">';
             txt += '<thead>';
             txt += '<tr>';
@@ -104,11 +107,11 @@ function abre_artigo(codigo_artigo) {
             txt += '</tbody>';
             txt += '</table>';
 */
-for (const armazem of artigo.armazens) { 
-    txt += "<p>" + armazem.nome_armazem + "</p>";
-    txt += "<p>" + armazem.quantidade + "</p>"; 
+            for (const armazem of artigo.armazens) {
+                txt += "<p>" + armazem.nome_armazem + "</p>";
+                txt += "<p>" + armazem.quantidade + "</p>";
 
-}
+            }
 
 
             //console.log (artigo_inventario);
@@ -136,8 +139,3 @@ function eliminarArtigo(codigo_artigo) {
 
 
 }
-
-
-
-
-    

@@ -90,16 +90,14 @@ function login(req, res) {
         for (i = 0; i < y.length; i++) {
             if (y[i].email == emaill && y[i].password == passs) {
                 if (y[i].admin == "s") {
-                    console.log("login sucesso admin");
                     req.session.userId = y[i].hs_object_id;
                     req.session.admin = "s";
-                    console.log(req.session);
+                    console.log("login sucesso admin - " + req.session.userId);
                     return res.redirect('/tabelacliente.html');
                 } else {
-                    console.log("login sucesso cliente");
                     req.session.userId = y[i].hs_object_id;
                     req.session.admin = "n";
-                    console.log(req.session);
+                    console.log("login sucesso cliente - " + req.session.userId);
                     return res.redirect('/services.html');
                 }
             } else {
@@ -136,7 +134,36 @@ function apagarCliente(req, res) {
         console.log("Apagado com sucesso");
         res.redirect('/tableclientes.html');
     });
+}
 
+function editAdmin(req, res) {
+    req.session.editID = req.body.editarID;
+    console.log(req.session);
+    res.redirect('/editarcliente.html');
+}
+
+function consultarCliente(req, res) {
+    if (req.session.admin == "s") {
+        var contactId = req.session.editID;
+    } else {
+        var contactId = req.session.userId;
+    }
+    var options = {
+        method: 'GET',
+        url: 'https://api.hubapi.com/crm/v3/objects/contacts/' + contactId,
+        qs: {
+            properties: 'nome,telemovel,email,rua,localidade,concelho,distrito,codigo_postal,password,hs_object_id',
+            archived: 'false',
+            hapikey: '1816e278-334f-4911-b0e1-2f6f3898c900'
+        },
+        headers: { accept: 'application/json' }
+    };
+
+    require(options, function(error, response, body) {
+        if (error) throw new Error(error);
+        var x = JSON.parse(body).properties;
+        res.send(x);
+    });
 }
 
 function editarPerfil(req, res) {
@@ -180,37 +207,13 @@ function editarPerfil(req, res) {
         if (error) throw new Error(error);
         console.log("user " + contactId + " editado")
     });
-    res.redirect('/services.html');
-}
 
-function consultarCliente(req, res) {
     if (req.session.admin == "s") {
-        var contactId = req.session.editID;
+        delete req.session.editID;
+        res.redirect('/tabelacliente.html');
     } else {
-        var contactId = req.session.userId;
+        res.redirect('/services.html');
     }
-    var options = {
-        method: 'GET',
-        url: 'https://api.hubapi.com/crm/v3/objects/contacts/' + contactId,
-        qs: {
-            properties: 'nome,telemovel,email,rua,localidade,concelho,distrito,codigo_postal,password,hs_object_id',
-            archived: 'false',
-            hapikey: '1816e278-334f-4911-b0e1-2f6f3898c900'
-        },
-        headers: { accept: 'application/json' }
-    };
-
-    require(options, function(error, response, body) {
-        if (error) throw new Error(error);
-        var x = JSON.parse(body).properties;
-        res.send(x);
-    });
-}
-
-function editAdmin(req, res) {
-    req.session.editID = req.body.editarID;
-    console.log(req.session);
-    res.redirect('/editarcliente.html');
 }
 
 function sessionCheck(req, res) {
