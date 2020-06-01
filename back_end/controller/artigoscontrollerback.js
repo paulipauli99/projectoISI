@@ -36,7 +36,7 @@ function read(req, res) {
                 })
                 .catch((t) => {
                     console.log("errror");
-                    console.log(t);
+                    //console.log(t);
                 });
         });
 }
@@ -75,7 +75,7 @@ function readArtigo(req, res) {
                 })
                 .catch((t) => {
                     console.log("errror");
-                    console.log(t);
+                    //console.log(t);
                 });
 
 
@@ -110,7 +110,7 @@ function readInventarioArtigo(req, res) {
                 })
                 .catch((t) => {
                     console.log("errror");
-                    console.log(t);
+                    //console.log(t);
                 });
 
 
@@ -214,7 +214,7 @@ function saveArtigo(req, res) {
 
             }).catch((t) => {
                 console.log("error");
-                console.log(t);
+                //console.log(t);
             });
 
         })
@@ -248,7 +248,7 @@ function getMarcas(req, res) {
                 })
                 .catch((t) => {
                     console.log("errror");
-                    console.log(t);
+                    //console.log(t);
                 });
 
 
@@ -295,7 +295,7 @@ function getModelos(req, res) {
                 })
                 .catch((t) => {
                     console.log("errror");
-                    console.log(t);
+                    //console.log(t);
                 });
 
 
@@ -364,7 +364,7 @@ function createSaleItem(req, res) {
 
             }).catch((t) => {
                 //console.log("error");
-                //console.log(t);
+                ////console.log(t);
             });
 
         })
@@ -403,7 +403,7 @@ function createMaterialItem(req, res) {
 
             }).catch((t) => {
                 console.log("error");
-                console.log(t);
+                //console.log(t);
             });
 
         })
@@ -448,7 +448,7 @@ function StockInicialPorto(req, res) {
 
             }).catch((t) => {
                 console.log("error");
-                console.log(t);
+                //console.log(t);
             });
 
         })
@@ -494,7 +494,7 @@ function StockInicialLisboa(req, res) {
 
             }).catch((t) => {
                 console.log("error");
-                console.log(t);
+                //console.log(t);
             });
 
         })
@@ -550,7 +550,7 @@ function desativarArtigo(req, res) {
                 })
                 .catch((t) => {
                     console.log("errror");
-                    console.log(t);
+                    //console.log(t);
                 });
 
 
@@ -571,7 +571,7 @@ function alterarNome(req, res) {
             var formData = JSON.stringify(form);
 
             console.log('formData');
-            console.log(formData);
+            //console.log(formData);
 
             rp.put({
                     "headers": {
@@ -588,7 +588,7 @@ function alterarNome(req, res) {
                 })
                 .catch((t) => {
                     console.log("errror");
-                    console.log(t);
+                    //console.log(t);
                 });
 
 
@@ -609,7 +609,7 @@ function alterarDescricao(req, res) {
             var formData = JSON.stringify(form);
 
             console.log('formData');
-            console.log(formData);
+            //console.log(formData);
 
             rp.put({
                     "headers": {
@@ -620,14 +620,14 @@ function alterarDescricao(req, res) {
                     "body": formData
                 })
                 .then((body) => {
-                    console.log(JSON.stringify(form));
+                    //console.log(JSON.stringify(form));
                     console.log("Descricao Alterada");
                     res.status(200).send({ resposta: "OK" });
 
                 })
                 .catch((t) => {
                     console.log("errror");
-                    console.log(t);
+                    //console.log(t);
                 });
 
 
@@ -651,7 +651,7 @@ function alterarPreco(req, res) {
             var formData = JSON.stringify(form);
 
             console.log('formData');
-            console.log(formData);
+            //console.log(formData);
 
             rp.put({
                     "headers": {
@@ -662,14 +662,14 @@ function alterarPreco(req, res) {
                     "body": formData
                 })
                 .then((body) => {
-                    console.log(JSON.stringify(form));
+                    //console.log(JSON.stringify(form));
                     console.log("PREÇO ALTERADO");
                     res.status(200).send({ resposta: "OK" });
 
                 })
                 .catch((t) => {
                     console.log("errror");
-                    console.log(t);
+                    //console.log(t);
                 });
 
 
@@ -696,7 +696,7 @@ function editarStockLisboa(req, res) {
             var r = JSON.parse(body);
             var access_token = r.access_token;
             console.log("save artigos TOKEN");
-            console.log(form);
+            //console.log(form);
             var formData = JSON.stringify(form);
             var content_length = formData.length;
             rp.post({
@@ -708,12 +708,12 @@ function editarStockLisboa(req, res) {
                 "url": "https://my.jasminsoftware.com/api/233421/233421-0001/materialsmanagement/itemAdjustments",
                 "body": formData
             }).then((body) => {
-                //  console.log(JSON.stringify(body));
+                //console.log(JSON.stringify(body));
                 res.status(200).send({ resposta: "OK" });
 
             }).catch((t) => {
                 console.log("error");
-                console.log(t);
+                //console.log(t);
             });
 
         })
@@ -739,7 +739,7 @@ function editarStockPorto(req, res) {
             var r = JSON.parse(body);
             var access_token = r.access_token;
             console.log("save artigos TOKEN");
-            console.log(form);
+            //console.log(form);
             var formData = JSON.stringify(form);
             var content_length = formData.length;
             rp.post({
@@ -756,7 +756,7 @@ function editarStockPorto(req, res) {
 
             }).catch((t) => {
                 console.log("error");
-                console.log(t);
+                //console.log(t);
             });
 
         })

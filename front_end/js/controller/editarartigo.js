@@ -90,11 +90,11 @@ function preencherStocks() {
             console.log(response);
 
 
-            document.getElementById("stock_lisboa_editar").value = response.armazens[0].quantidade;
-            document.getElementById("stock_porto_editar").value = response.armazens[1].quantidade;
+            document.getElementById("stock_lisboa_editar").placeholder = response.armazens[0].quantidade;
+            document.getElementById("stock_porto_editar").placeholder = response.armazens[1].quantidade;
 
-            document.getElementById("stock_lisboa_atual_editar").value = response.armazens[0].quantidade;
-            document.getElementById("stock_porto_atual_editar").value = response.armazens[1].quantidade;
+            //document.getElementById("stock_lisboa_atual_editar").value = response.armazens[0].quantidade;
+            //document.getElementById("stock_porto_atual_editar").value = response.armazens[1].quantidade;
         }
     )
 }
@@ -112,8 +112,8 @@ function editarArtigos() {
         stock_porto: document.getElementById("stock_porto_editar").value,
         stock_lisboa: document.getElementById("stock_lisboa_editar").value,
 
-        stock_porto_atual: document.getElementById("stock_porto_atual_editar").value,
-        stock_lisboa_atual: document.getElementById("stock_lisboa_atual_editar").value,
+        stock_porto_atual: document.getElementById("stock_porto_editar").placeholder,
+        stock_lisboa_atual: document.getElementById("stock_lisboa_editar").placeholder,
 
         ajuste_porto: ajuste_porto,
         ajuste_lisboa: ajuste_lisboa,

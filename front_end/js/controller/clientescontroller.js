@@ -47,8 +47,8 @@ function tabela_clientes(clientes) {
             txt += "<td>" + cliente.distrito + "</td>";
             txt += "<td>" + cliente.codigo_postal + "</td>";
 
-            txt += "<td> <form action='/editarAdmin' method='post'> <input type='hidden' id='editarID' name='editarID' value=" + idCliente + "></input> <button>Editar</button> </form> </td>";
-            txt += "<td> <form action='/apagarCliente' method='post'> <input type='hidden' id='apagarID' name='apagarID' value=" + idCliente + "></input> <button>Apagar</button> </form> </td>";
+            txt += "<td> <form action='/editarAdmin' method='post'> <input type='hidden' id='editarID' name='editarID' value=" + idCliente + "></input> <button class='btn btn-outline-dark'>Editar</button> </form> </td>";
+            txt += "<td> <form action='/apagarCliente' method='post'> <input type='hidden' id='apagarID' name='apagarID' value=" + idCliente + "></input> <button class='btn btn-outline-danger'>Apagar</button> </form> </td>";
             txt += "</tr>";
         }
     }

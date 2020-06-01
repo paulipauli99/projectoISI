@@ -49,9 +49,9 @@ function tabela_artigos(artigos) {
         txt += "<td>" + artigo.marca + "</td>"; //cod_turno
         txt += "<td>" + artigo.modelo + "</td>";
         txt += "<td  align='center' nowrap>" + artigo.preco + " " + artigo.moeda + "</td>";
-        txt += "<td> <button type='button' class='btn btn-outline-info' onClick='abre_artigo(\"" + artigo.codigo_artigo + "\")'> detalhes </button></td>";
-        txt += "<td> <button type='button' class='btn btn-outline-danger' onClick='eliminarArtigo(\"" + artigo.codigo_artigo + "\")'> apagar </button></td>";
-        txt += "<td> <button type='button' class='btn btn-outline-warning' onClick='editarArtigo(\"" + artigo.codigo_artigo + "\",\"" + artigo.lineID + "\")'> Editar </button></td>";
+        txt += "<td> <button type='button' class='btn btn-outline-info' onClick='abre_artigo(\"" + artigo.codigo_artigo + "\")'> Detalhes </button></td>";
+        txt += "<td> <button type='button' class='btn btn-outline-dark' onClick='editarArtigo(\"" + artigo.codigo_artigo + "\",\"" + artigo.lineID + "\")'> Editar </button></td>";
+        txt += "<td> <button type='button' class='btn btn-outline-danger' onClick='eliminarArtigo(\"" + artigo.codigo_artigo + "\")'> Apagar </button></td>";
         txt += "</tr>";
     }
     txt += "</tbody></table>";
@@ -135,6 +135,7 @@ function eliminarArtigo(codigo_artigo) {
             procura_artigo(codigo_artigo);
             console.log("artigoeliminado");
             listaArtigos();
+            window.location.reload();
         })
 
 
