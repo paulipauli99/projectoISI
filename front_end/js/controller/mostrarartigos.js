@@ -72,7 +72,7 @@ function mostrarArtigos(artigos) {
         txt += "</div>";
         txt += "<div class='card-action'>";
         txt += "<p class='d-flex mb-0 d-block'>";
-        txt += " <a><button type='button' align='center' class='btn btn-info btn-lg' data-toggle='modal' data-target='#myModal'>Comprar</button></a>";
+        txt += " <a><button href='form-compra.html' type='button' align='center' class='btn btn-info btn-lg' data-toggle='modal' data-target='#myModal'>Comprar</button></a>";
         //   txt += "<a href='car-single.html' class='btn btn-secondary py-2 ml-1'>Detalhes</a>
         txt += "</p>";
         txt += "</div>";
