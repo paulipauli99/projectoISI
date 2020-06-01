@@ -571,7 +571,7 @@ function alterarNome(req, res) {
             var formData = JSON.stringify(form);
 
             console.log('formData');
-            console.log(formData);
+            //console.log(formData);
 
             rp.put({
                     "headers": {
@@ -609,7 +609,7 @@ function alterarDescricao(req, res) {
             var formData = JSON.stringify(form);
 
             console.log('formData');
-            console.log(formData);
+            //console.log(formData);
 
             rp.put({
                     "headers": {
@@ -620,7 +620,7 @@ function alterarDescricao(req, res) {
                     "body": formData
                 })
                 .then((body) => {
-                    console.log(JSON.stringify(form));
+                    //console.log(JSON.stringify(form));
                     console.log("Descricao Alterada");
                     res.status(200).send({ resposta: "OK" });
 
@@ -651,7 +651,7 @@ function alterarPreco(req, res) {
             var formData = JSON.stringify(form);
 
             console.log('formData');
-            console.log(formData);
+            //console.log(formData);
 
             rp.put({
                     "headers": {
@@ -662,7 +662,7 @@ function alterarPreco(req, res) {
                     "body": formData
                 })
                 .then((body) => {
-                    console.log(JSON.stringify(form));
+                    //console.log(JSON.stringify(form));
                     console.log("PREÇO ALTERADO");
                     res.status(200).send({ resposta: "OK" });
 
@@ -696,7 +696,7 @@ function editarStockLisboa(req, res) {
             var r = JSON.parse(body);
             var access_token = r.access_token;
             console.log("save artigos TOKEN");
-            console.log(form);
+            //console.log(form);
             var formData = JSON.stringify(form);
             var content_length = formData.length;
             rp.post({
@@ -708,7 +708,7 @@ function editarStockLisboa(req, res) {
                 "url": "https://my.jasminsoftware.com/api/233421/233421-0001/materialsmanagement/itemAdjustments",
                 "body": formData
             }).then((body) => {
-                //  console.log(JSON.stringify(body));
+                //console.log(JSON.stringify(body));
                 res.status(200).send({ resposta: "OK" });
 
             }).catch((t) => {
@@ -739,7 +739,7 @@ function editarStockPorto(req, res) {
             var r = JSON.parse(body);
             var access_token = r.access_token;
             console.log("save artigos TOKEN");
-            console.log(form);
+            //console.log(form);
             var formData = JSON.stringify(form);
             var content_length = formData.length;
             rp.post({

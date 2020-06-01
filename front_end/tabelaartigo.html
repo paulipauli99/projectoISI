@@ -80,7 +80,7 @@
 
 
 
-            <a class="navbar-brand" href="services.html">Virtual<span>Car</span></a>
+            <a class="navbar-brand" href="">Virtual<span>Car</span></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="oi oi-menu"></span> Menu
             </button>
@@ -125,8 +125,8 @@
 
             <!--FORM REGISTAR ARTIGO-->
             <div class="modal-content">
-        
-                <form class="validate-form flex-sb flex-w"  id="registo_artigo" name="registo_artigo" action="dashboard.html" method="POST" enctype="multipart/form-data">
+
+                <form class="validate-form flex-sb flex-w" id="registo_artigo" name="registo_artigo" action="dashboard.html" method="POST" enctype="multipart/form-data">
                     <div class="modal-header text-center">
                         <h4 class="modal-title w-100 font-weight-bold">Registar Artigo</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -138,7 +138,7 @@
                         <div class="md-form mb-5">
                             <i class="fas fa-user prefix grey-text"></i>
                             <label data-error="wrong" data-success="right" for="codigo">Código</label>
-                            <input type="text"  id="codigo_artigo" name="codigo_artigo" class="form-control validate">
+                            <input type="text" id="codigo_artigo" name="codigo_artigo" class="form-control validate">
 
                         </div>
 
@@ -281,16 +281,14 @@
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <label class="input-group-text" for="inputGroupSelect01">Porto</label>
-                                <input type="text" class="form-control" id="stock_porto_editar" name="stock_porto_editar" placeholder="0">
-                                <input type="text" class="form-control" id="stock_porto_atual_editar" name="stock_porto_atual_editar" readonly>
+                                <input type="text" class="form-control" id="stock_porto_editar" name="stock_porto_editar">
                             </div>
                         </div>
 
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <label class="input-group-text" for="inputGroupSelect01">Lisboa</label>
-                                <input type="text" class="form-control" id="stock_lisboa_editar" name="stock_lisboa_editar" placeholder="0">
-                                <input type="text" class="form-control" id="stock_lisboa_atual_editar" name="stock_lisboa_atual_editar" readonly>
+                                <input type="text" class="form-control" id="stock_lisboa_editar" name="stock_lisboa_editar">
                             </div>
                         </div>
                     </div>
@@ -305,20 +303,7 @@
 
     <div class="container">
         <div id="lista_artigos" class="content table-responsive text-center">
-            <table class="table table-hover table-striped">
-                <thead>
-                    <th>Código Artigo</th>
-                    <th>Nome</th>
-                    <th>Descrição</th>
-                    <th>Marca</th>
-                    <th>Modelo</th>
-                    <th>Preço</th>
-                </thead>
-
-                <tbody>
-
-                </tbody>
-            </table>
+            <table class="table table-hover table-striped"></table>
         </div>
     </div>
 
