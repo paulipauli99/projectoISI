@@ -36,7 +36,7 @@ function read(req, res) {
                 })
                 .catch((t) => {
                     console.log("errror");
-                    console.log(t);
+                    //console.log(t);
                 });
         });
 }
@@ -75,7 +75,7 @@ function readArtigo(req, res) {
                 })
                 .catch((t) => {
                     console.log("errror");
-                    console.log(t);
+                    //console.log(t);
                 });
 
 
@@ -110,7 +110,7 @@ function readInventarioArtigo(req, res) {
                 })
                 .catch((t) => {
                     console.log("errror");
-                    console.log(t);
+                    //console.log(t);
                 });
 
 
@@ -214,7 +214,7 @@ function saveArtigo(req, res) {
 
             }).catch((t) => {
                 console.log("error");
-                console.log(t);
+                //console.log(t);
             });
 
         })
@@ -248,7 +248,7 @@ function getMarcas(req, res) {
                 })
                 .catch((t) => {
                     console.log("errror");
-                    console.log(t);
+                    //console.log(t);
                 });
 
 
@@ -295,7 +295,7 @@ function getModelos(req, res) {
                 })
                 .catch((t) => {
                     console.log("errror");
-                    console.log(t);
+                    //console.log(t);
                 });
 
 
@@ -364,7 +364,7 @@ function createSaleItem(req, res) {
 
             }).catch((t) => {
                 //console.log("error");
-                //console.log(t);
+                ////console.log(t);
             });
 
         })
@@ -403,7 +403,7 @@ function createMaterialItem(req, res) {
 
             }).catch((t) => {
                 console.log("error");
-                console.log(t);
+                //console.log(t);
             });
 
         })
@@ -448,7 +448,7 @@ function StockInicialPorto(req, res) {
 
             }).catch((t) => {
                 console.log("error");
-                console.log(t);
+                //console.log(t);
             });
 
         })
@@ -494,7 +494,7 @@ function StockInicialLisboa(req, res) {
 
             }).catch((t) => {
                 console.log("error");
-                console.log(t);
+                //console.log(t);
             });
 
         })
@@ -550,7 +550,7 @@ function desativarArtigo(req, res) {
                 })
                 .catch((t) => {
                     console.log("errror");
-                    console.log(t);
+                    //console.log(t);
                 });
 
 
@@ -588,7 +588,7 @@ function alterarNome(req, res) {
                 })
                 .catch((t) => {
                     console.log("errror");
-                    console.log(t);
+                    //console.log(t);
                 });
 
 
@@ -627,7 +627,7 @@ function alterarDescricao(req, res) {
                 })
                 .catch((t) => {
                     console.log("errror");
-                    console.log(t);
+                    //console.log(t);
                 });
 
 
@@ -669,7 +669,7 @@ function alterarPreco(req, res) {
                 })
                 .catch((t) => {
                     console.log("errror");
-                    console.log(t);
+                    //console.log(t);
                 });
 
 
@@ -713,7 +713,7 @@ function editarStockLisboa(req, res) {
 
             }).catch((t) => {
                 console.log("error");
-                console.log(t);
+                //console.log(t);
             });
 
         })
@@ -756,7 +756,7 @@ function editarStockPorto(req, res) {
 
             }).catch((t) => {
                 console.log("error");
-                console.log(t);
+                //console.log(t);
             });
 
         })
