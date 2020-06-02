@@ -53,21 +53,16 @@
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
         <div class="container">
             <a class="navbar-brand" href="services.html">Virtual<span>Car</span></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
-                aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="oi oi-menu"></span> Menu
             </button>
 
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav ml-auto">
-                    <!--  <li class="nav-item active"><a href="index.html" class="nav-link">Pagina Inicial</a></li> -->
-                    <!-- <li class="nav-item"><a href="about.html" class="nav-link">Sobre Nós</a></li> -->
-                    <li class="nav-item active"><a href="services.html" class="nav-link">Armazéns</a></li>
+                    <li class="nav-item"><a href="services.html" class="nav-link">Armazéns</a></li>
                     <li class="nav-item"><a href="editarperfil.html" class="nav-link">Editar Perfil</a></li>
-                    <!--CRIAR PAGINA PARA EDITAR DADOS DO CLIENTE -->
-                    <li class="nav-item"><a href="car.html" class="nav-link">Automóveis</a></li>
-                    <!--  <li class="nav-item"><a href="contact.html" class="nav-link">Contactos</a></li>-->
-                    <li class="nav-item"><a href="/logout" class="nav-link">LogOut</a></li>
+                    <li class="nav-item active"><a href="car.html" class="nav-link">Automóveis</a></li>
+                    <li class="nav-item"><a href="/logout" class="nav-link">Logout</a></li>
                 </ul>
             </div>
         </div>
@@ -77,79 +72,56 @@
 
     <div class="limiter">
         <div class="container-login100">
-            <div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55"
-                style="width: 1300px;padding-left: 30px;padding-right: 30px; padding-bottom:20px;padding-top:20px;height:540px;">
-                <form class="login100-form validate-form flex-sb flex-w" id="atualizarperfil" action="/editarCliente"
-                    method="POST">
-                    <span class="login100-form-title p-b-32" style="padding-bottom: 18px; text-align:center;">
-                        Formulário de compra
-                    </span>
+            <div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55" style="width: 1300px;padding-left: 30px;padding-right: 30px; padding-bottom:20px;padding-top:20px;height:580px;">
+                <form class="login100-form validate-form flex-sb flex-w" method="get">
+                    <span id="titulo" class="login100-form-title p-b-32" style="padding-bottom: 18px; text-align:center;">checkout</span>
                     <div class="scor" style="width:100%">
-                        <div class="column">
 
+                        <div class="column" style="width:35%">
                             <div class="scorpion" style="width:100%">
-                                <div class="col-md-10 text-center heading-section ftco-animate">
+                                <div>
                                     <h4>Informação Cliente</h4>
-                                    <label for="nome" style="margin-bottom: 5px;">Nome:</label>
-                                    <span>Nome</span> <br>
-                                    <label for="contacto" style="margin-bottom: 5px;">Contacto:</label>
-                                    <span>+351...</span> <br>
-                                    <label for="morada" style="margin-bottom: 5px;">Morada:</label>
-                                    <span>Rua</span>,
-                                    <span> Codigo Postal</span>,
-                                    <span> Concelho</span> <br>
-                                    <span class="focus-input100"></span>
+                                    <span id="nome" style="text-align:left;">Nome: </span> <br>
+                                    <span id="rua" style="text-align:left;">Morada Faturação: </span> <br>
+                                    <span id="cp"></span>, <span id="local"></span> <br>
+                                    <span id="concelho"></span>, <span id="distrito"></span> <br>
+                                    <span id="tele"></span><br><br>
                                 </div>
-                            </div> <br><br><br>
-
-                            <div class="scorpion" style="width:100%;height: 70px;">
-                                <label for="email"> Quantidade </label>
-                                <input class="wrap-input100 validate-input m-b-2" class="esquerda"
-                                    style="width: 70%;padding-bottom: 12px;border-top-width: 1px;padding-top: 12px;padding-right: 20px;padding-left: 20px;margin-top: 8px;margin-bottom: 8px;"
-                                    type="number" id="number" name="number" required="required" tabindex="2">
-                                <span class="focus-input100"></span>
                             </div>
                         </div>
 
-                        <div class="column" style="height: 380px;">
-                            <div class="scorpion" style="width:100%">
+                        <div class="column" style="width:35%">
+                            <div class="scorpion" style="width:100%;">
                                 <div class="col-md-10 text-center heading-section ftco-animate">
                                     <h4>Informação Artigo</h4>
-                                    <label for="marca" style="margin-bottom: 5px;">Marca:</label>
-                                    <span>Marca</span> <br>
-                                    <label for="modelo" style="margin-bottom: 5px;">Modelo:</label>
-                                    <span>Modelo</span> <br>
-                                    <label for="preco" style="margin-bottom: 5px;">Preço:</label>
-                                    <span>€€€</span> <br>
-                                    <span class="focus-input100"></span>
+                                    <span id="marca" style="text-align:left;">Marca: </span> <br>
+                                    <span id="modelo" style="text-align:left;">Modelo: </span> <br>
+                                    <span id="preco">Preço: 22</span><span> €</span>
                                 </div>
-                            </div> <br><br><br><br>
-
-                            <div class="scorpion" style="width:100%">
-                                <label for="local"> Recolha </label>
-                                <select class="wrap-input100 validate-input m-b-2" style="width: 70%;" id="local"
-                                    name="local" required="required" tabindex="7" onchange="">
-                                    <option selected="">Selecione local...</option>
-                                    <option value="1">Porto</option>
-                                    <option value="2">Lisboa</option>
-                                </select>
-                                <span class="focus-input100"></span>
+                                <div class="scorpion" style="width:100%;">
+                                    <label> Quantidade </label>
+                                    <input class="wrap-input100 validate-input m-b-2" class="esquerda" style="width: 50%;" type="number" id="qnt">
+                                </div>
+                                <div class="scorpion" style="width:100%">
+                                    <label for="local"> Recolha </label>
+                                    <select class="wrap-input100 validate-input m-b-2" style="width: 50%;" id="recolha" required="required">
+                                        <option value="nada" selected="">Selecione local...</option>
+                                        <option value="1">Porto</option>
+                                        <option value="2">Lisboa</option>
+                                    </select>
+                                </div>
+                                <p id="demo" style="color: red;"></p>
                             </div>
                         </div>
-                    </div>
-                    
-                    <!--
-                    <div class="container-login100-form-btn">
-                        <button class="login100-form-btn"type="submit">
-                            Efetuar Pagamento
-                        </button>
-                    </div>
-                    -->
 
-                    <div class="">
-                        <button class=""type="submit">
-                            Efetuar Pagamento
-                        </button>
+                        <div class="column" id="nano-button" style="width:auto;height:auto;visibility:hidden">
+                            <input type='hidden' id='price' name='price' value=1990></input>
+                        </div>
+
+                        <div class="column" id="divPagar" style="width:auto;height:auto;visibility:visible">
+                            <button type="button" onclick="pagar()">Pagar</button>
+                        </div>
+
                     </div>
 
                 </form>
@@ -173,9 +145,6 @@
                         <ul class="list-unstyled">
                             <li><a href="about.html" class="py-2 d-block">Sobre Nós</a></li>
                             <li><a href="logIn.html" class="py-2 d-block">Serviços</a></li>
-                            <!-- <li><a href="#" class="py-2 d-block">Term and Conditions</a></li> -->
-                            <!-- <li><a href="#" class="py-2 d-block">Best Price Guarantee</a></li> -->
-                            <!-- <li><a href="#" class="py-2 d-block">Privacy &amp; Cookies Policy</a></li> -->
                         </ul>
                     </div>
                 </div>
@@ -186,8 +155,6 @@
                             <li><a href="contact.html" class="py-2 d-block">Contactos</a></li>
                             <li><a href="logIn.html" class="py-2 d-block">Preços</a></li>
                             <li><a href="logIn.html" class="py-2 d-block">Carros</a></li>
-                            <!--  <li><a href="#" class="py-2 d-block">Booking Tips</a></li> -->
-                            <!--  <li><a href="#" class="py-2 d-block">How it works</a></li> -->
                         </ul>
                     </div>
                 </div>
@@ -201,8 +168,7 @@
                                         Portugal</span></li>
                                 <li><span class="icon icon-phone"></span><span class="text">253 601
                                         100</span></li>
-                                <li><span class="icon icon-envelope"></span><span
-                                        class="text">ccultural@reitoria.uminho.pt​</span></li>
+                                <li><span class="icon icon-envelope"></span><span class="text">ccultural@reitoria.uminho.pt​</span></li>
                             </ul>
                         </div>
                     </div>
@@ -214,10 +180,10 @@
                     <p>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         Copyright &copy;
-                        <script>document.write(new Date().getFullYear());</script> All rights reserved |
-                        This template is made with
-                        <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com"
-                            target="_blank">Colorlib</a>
+                        <script>
+                            document.write(new Date().getFullYear());
+                        </script> All rights reserved | This template is made with
+                        <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </p>
                 </div>
@@ -231,19 +197,10 @@
     <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
             <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
             <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
-                stroke="#F96D00" /></svg></div>
+                stroke="#F96D00" /></svg>
+    </div>
 
-    <script>
-        // Get the modal
-        var modal = document.getElementById('id01');
 
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function (event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    </script>
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery-migrate-3.0.1.min.js"></script>
     <script src="js/popper.min.js"></script>
@@ -258,10 +215,43 @@
     <script src="js/bootstrap-datepicker.js"></script>
     <script src="js/jquery.timepicker.min.js"></script>
     <script src="js/scrollax.min.js"></script>
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
     <script src="js/google-map.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/controller/formcompra.js"></script>
+    <script src="https://brainblocks.io/brainblocks.js"></script>
+
+    <script type="text/javascript">
+        preco = document.getElementById("price").value;
+        // Render the Nano button
+        brainblocks.Button.render({
+            // Pass in payment options
+            payment: {
+                currency: 'rai',
+                amount: preco,
+                destination: 'nano_3haxw84jqdn7xi4s7rp8z4h764p43trbbb75wfy7op9wqdjraaeyep4zo14s'
+            },
+
+            // Handle successful payments
+            onPayment: function(data) {
+                // 4. Call BrainBlocks API to verify data.token
+                // See tab #2
+                document.getElementById("titulo").innerHTML += "  pagooooooo";
+            }
+        }, '#nano-button');
+
+
+        function pagar() {
+            if (document.getElementById("recolha").value == "nada" || document.getElementById("qnt").value == "") {
+                document.getElementById("demo").innerHTML = "Preencha os campos antes de avançar";
+            } else {
+                document.getElementById("demo").innerHTML = "";
+                document.getElementById("divPagar").style.visibility = 'hidden';
+                document.getElementById("nano-button").style.visibility = 'visible';
+            }
+        }
+    </script>
+
 </body>
 
 </html>
