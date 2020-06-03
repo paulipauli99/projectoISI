@@ -93,21 +93,22 @@
                         <div class="column" style="width:35%">
                             <div class="scorpion" style="width:100%;">
                                 <div class="col-md-10 text-center heading-section ftco-animate">
+                                   <!--<div id="dads"--> 
                                     <h4>Informação Artigo</h4>
                                     <span id="marca" style="text-align:left;">Marca: </span> <br>
                                     <span id="modelo" style="text-align:left;">Modelo: </span> <br>
-                                    <span id="preco">Preço: 22</span><span> €</span>
+                                    <span id="preco">Preço: </span><span id="moeda"></span>
                                 </div>
                                 <div class="scorpion" style="width:100%;">
                                     <label> Quantidade </label>
-                                    <input class="wrap-input100 validate-input m-b-2" class="esquerda" style="width: 50%;" type="number" id="qnt">
+                                    <input class="wrap-input100 validate-input m-b-2" class="esquerda" style="width: 50%;" type="number" id="quantidade">
                                 </div>
                                 <div class="scorpion" style="width:100%">
                                     <label for="local"> Recolha </label>
-                                    <select class="wrap-input100 validate-input m-b-2" style="width: 50%;" id="recolha" required="required">
+                                    <select class="wrap-input100 validate-input m-b-2" style="width: 50%;" id="armazem" required="required">
                                         <option value="nada" selected="">Selecione local...</option>
-                                        <option value="1">Porto</option>
-                                        <option value="2">Lisboa</option>
+                                        <option value="PORTO">Porto</option>
+                                        <option value="LISBOA">Lisboa</option>
                                     </select>
                                 </div>
                                 <p id="demo" style="color: red;"></p>
@@ -119,7 +120,7 @@
                         </div>
 
                         <div class="column" id="divPagar" style="width:auto;height:auto;visibility:visible">
-                            <button type="button" onclick="pagar()">Pagar</button>
+                            <button type="button" onclick="stockCompra()">Pagar</button>
                         </div>
 
                     </div>
