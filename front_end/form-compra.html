@@ -93,15 +93,15 @@
                         <div class="column" style="width:35%">
                             <div class="scorpion" style="width:100%;">
                                 <div class="col-md-10 text-center heading-section ftco-animate">
-                                   <!--<div id="dads"--> 
+                                    <!--<div id="dads"-->
                                     <h4>Informação Artigo</h4>
                                     <span id="marca" style="text-align:left;">Marca: </span> <br>
                                     <span id="modelo" style="text-align:left;">Modelo: </span> <br>
-                                    <span id="preco">Preço: </span><span id="moeda"></span>
+                                    <span>Preço: </span><span id="preco"></span><span id="moeda"></span>
                                 </div>
                                 <div class="scorpion" style="width:100%;">
                                     <label> Quantidade </label>
-                                    <input class="wrap-input100 validate-input m-b-2" class="esquerda" style="width: 50%;" type="number" id="quantidade">
+                                    <input class="wrap-input100 validate-input m-b-2" min="1" max="" class="esquerda" style="width: 50%;" type="number" id="quantidade">
                                 </div>
                                 <div class="scorpion" style="width:100%">
                                     <label for="local"> Recolha </label>
@@ -116,7 +116,7 @@
                         </div>
 
                         <div class="column" id="nano-button" style="width:auto;height:auto;visibility:hidden">
-                            <input type='hidden' id='price' name='price' value=1990></input>
+                            <!--<input type='hidden' id='price' name='price' value=1990></input>-->
                         </div>
 
                         <div class="column" id="divPagar" style="width:auto;height:auto;visibility:visible">
@@ -216,49 +216,50 @@
     <script src="js/bootstrap-datepicker.js"></script>
     <script src="js/jquery.timepicker.min.js"></script>
     <script src="js/scrollax.min.js"></script>
-   <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
     <script src="js/google-map.js"></script> -->
     <script src="js/main.js"></script>
     <script src="js/controller/formcompra.js"></script>
     <script src="https://brainblocks.io/brainblocks.js"></script>
 
     <script type="text/javascript">
-       // quantidade = document.getElementById("quantidade").value;
-        preco = document.getElementById("price").value;
-       // preco_total = preco * quantidade;
+        quantidade = document.getElementById("quantidade").value;
+        preco = document.getElementById("preco").innerHTML;
+        preco_total = preco * quantidade;
         //stockCompra();
         // Render the Nano button
-        brainblocks.Button.render({
-            // Pass in payment options
-            payment: {
-                currency: 'rai',
-                amount: preco,
-                destination: 'nano_3haxw84jqdn7xi4s7rp8z4h764p43trbbb75wfy7op9wqdjraaeyep4zo14s'
-            },
-
-            // Handle successful payments
-            onPayment: function(data) {
-                // 4. Call BrainBlocks API to verify data.token
-                // See tab #2
-               
-                document.getElementById("titulo").innerHTML += "  pagooooooo";
-            }
-        }, '#nano-button');
 
 
         function pagar() {
             if (document.getElementById("armazem").value == "nada" || document.getElementById("quantidade").value == "") {
                 document.getElementById("demo").innerHTML = "Preencha os campos antes de avançar";
             } else {
-                document.getElementById("quantidade").value;
+                // document.getElementById("quantidade").value;
                 document.getElementById("demo").innerHTML = "";
                 document.getElementById("divPagar").style.visibility = 'hidden';
                 document.getElementById("nano-button").style.visibility = 'visible';
 
-                stockCompra();
-                
+                brainblocks.Button.render({
+                    // Pass in payment options
+                    payment: {
+                        currency: 'eur',
+                        amount: '1',
+                        destination: 'nano_3haxw84jqdn7xi4s7rp8z4h764p43trbbb75wfy7op9wqdjraaeyep4zo14s'
+                    },
+
+                    // Handle successful payments
+                    onPayment: function(data) {
+                        // 4. Call BrainBlocks API to verify data.token
+                        // See tab #2
+                        stockCompra();
+                        document.getElementById("titulo").innerHTML += "  pagooooooo";
+                    }
+                }, '#nano-button');
+
+
+
             }
-            
+
         }
     </script>
 
