@@ -83,9 +83,11 @@
                                     <h4>Informação Cliente</h4>
                                     <span id="nome" style="text-align:left;">Nome: </span> <br>
                                     <span id="rua" style="text-align:left;">Morada Faturação: </span> <br>
-                                    <span id="cp"></span>, <span id="local"></span> <br>
-                                    <span id="concelho"></span>, <span id="distrito"></span> <br>
-                                    <span id="tele"></span><br><br>
+                                    <span>Código Postal: </span><span id="cp"></span><br>
+                                    <span>Localidade: </span><span id="local"></span> <br>
+                                    <span>Concelho: </span><span id="concelho"></span><br>
+                                    <span>Distrito: </span><span id="distrito"></span> <br>
+                                    <span>Telemóvel: </span><span id="tele"></span><br><br>
                                 </div>
                             </div>
                         </div>
@@ -97,8 +99,14 @@
                                     <h4>Informação Artigo</h4>
                                     <span id="marca" style="text-align:left;">Marca: </span> <br>
                                     <span id="modelo" style="text-align:left;">Modelo: </span> <br>
-                                    <span>Preço: </span><span id="preco"></span><span id="moeda"></span>
+                                    <span>Preço: </span><span id="preco"></span><span id="moeda"></span><br>
+                                    <br>
+                                    <h5>Unidades disponíveis em armazém</h5>
+                                    <span>Porto: </span><span id="armazem_porto"></span><br>
+                                    <span>Lisboa: </span><span id="armazem_lisboa"></span><br>
+                                    <br>
                                 </div>
+
                                 <div class="scorpion" style="width:100%;">
                                     <label> Quantidade </label>
                                     <input class="wrap-input100 validate-input m-b-2" min="1" max="" class="esquerda" style="width: 50%;" type="number" id="quantidade">
@@ -136,7 +144,8 @@
             <div class="row mb-5">
                 <div class="col-md">
                     <div class="ftco-footer-widget mb-4">
-                        <h2 class="ftco-heading-2"><a href="#" class="logo">Virtual<span>Car</span></a></h2>
+                        <h2 class="ftco-heading-2"><a href="#" class="logo">Virtual<span>Car</span></a>
+                        </h2>
                         <p>Buy fast, drive furious.</p>
                     </div>
                 </div>
@@ -223,11 +232,7 @@
     <script src="https://brainblocks.io/brainblocks.js"></script>
 
     <script type="text/javascript">
-        quantidade = document.getElementById("quantidade").value;
-        preco = document.getElementById("preco").innerHTML;
-        preco_total = preco * quantidade;
-        //stockCompra();
-        // Render the Nano button
+        //console.log(preco_total);
 
 
         function pagar() {
@@ -239,11 +244,19 @@
                 document.getElementById("divPagar").style.visibility = 'hidden';
                 document.getElementById("nano-button").style.visibility = 'visible';
 
+                quantidade = document.getElementById("quantidade").value;
+                preco = document.getElementById("preco").innerHTML;
+                preco_total = preco * quantidade;
+
+                console.log("Preco_total:" + preco_total);
+
+
+
                 brainblocks.Button.render({
                     // Pass in payment options
                     payment: {
                         currency: 'eur',
-                        amount: '1',
+                        amount: preco_total,
                         destination: 'nano_3haxw84jqdn7xi4s7rp8z4h764p43trbbb75wfy7op9wqdjraaeyep4zo14s'
                     },
 

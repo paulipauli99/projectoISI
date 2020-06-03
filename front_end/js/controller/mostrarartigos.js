@@ -32,7 +32,7 @@ function mostrarArtigos(artigos) {
     const renderArtigosFRONT = document.getElementById("artigos_FRONT");
 
 
-    console.log("arqtigos");
+    console.log("artigos");
     let imagem = "";
     let txt = "";
     // txt += "<section class='ftco-section bg-light'>";
@@ -98,7 +98,7 @@ function img_error(image) {
     return true;
 }
 
-function comprarArtigo(codigo_artigo,lineID) {
-    location.href=" form-compra.html?artigo=" + codigo_artigo;
-	
+function comprarArtigo(codigo_artigo) {
+    location.href = " form-compra.html?artigo=" + codigo_artigo;
+
 }
