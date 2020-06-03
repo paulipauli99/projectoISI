@@ -24,7 +24,8 @@ window.onload = function() { //quando inicia a página - > chama a funçao
 function listarCliente() {
 
     fetch('http://localhost:8080/consultarCliente')
-        .then(response => { return response.json(); })
+        .then(response =>  {return response.json(); 
+        })
         .then(cliente => lista_clientes(cliente));
 }
 
@@ -88,7 +89,7 @@ document.getElementById("marca").innerHTML += artigo.marca;
 }*/
 
 function stockCompra(){
-
+console.log("stockcompra");
     var data = {
         codigo_artigo:codigo_artigo,
         armazem:armazem,    

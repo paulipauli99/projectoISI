@@ -120,7 +120,7 @@
                         </div>
 
                         <div class="column" id="divPagar" style="width:auto;height:auto;visibility:visible">
-                            <button type="button" onclick="stockCompra()">Pagar</button>
+                            <button type="button" onclick="pagar()">Pagar</button>
                         </div>
 
                     </div>
@@ -216,14 +216,17 @@
     <script src="js/bootstrap-datepicker.js"></script>
     <script src="js/jquery.timepicker.min.js"></script>
     <script src="js/scrollax.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-    <script src="js/google-map.js"></script>
+   <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="js/google-map.js"></script> -->
     <script src="js/main.js"></script>
     <script src="js/controller/formcompra.js"></script>
     <script src="https://brainblocks.io/brainblocks.js"></script>
 
     <script type="text/javascript">
+       // quantidade = document.getElementById("quantidade").value;
         preco = document.getElementById("price").value;
+       // preco_total = preco * quantidade;
+        //stockCompra();
         // Render the Nano button
         brainblocks.Button.render({
             // Pass in payment options
@@ -237,18 +240,22 @@
             onPayment: function(data) {
                 // 4. Call BrainBlocks API to verify data.token
                 // See tab #2
+               
                 document.getElementById("titulo").innerHTML += "  pagooooooo";
             }
         }, '#nano-button');
 
 
         function pagar() {
-            if (document.getElementById("recolha").value == "nada" || document.getElementById("qnt").value == "") {
+            if (document.getElementById("armazem").value == "nada" || document.getElementById("quantidade").value == "") {
                 document.getElementById("demo").innerHTML = "Preencha os campos antes de avançar";
             } else {
+                document.getElementById("quantidade").value;
                 document.getElementById("demo").innerHTML = "";
                 document.getElementById("divPagar").style.visibility = 'hidden';
                 document.getElementById("nano-button").style.visibility = 'visible';
+
+                stockCompra();
                 
             }
             
