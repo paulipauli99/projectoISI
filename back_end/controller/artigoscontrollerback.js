@@ -66,10 +66,10 @@ function readArtigo(req, res) {
 
                     var artigos = [JSON.parse(body)];
 
-                    console.log(artigos);
+                    //console.log(artigos);
                     //console.log (artigos[12].brand);
 
-                    //  console.log (artigos);
+                    //console.log (artigos);
 
                     res.status(200).send(filtrarArtigos(artigos));
                 })
@@ -763,50 +763,47 @@ function editarStockPorto(req, res) {
 }
 
 
-function compraArtigo(req,res){
-        
+function compraArtigo(req, res) {
+
     var form = {
-        
+
         "warehouse": req.body.armazem,
         "adjustmentReason": "01",
         "company": "VC",
-        "documentLines":
-        [
-            {
-                "materialsItem": req.body.codigo_artigo,
-                "quantity": req.body.diferenca,
-                 "unitPrice": {"amount": req.body.preco} 
-            }
-        ]
-    };   
+        "documentLines": [{
+            "materialsItem": req.body.codigo_artigo,
+            "quantity": req.body.diferenca,
+            "unitPrice": { "amount": req.body.preco }
+        }]
+    };
 
-    
+
     jasmincontroller.get_token()
-       .then ((body) => {
-           var r = JSON.parse(body);
-           var access_token = r.access_token;
-           console.log("save artigos TOKEN");
-           console.log(form);
-         var formData = JSON.stringify(form);
-         var content_length = formData.length;
-           rp.post({
-               "headers": {
-                   "Content-Length" : content_length,
-                   "Content-Type" : "application/json",
-                   "Authorization" : "Bearer " + access_token
-               },
-               "url": "https://my.jasminsoftware.com/api/233421/233421-0001/materialsmanagement/itemAdjustments",
-               "body": formData
-           }).then((body) => {
-             //  console.log(JSON.stringify(body));
-               res.status(200).send({resposta:"OK"});
+        .then((body) => {
+            var r = JSON.parse(body);
+            var access_token = r.access_token;
+            console.log("save artigos TOKEN");
+            //console.log(form);
+            var formData = JSON.stringify(form);
+            var content_length = formData.length;
+            rp.post({
+                "headers": {
+                    "Content-Length": content_length,
+                    "Content-Type": "application/json",
+                    "Authorization": "Bearer " + access_token
+                },
+                "url": "https://my.jasminsoftware.com/api/233421/233421-0001/materialsmanagement/itemAdjustments",
+                "body": formData
+            }).then((body) => {
+                //  console.log(JSON.stringify(body));
+                res.status(200).send({ resposta: "OK" });
 
-           }).catch((t) =>{
-            console.log("error");
-            console.log (t);
-           });
-                 
-       })
+            }).catch((t) => {
+                console.log("error");
+                //console.log (t);
+            });
+
+        })
 }
 
 module.exports = {
@@ -827,5 +824,5 @@ module.exports = {
     alterarPreco: alterarPreco,
     editarStockLisboa: editarStockLisboa,
     editarStockPorto: editarStockPorto,
-    compraArtigo:compraArtigo
+    compraArtigo: compraArtigo
 };

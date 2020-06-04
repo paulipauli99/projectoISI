@@ -100,39 +100,36 @@
                                     <span id="marca" style="text-align:left;">Marca: </span> <br>
                                     <span id="modelo" style="text-align:left;">Modelo: </span> <br>
                                     <span>Preço: </span><span id="preco"></span><span id="moeda"></span><br>
+                                    <span>Armazém Porto: </span><span id="armazem_porto"></span><span> unidades</span><br>
+                                    <span>Armazém Lisboa: </span><span id="armazem_lisboa"></span><span> unidades</span><br>
                                     <br>
-                                    <h5>Unidades disponíveis em armazém</h5>
-                                    <span>Porto: </span><span id="armazem_porto"></span><br>
-                                    <span>Lisboa: </span><span id="armazem_lisboa"></span><br>
-                                    <br>
-                                </div>
-
-                                <div class="scorpion" style="width:100%;">
-                                    <label> Quantidade </label>
-                                    <input class="wrap-input100 validate-input m-b-2" min="1" max="" class="esquerda" style="width: 50%;" type="number" id="quantidade">
-                                </div>
-                                <div class="scorpion" style="width:100%">
-                                    <label for="local"> Recolha </label>
-                                    <select class="wrap-input100 validate-input m-b-2" style="width: 50%;" id="armazem" required="required">
-                                        <option value="nada" selected="">Selecione local...</option>
-                                        <option value="PORTO">Porto</option>
-                                        <option value="LISBOA">Lisboa</option>
-                                    </select>
                                 </div>
                                 <p id="demo" style="color: red;"></p>
                             </div>
+
+                            <div class="scorpion" style="width:100%;">
+                                <label>Quantidade</label>
+                                <input class="wrap-input100 validate-input m-b-2" value="1" min="1" max="" class="esquerda" style="width: 50%;" type="number" id="quantidade">
+                            </div>
+                            <div class="scorpion" style="width:100%">
+                                <label for="local"> Recolha </label>
+                                <select class="wrap-input100 validate-input m-b-2" style="width: 50%;" id="armazem" required="required">
+                                    <option value="nada" selected="">Selecione local...</option>
+                                    <option value="PORTO">Porto</option>
+                                    <option value="LISBOA">Lisboa</option>
+                                </select>
+                            </div>
                         </div>
 
-                        <div class="column" id="nano-button" style="width:auto;height:auto;visibility:hidden">
-                            <!--<input type='hidden' id='price' name='price' value=1990></input>-->
+                        <div class="column" style="width:30%">
+                            <div class="column" id="nano-button" style="width:auto;height:auto;visibility:hidden">
+                                <!--<input type='hidden' id='price' name='price' value=1990></input>-->
+                            </div>
+                            <div class="column" id="divPagar" style="width:auto;height:auto;visibility:visible">
+                                <button type="button" onclick="pagar()">Pagar</button>
+                            </div>
                         </div>
-
-                        <div class="column" id="divPagar" style="width:auto;height:auto;visibility:visible">
-                            <button type="button" onclick="pagar()">Pagar</button>
-                        </div>
-
                     </div>
-
                 </form>
             </div>
         </div>
@@ -239,7 +236,6 @@
             if (document.getElementById("armazem").value == "nada" || document.getElementById("quantidade").value == "") {
                 document.getElementById("demo").innerHTML = "Preencha os campos antes de avançar";
             } else {
-                // document.getElementById("quantidade").value;
                 document.getElementById("demo").innerHTML = "";
                 document.getElementById("divPagar").style.visibility = 'hidden';
                 document.getElementById("nano-button").style.visibility = 'visible';
@@ -247,10 +243,6 @@
                 quantidade = document.getElementById("quantidade").value;
                 preco = document.getElementById("preco").innerHTML;
                 preco_total = preco * quantidade;
-
-                console.log("Preco_total:" + preco_total);
-
-
 
                 brainblocks.Button.render({
                     // Pass in payment options

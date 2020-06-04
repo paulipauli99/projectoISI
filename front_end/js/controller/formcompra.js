@@ -6,13 +6,9 @@ var artigo = null;
 
 window.onload = function() { //quando inicia a página - > chama a funçao
     const queryString = window.location.search;
-    this.console.log(queryString);
     const params = new URLSearchParams(queryString);
 
     codigo_artigo = params.get("artigo");
-
-    console.log(codigo_artigo);
-
 
     console.log("formulario compra");
     listarCliente();
@@ -37,7 +33,6 @@ function lista_clientes(cliente) {
     document.getElementById("concelho").innerHTML += cliente.concelho;
     document.getElementById("distrito").innerHTML += cliente.distrito;
     document.getElementById("cp").innerHTML += cliente.codigo_postal;
-    // document.getElementById("price").value = 1990;
 
 }
 
@@ -52,7 +47,6 @@ function preencheArtigo() {
         }
     }).then(response => {
             console.log("preenche artigo1:" + codigo_artigo);
-            console.log(response);
 
             return response.json();
         }
@@ -61,7 +55,6 @@ function preencheArtigo() {
         response => {
 
             console.log("preenche artigo:" + codigo_artigo);
-            console.log(response);
 
             artigo = {
                 codigo: response[0].codigo_artigo,
@@ -83,7 +76,6 @@ function dados_artigo(artigo) {
     document.getElementById("moeda").innerHTML += artigo.moeda;
 }
 
-
 function preencheStock() {
     let response = fetch('http://localhost:8080/inventario/' + codigo_artigo, {
         method: 'GET',
@@ -93,7 +85,6 @@ function preencheStock() {
         }
     }).then(response => {
             console.log("preenche artigo1:" + codigo_artigo);
-            console.log(response);
 
             return response.json();
         }
@@ -102,7 +93,6 @@ function preencheStock() {
         response => {
 
             console.log("preenche artigo:" + codigo_artigo);
-            console.log(response);
 
             artigo = {
                 stock_lisboa: response.armazens[0].quantidade,
@@ -111,7 +101,6 @@ function preencheStock() {
             }
             dados_stock(artigo);
         })
-
 }
 
 function dados_stock(artigo) {
@@ -140,11 +129,7 @@ function stockCompra() {
 
     };
 
-
     selecionarArmazem(data);
-    console.log(data);
-
-
 
     let response = fetch('http://localhost:8080/compraartigos', {
         method: 'POST',
