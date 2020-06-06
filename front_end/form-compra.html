@@ -122,11 +122,9 @@
                         </div>
 
                         <div class="column" style="width:30%">
-                            <div class="column" id="nano-button" style="width:auto;height:auto;visibility:hidden">
-                                <!--<input type='hidden' id='price' name='price' value=1990></input>-->
-                            </div>
+                            <div class="column" id="nano-button" style="width:auto;height:auto;visibility:hidden"></div>
                             <div class="column" id="divPagar" style="width:auto;height:auto;visibility:visible">
-                                <button type="button" onclick="pagar()">Pagar</button>
+                                <button class="login100-form-btn" style="width: 300px" type="button" onclick="pagar()">Pagar</button>
                             </div>
                         </div>
                     </div>
@@ -229,16 +227,13 @@
     <script src="https://brainblocks.io/brainblocks.js"></script>
 
     <script type="text/javascript">
-        //console.log(preco_total);
-
-
         function pagar() {
             if (document.getElementById("armazem").value == "nada" || document.getElementById("quantidade").value == "") {
                 document.getElementById("demo").innerHTML = "Preencha os campos antes de avançar";
             } else {
-                document.getElementById("demo").innerHTML = "";
                 document.getElementById("divPagar").style.visibility = 'hidden';
                 document.getElementById("nano-button").style.visibility = 'visible';
+                document.getElementById("demo").innerHTML = "";
 
                 quantidade = document.getElementById("quantidade").value;
                 preco = document.getElementById("preco").innerHTML;
@@ -254,17 +249,12 @@
 
                     // Handle successful payments
                     onPayment: function(data) {
-                        // 4. Call BrainBlocks API to verify data.token
-                        // See tab #2
+                        // FAZER COISAS QUANDO O PAGAMENTO É CONFIRMADO
                         stockCompra();
-                        document.getElementById("titulo").innerHTML += "  pagooooooo";
+                        document.getElementById("titulo").innerHTML += "  pago!!!!";
                     }
                 }, '#nano-button');
-
-
-
             }
-
         }
     </script>
 
