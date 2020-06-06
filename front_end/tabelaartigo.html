@@ -126,37 +126,32 @@
                 <form class="validate-form flex-sb flex-w" id="registo_artigo" name="registo_artigo" action="dashboard.html" method="POST" enctype="multipart/form-data">
                     <div class="modal-header text-center">
                         <h4 class="modal-title w-100 font-weight-bold">Registar Artigo</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                        
                     </div>
 
                     <div class="modal-body mx-3">
-                        <div class="md-form mb-5">
+                        <div class="md-form mb-4">
                             <i class="fas fa-user prefix grey-text"></i>
                             <label data-error="wrong" data-success="right" for="codigo">Código</label>
-                            <input type="text" id="codigo_artigo" name="codigo_artigo" class="form-control validate">
+                            <input type="text" id="codigo_artigo" name="codigo_artigo" class="form-control validate" style="width:75%">
 
                         </div>
 
-                        <div class="md-form mb-5">
+                        <div class="md-form mb-4">
                             <i class="fas fa-envelope prefix grey-text"></i>
                             <label data-error="wrong" data-success="right" for="nome">Nome</label>
-                            <input type="text" id="nome" name="nome" class="form-control validate">
+                            <input type="text" id="nome" name="nome" class="form-control validate" style="width:75%">
                         </div>
 
                         <div class="md-form mb-4">
                             <i class="fas fa-lock prefix grey-text"></i>
                             <label data-error="wrong" data-success="right" for="descricao">Descrição</label>
-                            <input type="text" id="descricao_completa" name="descricao_completa" class="form-control validate">
-
+                            <input type="text" id="descricao_completa" name="descricao_completa" class="form-control validate" style="width:75%">
                         </div>
 
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <label class="input-group-text" for="inputGroupSelect01">Marca</label>
-                            </div>
-                            <select class="custom-select" id="marca" name="marca" onchange="escolhe_marca()">
+                        <div class="md-form mb-4">
+                                <label data-error="wrong" data-success="right" for="descricao">Marca</label>
+                            <select class="custom-select" id="marca" name="marca" onchange="escolhe_marca()" style="width:75%;padding-top: 12px;padding-bottom: 12px;padding-left: 20px;padding-right: 20px;margin-right: 0px;margin-top: 8px;margin-bottom: 8px;height: 52px;">
                                 <option selected>Selecione a marca...</option>
                                 <option value="1">SEAT</option>
                                 <option value="2">FORD</option>
@@ -164,11 +159,9 @@
                             </select>
                         </div>
 
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <label class="input-group-text" for="inputGroupSelect01">Modelo</label>
-                            </div>
-                            <select class="custom-select" id="modelo" name="modelo">
+                        <div class="md-form mb-4">
+                                    <label data-error="wrong" data-success="right" for="descricao">Modelo</label>
+                            <select class="custom-select" id="modelo" name="modelo" style="width:75%;padding-top: 12px;padding-bottom: 12px;padding-left: 20px;padding-right: 20px;margin-right: 0px;margin-top: 8px;margin-bottom: 8px;height: 52px;">
                                 <option selected>Selecione o modelo...</option>
                                 <option value="1">ibiza</option>
                                 <option value="2">focus</option>
@@ -179,28 +172,19 @@
                         <div class="md-form mb-4">
                             <i class="fas fa-lock prefix grey-text"></i>
                             <label data-error="wrong" data-success="right" for="preco">Preço</label>
-                            <input type="text" id="preco" name="preco" class="form-control validate" placeholder="€">
+                            <input type="text" id="preco" name="preco" class="form-control validate" placeholder="€" style="width:75%">
                         </div>
 
-
-
-                        <div class="form-group">
-                            <label for="exampleFormControlInput1">Stock nos Armazens</label><br>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <label class="input-group-text" for="inputGroupSelect01">Porto</label>
-                                    <input type="text" class="form-control" id="stock_porto" name="stock_porto" placeholder="0">
-                                </div>
-                            </div>
-
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <label class="input-group-text" for="inputGroupSelect01">Lisboa</label>
-                                    <input type="text" class="form-control" id="stock_lisboa" name="stock_lisboa" placeholder="0">
-                                </div>
+						<div class="md-form mb-4" >
+                            <div class="input-group-prepend">
+							<label for="exampleFormControlInput1">Stock nos Armazens</label>
+                                <label class="input-group-text" for="inputGroupSelect01" style="width:10%">Porto</label>
+                                <input type="text" class="form-control" id="stock_porto_editar" name="stock_porto_editar" style="width:28%">
+								<label class="input-group-text" for="inputGroupSelect01" style="width:10%">Lisboa</label>
+                                <input type="text" class="form-control" id="stock_lisboa_editar" name="stock_lisboa_editar" style="width:27%" >
                             </div>
                         </div>
-
+<br>
                         <div class="md-form mb-4">
                             <i class="fas fa-lock prefix grey-text"></i>
                             <input type='file' id="foto" name="myImage" onchange="readURL(this);" />
@@ -211,6 +195,7 @@
 
                     </div>
                     <div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal" style="padding-left: 80%;">Fechar</button>
                         <input id="addartigo" type="button" value="REGISTAR" data-dismiss="modal" onclick="gravarArtigos()" class="btn" />
 
                     </div>
@@ -281,7 +266,7 @@
                             </div>
                         </div>
 
-                        
+                        <br>
             
 
                     <div class="modal-footer">
