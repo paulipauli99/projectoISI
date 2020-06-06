@@ -83,9 +83,11 @@
                                     <h4>Informação Cliente</h4>
                                     <span id="nome" style="text-align:left;">Nome: </span> <br>
                                     <span id="rua" style="text-align:left;">Morada Faturação: </span> <br>
-                                    <span id="cp"></span>, <span id="local"></span> <br>
-                                    <span id="concelho"></span>, <span id="distrito"></span> <br>
-                                    <span id="tele"></span><br><br>
+                                    <span>Código Postal: </span><span id="cp"></span><br>
+                                    <span>Localidade: </span><span id="local"></span> <br>
+                                    <span>Concelho: </span><span id="concelho"></span><br>
+                                    <span>Distrito: </span><span id="distrito"></span> <br>
+                                    <span>Telemóvel: </span><span id="tele"></span><br><br>
                                 </div>
                             </div>
                         </div>
@@ -93,37 +95,41 @@
                         <div class="column" style="width:35%">
                             <div class="scorpion" style="width:100%;">
                                 <div class="col-md-10 text-center heading-section ftco-animate">
+                                    <!--<div id="dads"-->
                                     <h4>Informação Artigo</h4>
                                     <span id="marca" style="text-align:left;">Marca: </span> <br>
                                     <span id="modelo" style="text-align:left;">Modelo: </span> <br>
-                                    <span id="preco">Preço: 22</span><span> €</span>
-                                </div>
-                                <div class="scorpion" style="width:100%;">
-                                    <label> Quantidade </label>
-                                    <input class="wrap-input100 validate-input m-b-2" class="esquerda" style="width: 50%;" type="number" id="qnt">
-                                </div>
-                                <div class="scorpion" style="width:100%">
-                                    <label for="local"> Recolha </label>
-                                    <select class="wrap-input100 validate-input m-b-2" style="width: 50%;" id="recolha" required="required">
-                                        <option value="nada" selected="">Selecione local...</option>
-                                        <option value="1">Porto</option>
-                                        <option value="2">Lisboa</option>
-                                    </select>
+                                    <span>Preço: </span><span id="preco"></span><span id="moeda"></span><br>
+                                    <span>Armazém Porto: </span><span id="armazem_porto"></span><span> unidades</span><br>
+                                    <span>Armazém Lisboa: </span><span id="armazem_lisboa"></span><span> unidades</span><br>
+                                    <br>
                                 </div>
                                 <p id="demo" style="color: red;"></p>
                             </div>
+
+                            <div class="scorpion" style="width:100%;">
+                                <label>Quantidade</label>
+                                <input class="wrap-input100 validate-input m-b-2" value="1" min="1" max="" class="esquerda" style="width: 50%;" type="number" id="quantidade">
+                            </div>
+                            <div class="scorpion" style="width:100%">
+                                <label for="local"> Recolha </label>
+                                <select class="wrap-input100 validate-input m-b-2" style="width: 50%;" id="armazem" required="required">
+                                    <option value="nada" selected="">Selecione local...</option>
+                                    <option value="PORTO">Porto</option>
+                                    <option value="LISBOA">Lisboa</option>
+                                </select>
+                            </div>
                         </div>
 
-                        <div class="column" id="nano-button" style="width:auto;height:auto;visibility:hidden">
-                            <input type='hidden' id='price' name='price' value=1990></input>
+                        <div class="column" style="width:30%">
+                            <div class="column" id="nano-button" style="width:auto;height:auto;visibility:hidden">
+                                <!--<input type='hidden' id='price' name='price' value=1990></input>-->
+                            </div>
+                            <div class="column" id="divPagar" style="width:auto;height:auto;visibility:visible">
+                                <button type="button" onclick="pagar()">Pagar</button>
+                            </div>
                         </div>
-
-                        <div class="column" id="divPagar" style="width:auto;height:auto;visibility:visible">
-                            <button type="button" onclick="pagar()">Pagar</button>
-                        </div>
-
                     </div>
-
                 </form>
             </div>
         </div>
@@ -135,7 +141,8 @@
             <div class="row mb-5">
                 <div class="col-md">
                     <div class="ftco-footer-widget mb-4">
-                        <h2 class="ftco-heading-2"><a href="#" class="logo">Virtual<span>Car</span></a></h2>
+                        <h2 class="ftco-heading-2"><a href="#" class="logo">Virtual<span>Car</span></a>
+                        </h2>
                         <p>Buy fast, drive furious.</p>
                     </div>
                 </div>
@@ -215,40 +222,49 @@
     <script src="js/bootstrap-datepicker.js"></script>
     <script src="js/jquery.timepicker.min.js"></script>
     <script src="js/scrollax.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-    <script src="js/google-map.js"></script>
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="js/google-map.js"></script> -->
     <script src="js/main.js"></script>
     <script src="js/controller/formcompra.js"></script>
     <script src="https://brainblocks.io/brainblocks.js"></script>
 
     <script type="text/javascript">
-        preco = document.getElementById("price").value;
-        // Render the Nano button
-        brainblocks.Button.render({
-            // Pass in payment options
-            payment: {
-                currency: 'rai',
-                amount: preco,
-                destination: 'nano_3haxw84jqdn7xi4s7rp8z4h764p43trbbb75wfy7op9wqdjraaeyep4zo14s'
-            },
-
-            // Handle successful payments
-            onPayment: function(data) {
-                // 4. Call BrainBlocks API to verify data.token
-                // See tab #2
-                document.getElementById("titulo").innerHTML += "  pagooooooo";
-            }
-        }, '#nano-button');
+        //console.log(preco_total);
 
 
         function pagar() {
-            if (document.getElementById("recolha").value == "nada" || document.getElementById("qnt").value == "") {
+            if (document.getElementById("armazem").value == "nada" || document.getElementById("quantidade").value == "") {
                 document.getElementById("demo").innerHTML = "Preencha os campos antes de avançar";
             } else {
                 document.getElementById("demo").innerHTML = "";
                 document.getElementById("divPagar").style.visibility = 'hidden';
                 document.getElementById("nano-button").style.visibility = 'visible';
+
+                quantidade = document.getElementById("quantidade").value;
+                preco = document.getElementById("preco").innerHTML;
+                preco_total = preco * quantidade;
+
+                brainblocks.Button.render({
+                    // Pass in payment options
+                    payment: {
+                        currency: 'eur',
+                        amount: preco_total,
+                        destination: 'nano_3haxw84jqdn7xi4s7rp8z4h764p43trbbb75wfy7op9wqdjraaeyep4zo14s'
+                    },
+
+                    // Handle successful payments
+                    onPayment: function(data) {
+                        // 4. Call BrainBlocks API to verify data.token
+                        // See tab #2
+                        stockCompra();
+                        document.getElementById("titulo").innerHTML += "  pagooooooo";
+                    }
+                }, '#nano-button');
+
+
+
             }
+
         }
     </script>
 

@@ -29,3 +29,5 @@ app.put('/alterarpreco/:codigo_artigo/:lineID', controllerArtigos.alterarPreco);
 
 app.post('/editarstocklisboa', controllerArtigos.editarStockLisboa);
 app.post('/editarstockporto', controllerArtigos.editarStockPorto);
+
+app.post('/compraartigos',controllerArtigos.compraArtigo);
