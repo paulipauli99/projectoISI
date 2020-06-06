@@ -246,51 +246,46 @@
                 <form class="validate-form flex-sb flex-w" id="editar_artigo" name="editar_artigo" action="" method="PUT" enctype="multipart/form-data">
                     <div class="modal-header text-center">
                         <h4 class="modal-title w-100 font-weight-bold">Editar Artigo</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"  style="padding-left: 98%;"> 
                             <span aria-hidden="true">&times;</span>
-                        </button>
+                        </button> -->
                     </div>
-                    <div class="md-form mb-5">
+                    <div class="md-form mb-4">
                         <i class="fas fa-envelope prefix grey-text"></i>
                         <label data-error="wrong" data-success="right" for="nome">Nome</label>
-                        <input type="text" id="nome_editar" name="nome_editar" class="form-control validate">
+                        <input type="text" id="nome_editar" name="nome_editar" class="form-control validate" style="width:75%">
                     </div>
 
                     <div class="md-form mb-4">
                         <i class="fas fa-lock prefix grey-text"></i>
                         <label data-error="wrong" data-success="right" for="descricao">Descrição</label>
-                        <input type="text" id="descricao_completa_editar" name="descricao_completa_editar" class="form-control validate">
+                        <input type="text" id="descricao_completa_editar" name="descricao_completa_editar" class="form-control validate" style="width:75%">
 
                     </div>
-
-
 
                     <div class="md-form mb-4">
                         <i class="fas fa-lock prefix grey-text"></i>
                         <label data-error="wrong" data-success="right" for="preco">Preço</label>
-                        <input type="text" id="preco_editar" name="preco_editar" class="form-control validate" placeholder="€">
+                        <input type="text" id="preco_editar" name="preco_editar" class="form-control validate" placeholder="€" style="width:75%">
                     </div>
 
-
-
-                    <div class="form-group">
-                        <label for="exampleFormControlInput1">Stock nos Armazens</label><br>
-                        <div class="input-group mb-3">
+                 
+                
+                        <div class="md-form mb-4" >
                             <div class="input-group-prepend">
-                                <label class="input-group-text" for="inputGroupSelect01">Porto</label>
-                                <input type="text" class="form-control" id="stock_porto_editar" name="stock_porto_editar">
+							<label for="exampleFormControlInput1">Stock nos Armazens</label>
+                                <label class="input-group-text" for="inputGroupSelect01" style="width:10%">Porto</label>
+                                <input type="text" class="form-control" id="stock_porto_editar" name="stock_porto_editar" style="width:28%">
+								<label class="input-group-text" for="inputGroupSelect01" style="width:10%">Lisboa</label>
+                                <input type="text" class="form-control" id="stock_lisboa_editar" name="stock_lisboa_editar" style="width:27%" >
                             </div>
                         </div>
 
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <label class="input-group-text" for="inputGroupSelect01">Lisboa</label>
-                                <input type="text" class="form-control" id="stock_lisboa_editar" name="stock_lisboa_editar">
-                            </div>
-                        </div>
-                    </div>
+                        
+            
 
                     <div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal" style="padding-left: 80%;">Fechar</button>
                         <input id="addartigo" type="button" value="GRAVAR" data-dismiss="modal" onclick="editarArtigos()" class="btn" />
                     </div>
                 </form>
