@@ -1,7 +1,3 @@
-window.onload = function() { //quando inicia a página - > chama a funçao
-    listaClientes();
-}
-
 function listaClientes() {
 
     fetch('http://localhost:8080/clientes')

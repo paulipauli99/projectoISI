@@ -1,20 +1,5 @@
 lista_artigosFRONT = [];
 
-
-
-window.onload = function() { //quando inicia a página - > chama a funçao
-        listaArtigosFRONT();
-
-    }
-    /*function procura_artigo(codigo_artigo) {
-        for (const artigo of lista_artigos) {
-            if (artigo.codigo_artigo == codigo_artigo)
-                return artigo;
-        }
-        return null;
-    }*/
-
-
 function listaArtigosFRONT() {
 
     fetch('http://localhost:8080/artigos')

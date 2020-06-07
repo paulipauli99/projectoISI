@@ -226,6 +226,16 @@
     <script src="js/controller/formcompra.js"></script>
     <script src="https://brainblocks.io/brainblocks.js"></script>
 
+    <script src="js/controller/sessionCheck.js"></script>
+    <script>
+        window.onload = function() {
+            checkCliente();
+            listarCliente();
+            preencheArtigo();
+            preencheStock();
+        }
+    </script>
+
     <script type="text/javascript">
         function pagar() {
             if (document.getElementById("armazem").value == "nada" || document.getElementById("quantidade").value == "") {

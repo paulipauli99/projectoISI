@@ -2,19 +2,9 @@ var codigo_artigo = "";
 var armazem = "";
 var x = "";
 var artigo = null;
-
-
-window.onload = function() { //quando inicia a página - > chama a funçao
-    const queryString = window.location.search;
-    const params = new URLSearchParams(queryString);
-
-    codigo_artigo = params.get("artigo");
-
-    console.log("formulario compra");
-    listarCliente();
-    preencheArtigo();
-    preencheStock();
-}
+const queryString = window.location.search;
+const params = new URLSearchParams(queryString);
+codigo_artigo = params.get("artigo");
 
 function listarCliente() {
 

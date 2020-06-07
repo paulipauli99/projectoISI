@@ -67,7 +67,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" style="padding-left: 80%;">FECHAR</button>
                 </div>
             </div>
 
@@ -126,7 +126,7 @@
                 <form class="validate-form flex-sb flex-w" id="registo_artigo" name="registo_artigo" action="dashboard.html" method="POST" enctype="multipart/form-data">
                     <div class="modal-header text-center">
                         <h4 class="modal-title w-100 font-weight-bold">Registar Artigo</h4>
-                        
+
                     </div>
 
                     <div class="modal-body mx-3">
@@ -150,7 +150,7 @@
                         </div>
 
                         <div class="md-form mb-4">
-                                <label data-error="wrong" data-success="right" for="descricao">Marca</label>
+                            <label data-error="wrong" data-success="right" for="descricao">Marca</label>
                             <select class="custom-select" id="marca" name="marca" onchange="escolhe_marca()" style="width:75%;padding-top: 12px;padding-bottom: 12px;padding-left: 20px;padding-right: 20px;margin-right: 0px;margin-top: 8px;margin-bottom: 8px;height: 52px;">
                                 <option selected>Selecione a marca...</option>
                                 <option value="1">SEAT</option>
@@ -160,7 +160,7 @@
                         </div>
 
                         <div class="md-form mb-4">
-                                    <label data-error="wrong" data-success="right" for="descricao">Modelo</label>
+                            <label data-error="wrong" data-success="right" for="descricao">Modelo</label>
                             <select class="custom-select" id="modelo" name="modelo" style="width:75%;padding-top: 12px;padding-bottom: 12px;padding-left: 20px;padding-right: 20px;margin-right: 0px;margin-top: 8px;margin-bottom: 8px;height: 52px;">
                                 <option selected>Selecione o modelo...</option>
                                 <option value="1">ibiza</option>
@@ -175,16 +175,16 @@
                             <input type="text" id="preco" name="preco" class="form-control validate" placeholder="€" style="width:75%">
                         </div>
 
-						<div class="md-form mb-4" >
+                        <div class="md-form mb-4">
                             <div class="input-group-prepend">
-							<label for="exampleFormControlInput1">Stock nos Armazens</label>
+                                <label for="exampleFormControlInput1">Stock nos Armazens</label>
                                 <label class="input-group-text" for="inputGroupSelect01" style="width:10%">Porto</label>
                                 <input type="text" class="form-control" id="stock_porto_editar" name="stock_porto_editar" style="width:28%">
-								<label class="input-group-text" for="inputGroupSelect01" style="width:10%">Lisboa</label>
-                                <input type="text" class="form-control" id="stock_lisboa_editar" name="stock_lisboa_editar" style="width:27%" >
+                                <label class="input-group-text" for="inputGroupSelect01" style="width:10%">Lisboa</label>
+                                <input type="text" class="form-control" id="stock_lisboa_editar" name="stock_lisboa_editar" style="width:27%">
                             </div>
                         </div>
-<br>
+                        <br>
                         <div class="md-form mb-4">
                             <i class="fas fa-lock prefix grey-text"></i>
                             <input type='file' id="foto" name="myImage" onchange="readURL(this);" />
@@ -195,7 +195,7 @@
 
                     </div>
                     <div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal" style="padding-left: 80%;">Fechar</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal" style="padding-left: 80%;">FECHAR</button>
                         <input id="addartigo" type="button" value="REGISTAR" data-dismiss="modal" onclick="gravarArtigos()" class="btn" />
 
                     </div>
@@ -254,23 +254,23 @@
                         <input type="text" id="preco_editar" name="preco_editar" class="form-control validate" placeholder="€" style="width:75%">
                     </div>
 
-                 
-                
-                        <div class="md-form mb-4" >
-                            <div class="input-group-prepend">
-							<label for="exampleFormControlInput1">Stock nos Armazens</label>
-                                <label class="input-group-text" for="inputGroupSelect01" style="width:10%">Porto</label>
-                                <input type="text" class="form-control" id="stock_porto_editar" name="stock_porto_editar" style="width:28%">
-								<label class="input-group-text" for="inputGroupSelect01" style="width:10%">Lisboa</label>
-                                <input type="text" class="form-control" id="stock_lisboa_editar" name="stock_lisboa_editar" style="width:27%" >
-                            </div>
-                        </div>
 
-                        <br>
-            
+
+                    <div class="md-form mb-4">
+                        <div class="input-group-prepend">
+                            <label for="exampleFormControlInput1">Stock nos Armazens</label>
+                            <label class="input-group-text" for="inputGroupSelect01" style="width:10%">Porto</label>
+                            <input type="text" class="form-control" id="stock_porto_editar" name="stock_porto_editar" style="width:28%">
+                            <label class="input-group-text" for="inputGroupSelect01" style="width:10%">Lisboa</label>
+                            <input type="text" class="form-control" id="stock_lisboa_editar" name="stock_lisboa_editar" style="width:27%">
+                        </div>
+                    </div>
+
+                    <br>
+
 
                     <div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal" style="padding-left: 80%;">Fechar</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal" style="padding-left: 80%;">FECHAR</button>
                         <input id="addartigo" type="button" value="GRAVAR" data-dismiss="modal" onclick="editarArtigos()" class="btn" />
                     </div>
                 </form>
@@ -387,6 +387,8 @@
     <script src="js/google-map.js"></script>
     <script src="js/main.js"></script>
 
+    <script src="js/controller/sessionCheck.js"></script>
+
     <script type="text/javascript" src="../js/controller/artigoscontroller.js"></script>
 
     <script type="text/javascript" src="../js/controller/registarartigo.js"></script>
@@ -394,16 +396,11 @@
     <script type="text/javascript" src="../js/controller/editarartigo.js"></script>
 
     <script>
-        window.onload = function() { //quando inicia a página - > chama a funçao
+        window.onload = function() {
+            checkAdmin();
             listaArtigos();
-
             carrega_marcas_modelos();
             gravarArtigos();
-
-
-
-            //   const queryString = window.location.search;
-
         }
     </script>
 
