@@ -82,12 +82,11 @@
                                 <div>
                                     <h4>Informação Cliente</h4>
                                     <span id="nome" style="text-align:left;">Nome: </span> <br>
-                                    <span id="rua" style="text-align:left;">Morada Faturação: </span> <br>
-                                    <span>Código Postal: </span><span id="cp"></span><br>
-                                    <span>Localidade: </span><span id="local"></span> <br>
-                                    <span>Concelho: </span><span id="concelho"></span><br>
-                                    <span>Distrito: </span><span id="distrito"></span> <br>
-                                    <span>Telemóvel: </span><span id="tele"></span><br><br>
+                                    <span>Telemóvel: </span><span id="tele"></span><br>
+                                    <span>Morada Faturação: </span> <br>
+                                    <span id="rua"></span><br>
+                                    <span id="cp"></span>, <span id="local"></span><br>
+                                    <span id="concelho"></span>, <span id="distrito"></span><br>
                                 </div>
                             </div>
                         </div>
@@ -108,11 +107,11 @@
                             </div>
 
                             <div class="scorpion" style="width:100%;">
-                                <label>Quantidade</label>
+                                <label style="width: 20%;">Quantidade</label>
                                 <input class="wrap-input100 validate-input m-b-2" value="1" min="1" max="" class="esquerda" style="width: 50%;" type="number" id="quantidade">
                             </div>
                             <div class="scorpion" style="width:100%">
-                                <label for="local"> Recolha </label>
+                                <label style="width: 20%;"> Recolha </label>
                                 <select class="wrap-input100 validate-input m-b-2" style="width: 50%;" id="armazem" required="required">
                                     <option value="nada" selected="">Selecione local...</option>
                                     <option value="PORTO">Porto</option>
@@ -132,11 +131,9 @@
                 </form>
             </div>
         </div>
-        <form action="/fatura.html" method="get" id="quant">
+        <form action="/fatura.html" method="get" id="form-valores">
             <input type="hidden" id="quanti" name="quanti" value=""></input>
             <input type="hidden" id="artig" name="artigo" value=""></input>
-
-
         </form>
     </div>
     <!-- Form Element area End-->
@@ -268,7 +265,6 @@
                     // Handle successful payments
                     onPayment: function(data) {
                         // FAZER COISAS QUANDO O PAGAMENTO É CONFIRMADO
-
                         stockCompra();
                         fatura();
 
@@ -276,13 +272,11 @@
                 }, '#nano-button');
             }
         }
-    </script>
-    <script>
+
         function fatura() {
             document.getElementById("quanti").value = document.getElementById("quantidade").value;
-            var form = document.getElementById("quant");
+            var form = document.getElementById("form-valores");
             form.submit();
-
         }
     </script>
 
