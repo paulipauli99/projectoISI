@@ -125,12 +125,19 @@
                             <div class="column" id="nano-button" style="width:auto;height:auto;visibility:hidden"></div>
                             <div class="column" id="divPagar" style="width:auto;height:auto;visibility:visible">
                                 <button class="login100-form-btn" style="width: 300px;display: block;" type="button" onclick="pagar()">Confirmar e pagar</button>
+                                <button class="login100-form-btn" style="width: 300px;display: block;" type="button" onclick="fatura()">Fatura</button>
                             </div>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
+        <form action="/fatura.html" method="get" id="quant">
+            <input type="hidden" id="quanti" name="quanti" value=""></input>
+            <input type="hidden" id="artig" name="artigo" value=""></input>
+
+
+        </form>
     </div>
     <!-- Form Element area End-->
     <!-- Start Footer area-->
@@ -261,11 +268,21 @@
                     // Handle successful payments
                     onPayment: function(data) {
                         // FAZER COISAS QUANDO O PAGAMENTO É CONFIRMADO
+
                         stockCompra();
-                        document.getElementById("titulo").innerHTML += "  pago!!!!";
+                        fatura();
+
                     }
                 }, '#nano-button');
             }
+        }
+    </script>
+    <script>
+        function fatura() {
+            document.getElementById("quanti").value = document.getElementById("quantidade").value;
+            var form = document.getElementById("quant");
+            form.submit();
+
         }
     </script>
 

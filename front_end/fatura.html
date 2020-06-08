@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css" media="all" />
+
+    <title>faturas</title>
+</head>
+
+<body>
+    <!-- 
+	content of this area will be the content of your PDF file 
+	-->
+    <div id="HTMLtoPDF">
+        <header class="clearfix">
+            <div id="logo">
+                <img src="logo.png">
+            </div>
+            <h1>FATURA</h1>
+
+            <div id="company" class="clearfix">
+                <div><b>VirtualCar</b></div>
+                <div>Campus de Azurém</div>
+                <div>4800-058, Guimarães</span>
+                </div>
+                <div><a href="mailto:ccultural@reitoria.uminho.pt">	ccultural@reitoria.uminho.pt</a></div>
+                <div><span id="data"></span></div>
+            </div>
+            <div>
+
+                <div><span id="nome"></span></div>
+                <div><span id="rua"></span>,<span id="cp"></span>,<span id="local"></span></div>
+                <div><span id="tele"></span></div>
+
+
+
+
+            </div>
+        </header>
+        <main>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="service">MARCA</th>
+                        <th class="desc">MODELO</th>
+                        <th>PREÇO</th>
+                        <th>QTD</th>
+                        <th>TOTAL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="service" id="marca"></td>
+                        <td class="desc" id="modelo"></td>
+                        <td class="unit" id="preco"></td>
+                        <td class="qty" id="q"></td>
+                        <td class="total" id="preco_total"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+        </main>
+        <footer>
+            Powered by Moloni | http://www.moloni.pt
+        </footer>
+    </div>
+
+    <!-- here we call the function that makes PDF -->
+
+
+    <!-- these js files are used for making PDF -->
+    <script src="js/jspdf.js"></script>
+    <script src="js/jquery-2.1.3.js"></script>
+    <script src="js/pdfFromHTML.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/jquery.animateNumber.min.js"></script>
+    <script src="js/bootstrap-datepicker.js"></script>
+    <script src="js/jquery.timepicker.min.js"></script>
+    <script src="js/scrollax.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/controller/formcompra.js"></script>
+    <script>
+        window.onload = function() {
+            preencheArtigo();
+            listarCliente();
+            quantidades();
+
+
+        }
+    </script>
+</body>
+
+</html>
+<script>
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+    var hh = today.getHours() + ":" + today.getMinutes();
+
+    today = mm + '/' + dd + '/' + yyyy + " " + hh;
+    document.getElementById("data").innerHTML = today;
+</script>

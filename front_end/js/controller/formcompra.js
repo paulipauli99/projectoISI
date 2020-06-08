@@ -2,9 +2,12 @@ var codigo_artigo = "";
 var armazem = "";
 var x = "";
 var artigo = null;
+var qnt = "";
 const queryString = window.location.search;
 const params = new URLSearchParams(queryString);
 codigo_artigo = params.get("artigo");
+qnt = params.get("quanti");
+
 
 function listarCliente() {
 
@@ -25,6 +28,23 @@ function lista_clientes(cliente) {
     document.getElementById("cp").innerHTML += cliente.codigo_postal;
 
 }
+
+function quantidades() {
+
+    setTimeout(function() {
+        document.getElementById("q").innerHTML = qnt;
+        preco = document.getElementById("preco").innerHTML;
+        preco_total = preco * qnt;
+        document.getElementById("preco_total").innerHTML = preco_total + "€";
+        document.getElementById("preco").innerHTML += "€";
+        HTMLtoPDF();
+
+    }, 1500);
+
+
+
+}
+
 
 
 
@@ -54,6 +74,7 @@ function preencheArtigo() {
                 moeda: response[0].moeda
             }
             dados_artigo(artigo);
+
         })
 
 }
@@ -64,6 +85,10 @@ function dados_artigo(artigo) {
     document.getElementById("modelo").innerHTML += artigo.modelo;
     document.getElementById("preco").innerHTML += artigo.preco;
     document.getElementById("moeda").innerHTML += artigo.moeda;
+    document.getElementById("artig").value += artigo.codigo;
+
+
+
 }
 
 function preencheStock() {
@@ -78,6 +103,7 @@ function preencheStock() {
 
             return response.json();
         }
+
 
     ).then(
         response => {
