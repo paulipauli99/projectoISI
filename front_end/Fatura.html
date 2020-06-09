@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css" media="all" />
@@ -29,8 +30,11 @@
             </div>
             <div>
 
+                <div style="visibility: hidden;"><span id="idd"></span></div>
                 <div><span id="nome"></span></div>
-                <div><span id="rua"></span>,<span id="cp"></span>,<span id="local"></span></div>
+                <div><span id="rua"></span></div>
+                <div><span id="cp"></span>, <span id="local"></span></div>
+                <div><span id="concelho"></span>, <span id="distrito"></span></div>
                 <div><span id="tele"></span></div>
 
 
@@ -90,25 +94,34 @@
     <script src="js/scrollax.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/controller/formcompra.js"></script>
+    <script src="js/controller/sessionCheck.js"></script>
+
     <script>
         window.onload = function() {
+            mudar();
+            checkCliente();
             preencheArtigo();
             listarCliente();
             quantidades();
-
-
+            window.close();
         }
     </script>
+
 </body>
 
 </html>
 <script>
-    var today = new Date();
-    var dd = String(today.getDate()).padStart(2, '0');
-    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-    var yyyy = today.getFullYear();
-    var hh = today.getHours() + ":" + today.getMinutes();
+    function mudar() {
+        window.open('car.html', '_blank');
+        window.focus();
+    }
 
-    today = mm + '/' + dd + '/' + yyyy + " " + hh;
+    var today = new Date();
+    var dd = ('0' + today.getDate()).slice(-2);
+    var mm = ('0' + (today.getMonth() + 1)).slice(-2); //January is 0!
+    var yy = today.getFullYear().toString().substr(2, 2);
+    var hh = ('0' + today.getHours()).slice(-2) + ":" + ('0' + today.getMinutes()).slice(-2);
+
+    today = dd + '/' + mm + '/' + yy + " " + hh;
     document.getElementById("data").innerHTML = today;
 </script>

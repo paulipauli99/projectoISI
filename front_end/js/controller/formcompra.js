@@ -19,6 +19,8 @@ function listarCliente() {
 }
 
 function lista_clientes(cliente) {
+
+
     document.getElementById("nome").innerHTML += cliente.nome;
     document.getElementById("tele").innerHTML += cliente.telemovel;
     document.getElementById("rua").innerHTML += cliente.rua;
@@ -26,6 +28,7 @@ function lista_clientes(cliente) {
     document.getElementById("concelho").innerHTML += cliente.concelho;
     document.getElementById("distrito").innerHTML += cliente.distrito;
     document.getElementById("cp").innerHTML += cliente.codigo_postal;
+    document.getElementById("idd").value = cliente.hs_object_id;
 
 }
 
@@ -39,7 +42,7 @@ function quantidades() {
         document.getElementById("preco").innerHTML += "€";
         HTMLtoPDF();
 
-    }, 1500);
+    }, 2000);
 
 
 
