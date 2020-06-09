@@ -165,5 +165,4 @@ function stockCompra() {
 function selecionarArmazem(data) {
     data.armazem = document.getElementById("armazem").value;
 
-
 }

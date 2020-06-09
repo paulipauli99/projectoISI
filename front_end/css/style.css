@@ -12735,8 +12735,8 @@ textarea.form-control {
 }
 
 #map {
-    height: 500px;
-    width: 100%;
+    height: 100%;
+    width: 200%;
 }
 
 @media (max-width: 991.98px) {
