@@ -44,7 +44,7 @@ function mostrarArtigos(artigos) {
         txt += "</div>";
         txt += "<div class='card-content'>";
         txt += "<div class='title'>";
-        txt += "<h2 class='mb-0'><a href='car-single.html'>" + (artigo.nome == null ? "" : artigo.nome) + "</a></h2>";
+        txt += "<h2 align='center' class='mb-0'><a href='car-single.html'>" + (artigo.nome == null ? "" : artigo.nome) + "</a></h2>";
         txt += "<div class='d-flex mb-3'>";
         txt += "<span class='cat'>" + artigo.marca + "</span>";
         txt += "<p class='price ml-auto'>" + artigo.preco + "<span>" + artigo.moeda + "</span></p> ";
@@ -55,9 +55,9 @@ function mostrarArtigos(artigos) {
         txt += "</div>";
 
         txt += "</div>";
-        txt += "<div class='card-action'>";
+        txt += "<div class='card-action' style='padding-left:30%;padding-right:30%'>";
         txt += "<p class='d-flex mb-0 d-block'>";
-        txt += " <a ><button type='button' align='center' class='btn btn-info btn-lg' onClick='comprarArtigo(\"" + artigo.codigo_artigo + "\")'>Comprar</button></a>";
+        txt += " <a><button type='button' align='center' class='btn btn-info btn-lg' onClick='comprarArtigo(\"" + artigo.codigo_artigo + "\")'>Comprar</button></a>";
         //   txt += "<a href='car-single.html' class='btn btn-secondary py-2 ml-1'>Detalhes</a>
         txt += "</p>";
         txt += "</div>";
