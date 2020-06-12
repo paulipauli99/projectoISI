@@ -32,7 +32,7 @@ function read(req, res) {
 
                     // console.log (artigos);
 
-                    res.status(200).send(filtrarArtigos(artigos));
+                    res.send(filtrarArtigos(artigos));
                 })
                 .catch((t) => {
                     console.log("errror");
@@ -71,7 +71,7 @@ function readArtigo(req, res) {
 
                     //console.log (artigos);
 
-                    res.status(200).send(filtrarArtigos(artigos));
+                    res.send(filtrarArtigos(artigos));
                 })
                 .catch((t) => {
                     console.log("errror");
@@ -105,7 +105,7 @@ function readInventarioArtigo(req, res) {
                     console.log("getinventario");
                     //console.log(inventario);
 
-                    res.status(200).send(filtrarInventario(inventario));
+                    res.send(filtrarInventario(inventario));
 
                 })
                 .catch((t) => {
@@ -210,7 +210,7 @@ function saveArtigo(req, res) {
                 "body": formData
             }).then((body) => {
                 //console.log(JSON.stringify(body));
-                res.status(200).send({ resposta: "OK" });
+                res.send({ resposta: "OK" });
 
             }).catch((t) => {
                 console.log("error");
@@ -244,7 +244,7 @@ function getMarcas(req, res) {
                     var marcas = JSON.parse(body);
                     //console.log(marcas);
 
-                    res.status(200).send(filtro_marcas(marcas));
+                    res.send(filtro_marcas(marcas));
                 })
                 .catch((t) => {
                     console.log("errror");
@@ -291,7 +291,7 @@ function getModelos(req, res) {
                     //console.log(modelos);
 
 
-                    res.status(200).send(filtro_modelos(modelos));
+                    res.send(filtro_modelos(modelos));
                 })
                 .catch((t) => {
                     console.log("errror");
@@ -360,7 +360,7 @@ function createSaleItem(req, res) {
                 "body": formData
             }).then((body) => {
                 //console.log(JSON.stringify(body));
-                res.status(200).send({ resposta: "OK" });
+                res.send({ resposta: "OK" });
 
             }).catch((t) => {
                 //console.log("error");
@@ -399,7 +399,7 @@ function createMaterialItem(req, res) {
                 "body": formData
             }).then((body) => {
                 //   console.log(JSON.stringify(body));
-                res.status(200).send({ resposta: "OK" });
+                res.send({ resposta: "OK" });
 
             }).catch((t) => {
                 console.log("error");
@@ -444,7 +444,7 @@ function StockInicialPorto(req, res) {
                 "body": formData
             }).then((body) => {
                 // console.log(JSON.stringify(body));
-                res.status(200).send({ resposta: "OK" });
+                res.send({ resposta: "OK" });
 
             }).catch((t) => {
                 console.log("error");
@@ -490,7 +490,7 @@ function StockInicialLisboa(req, res) {
                 "body": formData
             }).then((body) => {
                 //  console.log(JSON.stringify(body));
-                res.status(200).send({ resposta: "OK" });
+                res.send({ resposta: "OK" });
 
             }).catch((t) => {
                 console.log("error");
@@ -511,7 +511,7 @@ function uploadImagem(req, res) {
         } else {
             console.log('upload erro');
             //console.log(req.file);
-            res.status(200).send({ resposta: "OK", path: req.file.path });
+            res.send({ resposta: "OK", path: req.file.path });
         }
     });
 }
@@ -545,7 +545,7 @@ function desativarArtigo(req, res) {
                 })
                 .then((body) => {
                     //console.log(JSON.stringify(form));          
-                    res.status(200).send({ resposta: "OK" });
+                    res.send({ resposta: "OK" });
 
                 })
                 .catch((t) => {
@@ -583,7 +583,7 @@ function alterarNome(req, res) {
                 })
                 .then((body) => {
                     console.log(JSON.stringify(form));
-                    res.status(200).send({ resposta: "OK" });
+                    res.send({ resposta: "OK" });
 
                 })
                 .catch((t) => {
@@ -622,7 +622,7 @@ function alterarDescricao(req, res) {
                 .then((body) => {
                     //console.log(JSON.stringify(form));
                     console.log("Descricao Alterada");
-                    res.status(200).send({ resposta: "OK" });
+                    res.send({ resposta: "OK" });
 
                 })
                 .catch((t) => {
@@ -664,7 +664,7 @@ function alterarPreco(req, res) {
                 .then((body) => {
                     //console.log(JSON.stringify(form));
                     console.log("PREÇO ALTERADO");
-                    res.status(200).send({ resposta: "OK" });
+                    res.send({ resposta: "OK" });
 
                 })
                 .catch((t) => {
@@ -709,7 +709,7 @@ function editarStockLisboa(req, res) {
                 "body": formData
             }).then((body) => {
                 //console.log(JSON.stringify(body));
-                res.status(200).send({ resposta: "OK" });
+                res.send({ resposta: "OK" });
 
             }).catch((t) => {
                 console.log("error");
@@ -752,7 +752,7 @@ function editarStockPorto(req, res) {
                 "body": formData
             }).then((body) => {
                 //  console.log(JSON.stringify(body));
-                res.status(200).send({ resposta: "OK" });
+                res.send({ resposta: "OK" });
 
             }).catch((t) => {
                 console.log("error");
@@ -796,7 +796,7 @@ function compraArtigo(req, res) {
                 "body": formData
             }).then((body) => {
                 //  console.log(JSON.stringify(body));
-                res.status(200).send({ resposta: "OK" });
+                res.send({ resposta: "OK" });
 
             }).catch((t) => {
                 console.log("error");
